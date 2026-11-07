@@ -481,30 +481,65 @@ A base legal de cada operação depende da finalidade e do contexto concreto. El
 
 Áudios e vídeos podem conter informações pessoais e, dependendo do tratamento, dados biométricos sensíveis. Também podem envolver crianças e adolescentes.
 
-**[PESQUISAR — RESPONSÁVEL]**
 
-- Identificar o controlador e possíveis operadores.
-- Justificar cada base legal aplicável.
-- Diferenciar dados pessoais comuns e sensíveis.
-- Definir critérios de retenção e descarte.
-- Descrever procedimentos para conteúdos envolvendo menores.
-- Avaliar direitos dos titulares.
-- Considerar a necessidade de relatório de impacto à proteção de dados.
+**Detalhamento dos Pontos Requeridos**
+
+Identificação do Controlador e Operadores 
+
+Controlador: A instituição acadêmica responsável pelo desenvolvimento e governança da ferramenta VerificaBR (define a finalidade e as regras do tratamento).
+
+Operadores: Provedores de infraestrutura em nuvem, serviços de hospedagem e ferramentas terceirizadas de processamento/IA integradas.
+
+
+
+Justificativa das Bases Legais Aplicáveis
+
+Legítimo Interesse (Art. 7º, IX): Utilizado para o processamento de mídias enviadas espontaneamente para checagem, ponderando o interesse do usuário na verificação e a transparência pública de boa-fé.
+
+Cumprimento de Obrigação Legal/Regulatória (Art. 7º, II): Aplicado à guarda de logs de acesso nos termos da legislação brasileira (Marco Civil da Internet, Lei nº 12.965/2014).
+
+Exercício Regular de Direitos (Art. 7º, VI): Utilizado na manutenção dos históricos de contestações e relatórios técnicos em caso de eventuais disputas judiciais ou administrativas.
+
+
+
+Diferenciação de Dados Pessoais Comuns e Sensíveis
+
+Dados Comuns: Identificadores de solicitação, registros de data/hora, logs de IP e metadados de sistema.
+
+Dados Sensíveis (Art. 5º, II): Áudios e vídeos contendo voz e imagem facial tratadas com técnicas de identificação única (reconhecimento facial/biometria vocal). Para estes, caso ocorra extração de vetor biométrico, exige-se consentimento explícito do titular (Art. 11, I) ou a hipótese de salvaguarda de direitos/legítimo interesse com estrito controle de segurança e anonimização imediata após o processamento. 
+
+
+
+
+Critérios de Retenção e Descarte
+
+Retenção: Os arquivos originais (áudio/vídeo) devem permanecer no servidor apenas pelo tempo estritamente necessário para concluir a verificação automática e a eventual revisão humana (máximo 30 dias para checagens pendentes).  
+
+Descarte: Após o encerramento da solicitação, o arquivo bruto deve sofrer eliminação segura (sobrescrita/deleção permanente) ou anonimização irreversível, retendo-se apenas o relatório sintético e os logs exigidos por lei.
+
+
+
+Procedimentos para Conteúdos Envolvendo Menores 
+
+Em consonância com o Art. 14 da LGPD e diretrizes da ANPD sobre o melhor interesse da criança e do adolescente:   Arquivos que contenham imagens ou vozes identificáveis de menores não devem ser armazenados para formar bases permanentes de treinamento de modelos de IA.Deve ser aplicado procedimento imediato de ofuscação (desfoque facial/alteração vocal) ou descarte acelerado após a análise técnica pontual.
+
+
+
+Avaliação dos Direitos dos Titulares (Art. 18) 
+
+Garantia de confirmação de tratamento, acesso aos dados e explicação transparente sobre a lógica da análise automatizada (conforme também exigido nos princípios do projeto).   Possibilidade de contestar o resultado automatizado diretamente na plataforma. 
+
+
+
+Necessidade do Relatório de Impacto à Proteção de Dados (RIPD / DPIA) 
+
+Obrigatório: Devido ao tratamento automatizado de mídias que podem conter dados biométricos sensíveis e arquivos envolvendo menores de idade, a elaboração do RIPD (Art. 38) é fundamental para mapear os riscos de falsos positivos, vazamentos de imagem e mitigação de vieses nos modelos de verificação.
 
 Referência: [ANPD — Nota Técnica nº 1/2026](https://www.gov.br/anpd/pt-br/centrais-de-conteudo/documentos-tecnicos-orientativos/nota-tecnica-no-1-2026-fis-cgf-anpd.pdf).
 
 ### 3.5 Comunicado público para LinkedIn
 
-**Exemplo provisório — 397 caracteres, incluindo espaços:**
-
-> O VerificaBR é uma proposta acadêmica de verificação assistida de áudios e vídeos suspeitos. O sistema consulta registros de proveniência, compara sinais técnicos e encaminha casos incertos à revisão humana. Nenhuma classificação automática é prova definitiva. Usuários podem entender os motivos da análise e contestar resultados. A ferramenta prioriza privacidade, acessibilidade e transparência.
-
-**[REVISAR — RESPONSÁVEL]**
-
-- Limite máximo: 600 caracteres.
-- Conferir a contagem após alterações.
-- Manter linguagem acessível ao público.
-- Evitar prometer precisão absoluta.
+ O VerificaBR é uma proposta académica focada na verificação assistida de áudios e vídeos suspeitos. O sistema analisa registos de proveniência e compara sinais técnicos, encaminhando casos incertos para revisão humana. Nenhuma classificação automática é considerada prova definitiva. Além disso, os utilizadores podem compreender os motivos da análise e contestar resultados. A ferramenta prioriza a privacidade, acessibilidade e transparência.
 
 ---
 
@@ -812,19 +847,20 @@ Para cada decisão:
 ### 8.1 Capítulo individual — Albert dos Santos Mariano
 
 **Área de carreira:** Engenharia de Dados 
-**GitHub:** AlbertdosSantosMariano
+**GitHub:** [AlbertdosSantosMariano](https://github.com/AlbertdosSantosMariano)
 
 #### 8.1.1 Papel no projeto e entregas verificáveis
 
 **Responsabilidades assumidas:**
+Responsável pela parte 3 (Análise Ética) do dossiê. A engenharia de dados é fundamental na análise ética de deepfakes e na proveniência digital porque constrói a infraestrutura que garante confiabilidade, transparência e privacidade. É ela que estrutura a rastreabilidade dos arquivos para validar a sua origem, assegura a eliminação segura e a anonimização de dados sensíveis e biométricos em conformidade com a LGPD, e mantém registos auditáveis de segurança para permitir revisões humanas e contestações públicas.
 
-[Descrever o que fez e por que sua área profissional foi importante.]
+[]
 
 **Entregas realizadas:**
 
-- [Entrega 1]
-- [Entrega 2]
-- [Entrega 3]
+- [Revisão de conteúdo e detalhamento da matriz de riscos éticos]
+- [3.2 Decisão ética de implantação,  3.3 Controles éticos obrigatórios, 3.4 LGPD e proteção de dados, 3.5 Comunicado público para LinkedIn ]
+- [Capitulo Individual e feedbacks ]
 
 **Evidências no GitHub:**
 
@@ -835,30 +871,30 @@ Para cada decisão:
 
 | Tipo | Competências que já possuo | Competências que preciso desenvolver |
 |---|---|---|
-| Técnicas | [PREENCHER] | [PREENCHER] |
-| Comportamentais | [PREENCHER] | [PREENCHER] |
+| Técnicas | Python, HTML,CSS E JAVASCRIPT e Engenharia de prompt, formação técnica em administração e pacote Office. aplicações de conhecimento de python no github, automações em interfaces de buscas utilizando N8N, gemini e google, inglês intermediário |  SQL básico; MySQL e modelagem de banco de dados, ETL e pipelines de ingestão; Power BI.
+| Comportamentais | Raciocínio lógico, negociação, praticidade, organização, facilidade em aprender e aplicar | Comunicação e networking, ser ativo nas redes profissionais e captar entrevistas e contatos, confiança e destreza em entrevistas. |
 
 #### 8.1.3 Plano de desenvolvimento — metas SMART
 
-**Meta 1 (6 meses):** [Objetivo específico, mensurável, alcançável, relevante e com prazo.]
+**Meta 1 (6 meses):** Obter uma certificação de entrada em tecnologia/dados (como a Oracle Certified Associate ou Microsoft Azure Fundamentals) e concluir um repositório de portfólio funcional focado na integração de Engenharia de Dados/Back-End (incorporando pipelines com validação de metadados, regras da LGPD e estruturação de APIs em Python/Flask).
 
-**Meta 2 (12 meses):** [Objetivo específico, mensurável, alcançável, relevante e com prazo.]
+**Meta 2 (12 meses):** Conquistar a transição ou consolidação profissional na área de tecnologia (como Analista de Suporte N1, Desenvolvedor Back-End Junior ou Engenheiro de Dados Junior), além de publicar uma versão completa de um projeto autoral (como o VerificaBR ou o projeto de gestão de dados/mídias) no GitHub, contendo documentação técnica, modelagem de banco de dados (DDL) e conformidade legal integrada.
 
-**Como comprovarei os resultados:** [Cursos, projetos, certificações, portfólio ou entregas.]
+**Como comprovarei os resultados:** [Certificações (Oracle/Azure), Repositórios públicos no GitHub contendo código-fonte limpo, arquivos DDL, relatórios de teste de requisitos, documentação de pipelines de dados e READMEs semânticos estruturados. Comprovação de participação em projetos acadêmicos aplicados e histórico de candidatura/inserção no mercado de trabalho de TI.   
 
 #### 8.1.4 Feedback coletivo
 
 **Pontos fortes identificados pelos colegas:**
 
-[PREENCHER com feedback real.]
+Os colegas destacaram o domínio em governança de dados, LGPD e arquitetura de requisitos para plataformas digitais, evidenciado pela construção da matriz de dados sensíveis, retenção e logs de segurança no projeto VerificaBR. O Gabriel reforçou que a capacidade de traduzir obrigações legais em fluxos técnicos de dados (como retenção de metadados e expurgo de arquivos) demonstra um forte pensamento analítico e visão de negócios para o ecossistema de dados. O João Pedro ressaltou a precisão na estruturação do código, nas rotinas em Python/Flask e na documentação semântica no GitHub.
 
 **Pontos de melhoria:**
 
-[PREENCHER com feedback real.]
+Os colegas concordaram que o perfil técnico pode evoluir ainda mais ao expandir a camada prática de Engenharia de Dados pesada: faltam pipelines completos de ETL documentados publicamente no GitHub e maior visibilidade aos scripts de modelagem SQL (DDL/DML). O Gabriel observou que o repositório precisa demonstrar a integração dos fluxos de dados com automação de descarte de dados biométricos sensíveis. O João Pedro e o Gabriel apontaram também a necessidade de dar maior consistência às publicações de projetos técnicos no LinkedIn e aprimorar conceitos de SQL avançado e infraestrutura em nuvem.
 
 **Como utilizarei esse feedback:**
 
-[PREENCHER.]
+Acho importante começar a publicar e estruturar no GitHub os repositórios de projetos em Python, Flask e modelagem de banco de dados (scripts DDL), incluindo READMEs semânticos e detalhados. Implementar um pipeline em Python que automatize o consumo, tratamento e descarte seguro de arquivos/metadados conforme os prazos da LGPD, servindo como projeto central de Engenharia de Dados. Aprofundar os estudos em SQL avançado, aplicados à gestão de logs de segurança. Fortalecer a presença profissional no LinkedIn com publicações periódicas sobre governança de dados, conformidade legal em TI e os aprendizados na transição de carreira. 
 
 ---
 
