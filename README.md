@@ -1,39 +1,26 @@
-
-# Dossiê 4: Deepfakes e Proveniência de Conteúdo
+# VerificaBR — Plataforma de triagem de deepfakes e verificação de proveniência de conteúdo eleitoral
 
 ## Integrantes
 
-| Nome completo | RGM | GitHub | Área de carreira |
+| Nome completo | GitHub | Área de carreira | RGM |
 |---|---|---|---|
-| Albert dos Santos Mariano| 47857927 | AlbertdosSantosMariano | Engenharia de Dados
-| Gabriel Anjos Albuquerque | 48037931 | Nerd8im | Engenharia de Dados
-| João Pedro Theodoro de Sousa Andrade| 47863251 | jp-theodoro | Ciência de Dados 
-| Petterson Michel Lima Aguilar | 47859792 | PettersonAguilar | Engenharia de Dados
-| Samuel Carmoni de Oliveira | 47813733 |carmonisamuel-cloud | Cybersegurança
-|---|---|---|---|
+| Albert dos Santos Mariano | @AlbertdosSantosMariano | Engenharia de Dados | 47857927 |
+| Gabriel Anjos Albuquerque | @Nerd8im | Engenharia de Dados | 48037931 |
+| João Pedro Theodoro de Sousa Andrade | @jp-theodoro | Ciência de Dados | 47863251 |
+| Petterson Michel Lima Aguilar | @PettersonAguilar | Engenharia de Dados | 47859792 |
+| Samuel Carmoni de Oliveira | @carmonisamuel-cloud | Cibersegurança | 47813733 |
 
-### Apresentação do projeto
+**Dossiê:** 4 — Deepfakes e proveniência de conteúdo.
 
-A evolução da inteligência artificial generativa tornou possível produzir áudios e vídeos sintéticos capazes de simular falas, aparências e comportamentos de pessoas reais. Essa tecnologia apresenta aplicações legítimas, mas também pode ser utilizada para fraudes, manipulação de informações e desinformação.
+**Recorte:** triagem de áudios e vídeos de caráter político-eleitoral compartilhados em redes sociais e aplicativos de mensagens no Brasil. O recorte é viável porque se limita à análise de arquivos enviados voluntariamente, a fontes de checagem publicamente disponíveis e a um piloto com capacidade controlada. Não pressupõe acesso às mensagens privadas ou parceria já firmada com plataformas.
 
-O Dossiê 4 propõe investigar como identificar conteúdos manipulados e verificar sua origem, considerando limitações tecnológicas, riscos éticos e impactos sociais.
-
-**Recorte proposto:** Verificação de áudios e vídeos de caráter político-eleitoral compartilhados em redes sociais e aplicativos de mensagens no Brasil.
-
-**Justificativa do recorte:** A circulação rápida desses conteúdos pode dificultar a verificação antes que uma informação falsa produza impactos sociais. O problema exige combinar Ciência de Dados, Cibersegurança, Engenharia de Dados, Computação em Nuvem e mecanismos de revisão humana.
-
-**Proposta inicial:** Desenvolver conceitualmente o VerificaBR, uma plataforma de verificação assistida que combina análise de proveniência digital, detecção probabilística de manipulações, comparação com checagens anteriores e revisão humana.
-
-**Pergunta central:**
-
-> É melhor detectar o conteúdo falso ou comprovar a origem do verdadeiro? Como agir quando a tecnologia não consegue determinar a autenticidade com segurança?
-
+O projeto propõe conceitualmente o **VerificaBR**, uma aplicação web acessível que reúne validação de credenciais de origem, análise probabilística de sinais de manipulação, busca de checagens anteriores e revisão humana. O objetivo é auxiliar o usuário a tomar decisões informadas, sem acusar automaticamente alguém de mentir ou fabricar uma mídia. Uma assinatura válida não comprova a verdade de uma declaração; a ausência de assinatura não comprova falsificação. A proposta ainda **não foi implementada nem validada em produção**.
 
 ## 1. Análise do problema
 
 **Responsável:** Gabriel Anjos Albuquerque
 
-### 1.1 Quem é afetado, onde e quanto?
+### 1.1 Quem é afetado, onde e quanto
 
 Os deepfakes podem afetar diferentes grupos sociais, especialmente quando são utilizados para simular declarações, divulgar acontecimentos inexistentes ou manipular a percepção pública.
 
@@ -50,44 +37,40 @@ Os deepfakes podem afetar diferentes grupos sociais, especialmente quando são u
 
 Um levantamento de 2026 da Data Privacy Brasil e do Aláfia Lab registrou 413 casos de uso de inteligência artificial em publicações políticas entre janeiro e agosto de 2026, incluindo 336 envolvendo manipulações de imagem ou áudio de pessoas públicas.
 
-Fonte: [Data Privacy Brasil — IA na pré-eleição de 2026](https://www.dataprivacybr.org/documentos/ia-na-pre-eleicao-deepfakes-desinformacao-e-novos-desafios-para-a-integridade-das-eleicoes-de-2026/).
+Fonte: Data Privacy Brasil — IA na pré-eleição de 2026 (R01).
 
 Esses números correspondem ao monitoramento citado, não a uma estimativa de todos os deepfakes existentes no país.
 
-**Dados quantitativos recentes (Brasil, 2024 a 2026):**
+**Dados quantitativos de estudos recentes (monitoramento de 2026):**
 
 | Levantamento | População observada | Principais números |
 |---|---|---|
-| Observatório IA nas Eleições, da Data Privacy Brasil e do Aláfia Lab ([Folhapress](https://www.bahianoticias.com.br/folha/noticia/409339-lula-foi-alvo-de-1-em-cada-4-conteudos-com-ia-publicados-na-pre-campanha-diz-levantamento); [Agência Brasil](https://www.acessa.com/politica/2026/09/339752-flavio-e-pl-lideram-uso-indevido-de-ia-diz-observatorio.html)) | Publicações políticas com IA identificadas nas redes sociais entre 1º de janeiro e meados de agosto de 2026 | 413 casos (média de 1,8 por dia); 60% classificados como sátira e 40% como desinformação; 81% manipularam imagem ou voz de pessoas públicas; Lula foi alvo de 112 casos e Flávio Bolsonaro de 57; quase dois em cada três conteúdos não informaram o uso de IA |
-| VigIA, da Agência Lupa com o laboratório Recod.ai da Unicamp ([Agência Brasil](https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mesmo-proibidos-deepfakes-tomam-conta-das-redes-antes-da-eleicao)) | Campanha do 1º turno, de 16/08 a 28/09/2026: 1.941 conteúdos político-eleitorais suspeitos coletados, dos quais 972 já analisados e 920 com uso de IA confirmado | 554 deepfakes (60% dos 920); só 371 dos 920 conteúdos (cerca de 40%) estavam rotulados como feitos com IA; 525 deepfakes partiram de perfis que não eram de candidatos ou partidos e 29 de perfis de candidaturas ou legendas |
-| *A IA do Nosso Feed*, do Observatório Lupa com a FAAP ([relatório](https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf)) | 13 estudantes de até 35 anos que monitoraram os próprios feeds (Instagram, Facebook, X, TikTok e WhatsApp) de fevereiro a junho de 2026 | 226 conteúdos suspeitos: 101 (45%) com IA confirmada e 125 sem confirmação; 92 dos 101 confirmados eram vídeos e 40 tratavam de política |
-| Panorama da Desinformação, do Observatório Lupa ([relatório](https://www.agencialupa.org/observatorio/2026/02/05/i-panorama-da-desinformacao-no-brasil-padroes-estrategias-e-impacto/), citado no relatório acima) | Conteúdos falsos checados pela Agência Lupa | A presença de IA nesses conteúdos saltou de 4,65% para 25,77% em um ano; pela primeira vez, a desinformação política sintética superou os golpes e fraudes financeiras feitos com IA |
-| Aos Fatos, ICL Notícias e Clip, sobre as eleições municipais de 2024 ([Aos Fatos](https://www.aosfatos.org/noticias/acoes-inteligencia-artificial-justica-eleitoral/)) | Decisões publicadas nos Diários da Justiça Eletrônicos dos TREs até o 1º turno (6/10/2024) | Ao menos 159 casos de IA na propaganda eleitoral, 81 deles no Nordeste; vídeos citados nas ações: Instagram (79), WhatsApp (52) e Facebook (18); nos áudios sintéticos, o principal canal de difusão foi o WhatsApp |
+| Observatório IA nas Eleições, da Data Privacy Brasil e do Aláfia Lab (Folhapress (R02); Agência Brasil (R03)) | Publicações políticas com IA identificadas nas redes sociais entre 1º de janeiro e meados de agosto de 2026 | 413 casos (média de 1,8 por dia); 60% classificados como sátira e 40% como desinformação; 81% manipularam imagem ou voz de pessoas públicas; Lula foi alvo de 112 casos e Flávio Bolsonaro de 57; quase dois em cada três conteúdos não informaram o uso de IA |
+| VigIA, da Agência Lupa com o laboratório Recod.ai da Unicamp (Agência Brasil (R04)) | Campanha do 1º turno, de 16/08 a 28/09/2026: 1.941 conteúdos político-eleitorais suspeitos coletados, dos quais 972 já analisados e 920 com uso de IA confirmado | 554 deepfakes (60% dos 920); só 371 dos 920 conteúdos (cerca de 40%) estavam rotulados como feitos com IA; 525 deepfakes partiram de perfis que não eram de candidatos ou partidos e 29 de perfis de candidaturas ou legendas |
+| *A IA do Nosso Feed*, do Observatório Lupa com a FAAP (relatório (R05)) | 13 estudantes de até 35 anos que monitoraram os próprios feeds (Instagram, Facebook, X, TikTok e WhatsApp) de fevereiro a junho de 2026 | 226 conteúdos suspeitos: 101 (45%) com IA confirmada e 125 sem confirmação; 92 dos 101 confirmados eram vídeos e 40 tratavam de política |
+| Panorama da Desinformação, do Observatório Lupa (relatório (R06), citado no relatório acima) | Conteúdos falsos checados pela Agência Lupa | A presença de IA nesses conteúdos saltou de 4,65% para 25,77% em um ano; pela primeira vez, a desinformação política sintética superou os golpes e fraudes financeiras feitos com IA |
 
-**Exemplos documentados no Brasil:**
+**Exemplos documentados no Brasil (2026):**
 
-1. **Fortaleza (CE), 2024: áudio contestado no WhatsApp.** Um áudio atribuído ao candidato a prefeito André Fernandes (PL), em que a voz fala em distribuir dinheiro a pastores e lideranças comunitárias para vencer o segundo turno, circulou em grupos de mensagens, e o candidato afirmou que se tratava de conteúdo sintético. O Comprova pediu a dois peritos forenses que analisassem o material e eles chegaram a conclusões divergentes; a Lupa submeteu o arquivo a três ferramentas de detecção e também obteve resultados diferentes ([Comprova, publicado pelo O Povo](https://www.opovo.com.br/noticias/politica/eleicoes/2024/10/27/amp/analises-de-audio-apontado-por-andre-fernandes-como-deepfake-tem-resultados-divergentes.html)). O Aos Fatos apurou que o candidato não havia comprovado nem que o áudio foi gerado por IA nem que partiu da campanha adversária ([Aos Fatos](https://www.aosfatos.org/noticias/andre-fernandes-nao-comprovou-que-audio-foi-gerado-ia/)), e o TRE-CE manteve a condenação dele por propaganda irregular em razão da acusação ([O Povo](https://mais.opovo.com.br/colunistas/vertical/2024/11/29/tre-condena-andre-por-acusar-evandro-por-audio-falso-durante-campanha.html)). É um caso real em que a autenticidade de um áudio político não foi determinada com segurança nem por peritos nem por ferramentas.
-2. **Andorinha (BA), 2024: voz de uma pessoa falecida.** Em um evento partidário, a então pré-candidata a prefeita exibiu um áudio gerado por IA que simulava a voz do pai, ex-prefeito morto em 2022. A Justiça Eleitoral removeu a publicação em liminar, mas o processo foi encerrado sem julgamento do mérito, porque o partido autor da ação não teve a legitimidade reconhecida. A resolução do TSE veda a simulação de pessoas vivas, falecidas ou fictícias ([Aos Fatos](https://www.aosfatos.org/noticias/acoes-inteligencia-artificial-justica-eleitoral/)).
-3. **São Gonçalo do Amarante (CE), 2024: telejornal falso no WhatsApp.** Um vídeo simulou uma reportagem de TV local, com diálogo alterado entre âncora e repórter, para associar o então prefeito e candidato à reeleição a um crime contra um candidato a vereador. A ação para identificar o autor foi indeferida por questões processuais, sem análise do mérito ([Aos Fatos](https://www.aosfatos.org/noticias/acoes-inteligencia-artificial-justica-eleitoral/)). Em 2026, o VigIA voltou a registrar entre as deepfakes mais recorrentes vídeos em que jornalistas anunciam notícias inventadas e celebridades declaram apoio falso a candidatos ([Agência Brasil](https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mesmo-proibidos-deepfakes-tomam-conta-das-redes-antes-da-eleicao)).
-4. **Pré-campanha de 2026: falsas pesquisas e pedidos de voto sintéticos.** O relatório da Lupa e da FAAP registrou um deepfake do deputado Nikolas Ferreira divulgando uma pesquisa falsa que colocava Flávio Bolsonaro à frente de Lula no 1º turno, deepfakes de Jair Bolsonaro pedindo apoio à candidatura de Flávio e vídeos de Lula prometendo medidas impopulares, como cortar aposentadorias ([relatório](https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf)). A disputa também chegou ao TSE: a Federação Brasil da Esperança (PT, PCdoB e PV) pediu a retirada de postagens de 32 perfis, que somam 1,4 milhão de seguidores e 23,8 mil publicações ([Agência Brasil, via Rondônia Dinâmica](https://www.rondoniadinamica.com/noticias/2026/07/federacao-do-pt-recorre-ao-tse-para-retirar-postagens-de-deep-fake,250534.shtml)), e alegou a existência de uma rede articulada por parlamentares aliados a Flávio Bolsonaro ([JB](https://www.jb.com.br/brasil/justica/2026/07/amp/1060450-pt-pcdob-e-pv-pedem-ao-tse-remocao-de-posts-de-ia-contra-lula.html)); trata-se de alegação da federação, não de fato julgado. Flávio Bolsonaro foi o segundo mais retratado, depois de Lula, no Observatório IA nas Eleições (57 casos) e no VigIA (190 publicações). Em outra apuração, o Aos Fatos revelou uma rede de 255 perfis que publicou ou coassinou 1.204 posts com 58 milhões de visualizações em um mês, e uma das principais contas foi suspensa por determinação do TSE com base no relatório ([Aos Fatos](https://www.aosfatos.org/noticias/ia-ultrarrealista-whatsapp-desinformacao-moldou-eleicoes/)).
+- **Conteúdos eleitorais sintéticos monitorados:** o projeto VigIA registrou 554 deepfakes entre os conteúdos já analisados no primeiro turno de 2026. Entre os exemplos estão vídeos falsos que atribuem declarações a figuras públicas e simulam reportagens jornalísticas; a interpretação requer verificar contexto e origem, não apenas reconhecer a presença de IA (Agência Brasil, 2026).
+- **Pré-campanha e usos distintos da IA:** o Observatório IA nas Eleições registrou sátiras, ataques, representações sintéticas e conteúdos desinformativos. A mesma tecnologia pode ser usada em humor ou fraude, de modo que detectar síntese não basta para determinar intenção, ilicitude ou veracidade (Data Privacy Brasil e Aláfia Lab, 2026).
 
 **População observada e limitações dos levantamentos:**
 
-- Os levantamentos não medem a mesma coisa e não são comparáveis entre si. A própria Lupa avisa que seus resultados não são diretamente comparáveis aos anteriores, por diferenças de amostragem e metodologia, e distingue *deepfake* (simulação convincente de uma pessoa) de *conteúdo sintético* em geral ([relatório](https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf)).
+- Os levantamentos não medem a mesma coisa e não são comparáveis entre si. A própria Lupa avisa que seus resultados não são diretamente comparáveis aos anteriores, por diferenças de amostragem e metodologia, e distingue *deepfake* (simulação convincente de uma pessoa) de *conteúdo sintético* em geral (relatório (R05)).
 - O experimento *A IA do Nosso Feed* parte de feeds de 13 voluntários com até 35 anos, sem amostra estatística representativa; portanto, não observa pessoas idosas, que fazem parte do público mais vulnerável do nosso recorte. O relatório declara que não pretende estimar a prevalência de conteúdos sintéticos.
-- O VigIA conta o que foi coletado e confirmado: quando o relatório saiu, 972 dos 1.941 conteúdos suspeitos haviam sido analisados (cerca de metade), e a confirmação depende de três ferramentas de detecção seguidas de revisão dos pesquisadores ([Agência Brasil](https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mesmo-proibidos-deepfakes-tomam-conta-das-redes-antes-da-eleicao)). Os números são, portanto, um piso, e herdam os limites dos detectores (seção 1.2).
-- O levantamento do Aos Fatos de 2024 só enxerga o que chegou à Justiça Eleitoral, por busca de palavras-chave nos diários dos TREs, e analisa as petições iniciais sem considerar se o uso de IA foi reconhecido pelos juízes. Há subnotificação: advogados de cidades pequenas tiveram dificuldade de coletar e preservar provas, o que prejudicou a tramitação de várias ações ([Aos Fatos](https://www.aosfatos.org/noticias/acoes-inteligencia-artificial-justica-eleitoral/)).
+- O VigIA conta o que foi coletado e confirmado: quando o relatório saiu, 972 dos 1.941 conteúdos suspeitos haviam sido analisados (cerca de metade), e a confirmação depende de três ferramentas de detecção seguidas de revisão dos pesquisadores (Agência Brasil (R04)). Os números são, portanto, um piso, e herdam os limites dos detectores (seção 1.2).
 - Inferência do grupo: monitoramentos de publicações abertas e processos judiciais enxergam pouco do que circula em conversas e grupos privados de mensageria, onde só aparecem os casos que alguém decide denunciar.
 
 **Consequências sociais, econômicas e institucionais:**
 
-- **Sociais.** A mistura de humor e desinformação dificulta a leitura: 60% dos casos do Observatório IA nas Eleições eram sátira, e a Lupa alerta que peças humorísticas fora de contexto podem ser tomadas por registros reais. Há também excesso de confiança: pesquisa da Indexa indica que 72% dos brasileiros acreditam reconhecer conteúdos manipulados por IA ([Congresso em Foco](https://www.congressoemfoco.com.br/conteudo/121736/deepfakes-a-ameaca-que-ja-chegou-as-eleicoes-de-2026)), mas, no experimento da Lupa, os comentários mostraram que parte do público não percebeu sinais visíveis de manipulação, como sincronia labial imperfeita, e mesmo as ferramentas de detecção divergiram entre si.
-- **Institucionais.** A responsabilização é difícil: 525 dos 554 deepfakes do VigIA não vieram de candidaturas, e a pesquisadora responsável afirma que a Justiça precisaria trabalhar com as plataformas para identificar autores anônimos ([Agência Brasil](https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mesmo-proibidos-deepfakes-tomam-conta-das-redes-antes-da-eleicao)). As regras existem (Resolução TSE nº 23.755/2026, que exige identificação do uso de IA e restringe conteúdos sintéticos de áudio e vídeo que favoreçam ou prejudiquem candidaturas, conforme o [Correio Braziliense](https://www.correiobraziliense.com.br/politica/2026/09/7491361-tse-comeca-a-julgar-acao-sobre-uso-de-deepfake-na-eleicao.html)), com sanções que vão de multas de R$ 5 mil a R$ 30 mil até a cassação do registro ou do mandato ([O Povo](https://www.opovo.com.br/noticias/politica/eleicoes/2026/07/25/ia-nas-eleicoes-2026-saiba-o-que-e-proibido-prazos-e-multas.html)), mas só 371 dos 920 conteúdos do VigIA estavam rotulados. O caso de Fortaleza mostra ainda o risco inverso: a alegação de "deepfake" pode ser usada como defesa, mesmo sem comprovação.
+- **Sociais.** A mistura de humor e desinformação dificulta a leitura: 60% dos casos do Observatório IA nas Eleições eram sátira, e a Lupa alerta que peças humorísticas fora de contexto podem ser tomadas por registros reais. Há também excesso de confiança: pesquisa da Indexa indica que 72% dos brasileiros acreditam reconhecer conteúdos manipulados por IA (Congresso em Foco (R07)), mas, no experimento da Lupa, os comentários mostraram que parte do público não percebeu sinais visíveis de manipulação, como sincronia labial imperfeita, e mesmo as ferramentas de detecção divergiram entre si.
+- **Institucionais.** A responsabilização é difícil: 525 dos 554 deepfakes do VigIA não vieram de candidaturas, e a pesquisadora responsável afirma que a Justiça precisaria trabalhar com as plataformas para identificar autores anônimos (Agência Brasil (R04)). A Resolução TSE nº 23.755/2026 (R32), que alterou as regras de propaganda eleitoral, prevê identificação de conteúdos sintéticos e restrições específicas a deepfakes em propaganda (R08), com sanções que vão de multas de R$ 5 mil a R$ 30 mil até a cassação do registro ou do mandato (O Povo (R09)), mas só 371 dos 920 conteúdos com uso de IA identificados pelo VigIA estavam rotulados. Há também o risco inverso de alegar falsificação sem prova, prejudicando a reputação de terceiros.
 - **Econômicas.** Até a virada registrada pela Lupa, os conteúdos sintéticos ligados a golpes e fraudes financeiras superavam os de desinformação política nas checagens, o que indica prejuízo direto a vítimas desses golpes. Há ainda um custo de verificação: o VigIA precisa de três ferramentas e de pesquisadores para confirmar cada caso, e metade dos casos coletados ainda estava sem análise quando o relatório foi publicado.
 
-**Relação com o recorte escolhido:** o problema se concentra onde o recorte atua. O vídeo é o formato predominante nos conteúdos sintéticos confirmados pela Lupa (92 dos 101) e, no Aos Fatos de 2024, o WhatsApp foi o principal canal dos áudios sintéticos levados à Justiça. Em 2026, segundo o Digital News Report do Reuters Institute, 46% dos brasileiros usam o WhatsApp para se informar, ao lado do Instagram (49%) e do YouTube (42%) ([Nosso Meio](https://nossomeio.com.br/cnn-brasil-lidera-ranking-de-confianca-entre-marcas-jornalisticas-no-brasil/)). A rapidez de circulação em redes e aplicativos de mensagens, somada à dificuldade de determinar a autenticidade (casos como o de Fortaleza), é o que justifica uma ferramenta de verificação assistida que trabalhe com evidências e admita o resultado inconclusivo.
+**Relação com o recorte escolhido:** o problema se concentra onde o recorte atua. O vídeo foi o formato predominante na amostra *A IA do Nosso Feed* da Lupa (92 dos 101 conteúdos confirmados). Em 2026, segundo o Digital News Report do Reuters Institute, 46% dos brasileiros usam o WhatsApp para se informar, ao lado do Instagram (49%) e do YouTube (42%) (Nosso Meio (R10)). A rapidez de circulação em redes e aplicativos de mensagens, somada à dificuldade de determinar a autenticidade, é o que justifica uma ferramenta de verificação assistida que trabalhe com evidências e admita o resultado inconclusivo.
 
-### 1.2 Quais são as causas técnicas do problema?
+### 1.2 Causas
 
 A produção de conteúdos sintéticos tornou-se mais acessível com o avanço dos modelos generativos de áudio e vídeo.
 
@@ -102,74 +85,67 @@ Entre as principais dificuldades técnicas estão:
 
 Um estudo denominado *Deepfake-Eval-2024*, divulgado em 2025, mostrou que o desempenho de detectores pode cair consideravelmente quando são avaliados em conteúdos reais encontrados na internet, em comparação com bases acadêmicas tradicionais.
 
-Fonte: https://doi.org/10.48550/arXiv.2503.02857
+Fonte: (R12)
 
-**Como funcionam deepfakes de voz e vídeo.** Na voz, o método mais usado hoje é a síntese de fala *zero-shot*: o modelo de texto para fala recebe uma gravação curta de referência e gera frases novas com a voz da pessoa, sem ser treinado especificamente com ela. Foi assim que o conjunto BRSpeech-DF foi construído, com cinco modelos zero-shot condicionados à voz de cada falante real ([Filho et al., EMNLP 2025](https://aclanthology.org/2025.emnlp-main.1780/)). O benchmark Deepfake-Eval-2024 cita ainda a conversão de voz e, no vídeo, a troca de rosto (*face swap*), a sincronização labial (*lipsync*, que altera a boca para acompanhar outro áudio) e modelos de difusão ([Chandra et al., 2025](https://doi.org/10.48550/arXiv.2503.02857)). Depois de gerado, o conteúdo pode receber disfarces: em um áudio atribuído a Alexandre de Moraes e apontado como sintético pelo Comprova, um especialista observou que um corte simulando o afastamento do microfone dava tom mais genuíno e que uma música contínua escondia pontos que poderiam revelar a síntese ([Comprova](https://sbtnews.sbt.com.br/noticia/comprova/audio-de-moraes-sobre-proibir-linguajar-evangelico-foi-feito-por-ia)).
+**Como funcionam deepfakes de voz e vídeo.** Na voz, uma técnica relevante é a síntese de fala *zero-shot*: o modelo de texto para fala recebe uma gravação curta de referência e gera frases novas com a voz da pessoa, sem ser treinado especificamente com ela. Foi assim que o conjunto BRSpeech-DF foi construído, com cinco modelos zero-shot condicionados à voz de cada falante real (Filho et al., EMNLP 2025 (R11)). O benchmark Deepfake-Eval-2024 cita ainda a conversão de voz e, no vídeo, a troca de rosto (*face swap*), a sincronização labial (*lipsync*, que altera a boca para acompanhar outro áudio) e modelos de difusão (Chandra et al., 2025 (R12)). Depois de gerado, o conteúdo pode receber disfarces: em um áudio atribuído a Alexandre de Moraes e apontado como sintético pelo Comprova, um especialista observou que um corte simulando o afastamento do microfone dava tom mais genuíno e que uma música contínua escondia pontos que poderiam revelar a síntese (Comprova (R13)).
 
-**Falsos positivos e falsos negativos.** Um detector costuma devolver uma pontuação de "chance de ser sintético", e um limiar transforma essa pontuação em rótulo. Falso positivo é o conteúdo autêntico apontado como manipulado; falso negativo é o conteúdo sintético considerado autêntico. Mudar o limiar troca um erro pelo outro, e nenhum limiar elimina os dois. No experimento da Lupa e da FAAP, um vídeo com Lula e Jair Bolsonaro dançando foi classificado como provavelmente autêntico por duas ferramentas (Deepware e Undetectable AI), enquanto o TruthScan indicou 89% de probabilidade de ser sintético e o Gemini, com SynthID, reconheceu o deepfake ([relatório](https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf)). Mesmo uma probabilidade alta é uma estimativa estatística: o Comprova relatou 99,2% de chance de geração artificial em um áudio falso atribuído ao candidato Renan Santos, obtida na ferramenta Hive Moderation ([Canaltech](https://canaltech.com.br/inteligencia-artificial/deepfakes-como-saber-se-um-video-de-candidato-e-verdadeiro/)). Na prática eleitoral, o falso positivo pode desacreditar uma gravação verdadeira e o falso negativo deixa uma falsificação circular com aparência de checada. A própria TruthScan informou à Lupa que pontuações perto do limiar de 50 (em escala de 0 a 100) devem ser lidas como incertas e analisadas junto com outros sinais.
+**Falsos positivos e falsos negativos.** Um detector costuma devolver uma pontuação de "chance de ser sintético", e um limiar transforma essa pontuação em rótulo. Falso positivo é o conteúdo autêntico apontado como manipulado; falso negativo é o conteúdo sintético considerado autêntico. Mudar o limiar troca um erro pelo outro, e nenhum limiar elimina os dois. No experimento da Lupa e da FAAP, um vídeo com Lula e Jair Bolsonaro dançando foi classificado como provavelmente autêntico por duas ferramentas (Deepware e Undetectable AI), enquanto o TruthScan indicou 89% de probabilidade de ser sintético e o Gemini, com SynthID, reconheceu o deepfake (relatório (R05)). Mesmo uma probabilidade alta é uma estimativa estatística: o Comprova relatou 99,2% de chance de geração artificial em um áudio falso atribuído ao candidato Renan Santos, obtida na ferramenta Hive Moderation (Canaltech (R14)). Na prática eleitoral, o falso positivo pode desacreditar uma gravação verdadeira e o falso negativo deixa uma falsificação circular com aparência de checada. A própria TruthScan informou à Lupa que pontuações perto do limiar de 50 (em escala de 0 a 100) devem ser lidas como incertas e analisadas junto com outros sinais.
 
 **Por que um detector pode falhar em situações reais.**
 
-- **Mudança de distribuição.** O Deepfake-Eval-2024 reúne 45 horas de vídeo, 56,5 horas de áudio e 1.975 imagens sinalizadas por usuários em 2024, de 88 sites e 52 idiomas. Nesses dados, a AUC dos detectores abertos caiu em média 50% no vídeo, 48% no áudio e 45% na imagem em relação aos benchmarks acadêmicos; a AUC máxima entre os modelos abertos foi 0,58, e vários ficaram perto de 0,5, equivalente a chute. Modelos comerciais e modelos ajustados com dados reais foram melhores, mas ainda abaixo dos analistas forenses ([Chandra et al., 2025](https://doi.org/10.48550/arXiv.2503.02857)).
-- **Treinamento defasado.** A Deepware respondeu à Lupa que os dados de treinamento do seu modelo terminam em 2020, porque o foco da empresa passou para a geração de conteúdo ([relatório](https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf)).
+- **Mudança de distribuição.** O Deepfake-Eval-2024 reúne 45 horas de vídeo, 56,5 horas de áudio e 1.975 imagens sinalizadas por usuários em 2024, de 88 sites e 52 idiomas. Nesses dados, a AUC dos detectores abertos caiu em média 50% no vídeo, 48% no áudio e 45% na imagem em relação aos benchmarks acadêmicos; a AUC máxima entre os modelos abertos foi 0,58, e vários ficaram perto de 0,5, equivalente a chute. Modelos comerciais e modelos ajustados com dados reais foram melhores, mas ainda abaixo dos analistas forenses (Chandra et al., 2025 (R12)).
+- **Treinamento defasado.** A Deepware respondeu à Lupa que os dados de treinamento do seu modelo terminam em 2020, porque o foco da empresa passou para a geração de conteúdo (relatório (R05)).
 - **Cobertura restrita a um gerador.** O SynthID só detecta conteúdos feitos por ferramentas do Google, segundo o mesmo relatório.
 - **Critérios diferentes.** A TruthScan explicou que as ferramentas diferem em dados de treino, geradores-alvo e limiares, e por isso divergências são esperadas. Na Lupa, 20 casos tiveram diagnósticos conflitantes e 125 dos 226 conteúdos suspeitos (55%) continuaram sem confirmação.
 - **Métricas de fornecedor não garantem desempenho real.** A TruthScan declara 99,0% de acurácia em mais de 200 mil previsões, mas em seus próprios testes; o benchmark independente acima mostra que resultados de laboratório não se transferem automaticamente para conteúdo circulando nas redes.
 
-**Como compressão e reenvio afetam a análise.** Para os detectores, a TruthScan informou que seus modelos toleram compressão simples, mas recompressão intensa ou repetida, capturas de tela e a forte compressão de aplicativos de mensagens e redes sociais reduzem a qualidade dos sinais dos quais todos os detectores dependem; e, quando uma imagem é muito reduzida e depois ampliada, os artefatos de geração se perdem e nenhum detector os recupera ([relatório da Lupa](https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf)). Para a proveniência, o efeito é ainda mais duro: no C2PA, a assinatura "dura" (*hard binding*) é calculada sobre os bytes do arquivo, então qualquer recodificação a invalida ([especificação C2PA 2.2](https://spec.c2pa.org/specifications/specifications/2.2/index.html); [análise técnica](https://www.softwareseni.com/c2pa-watermarking-fingerprinting-technical-comparison-ai-content-disclosure/)). Em teste do Washington Post, um vídeo gerado no Sora com Content Credentials foi postado em oito plataformas e nenhuma manteve os dados ([reprodução na AI Incident Database](https://incidentdatabase.ai/reports/6301)). A especificação prevê o *soft binding*, uma marca d'água ou impressão digital que permite localizar o manifesto original em um repositório mesmo após a remoção dos metadados ([C2PA](https://c2pa.org/specifications/specifications/2.2/softbinding/Decoupled.html)), mas isso só funciona se o criador marcou o conteúdo antes, e essas marcas podem sofrer ataques de colisão ([análise técnica](https://www.softwareseni.com/c2pa-watermarking-fingerprinting-technical-comparison-ai-content-disclosure/)). Quando as credenciais não aparecem, isso indica apenas que nunca foram anexadas ou foram removidas, e não que o conteúdo seja falso. Consequência para o VerificaBR: registrar indicadores de qualidade do arquivo, pedir o original sempre que possível e reduzir automaticamente a confiança quando o sinal estiver degradado.
+**Como compressão e reenvio afetam a análise.** Para os detectores, a TruthScan informou que seus modelos toleram compressão simples, mas recompressão intensa ou repetida, capturas de tela e a forte compressão de aplicativos de mensagens e redes sociais reduzem a qualidade dos sinais dos quais todos os detectores dependem; e, quando uma imagem é muito reduzida e depois ampliada, os artefatos de geração se perdem e nenhum detector os recupera (relatório da Lupa (R05)). Para a proveniência, o efeito é ainda mais duro: no C2PA, a assinatura "dura" (*hard binding*) é calculada sobre os bytes do arquivo, então uma recodificação sem atualização válida da cadeia de proveniência pode fazer a validação deixar de corresponder à nova mídia (especificação C2PA 2.2 (R15)). Em teste do Washington Post, um vídeo gerado no Sora com Content Credentials foi postado em oito plataformas e nenhuma manteve os dados (reprodução na AI Incident Database (R16)). A especificação prevê o *soft binding*, uma marca d'água ou impressão digital que permite localizar o manifesto original em um repositório mesmo após a remoção dos metadados (C2PA (R17)), mas isso só funciona se o criador marcou o conteúdo antes, e essas marcas exigem verificação adicional, porque similaridade não é prova criptográfica de identidade. Quando as credenciais não aparecem, isso indica apenas que nunca foram anexadas ou foram removidas, e não que o conteúdo seja falso. Consequência para o VerificaBR: registrar indicadores de qualidade do arquivo, pedir o original sempre que possível e reduzir automaticamente a confiança quando o sinal estiver degradado.
 
 **Riscos para conteúdos em português brasileiro.**
 
-- **Pouca base de referência.** O BRSpeech-DF, de 2025, é o primeiro conjunto público para detecção de deepfakes de áudio em português, com 458.411 arquivos (cerca de 160 horas de fala natural e 823 horas de fala sintética) de 62 falantes reais, em português do Brasil e de Portugal. Os autores afirmam que a pesquisa em detecção se concentra no inglês, o que cria viés linguístico ([Filho et al., 2025](https://aclanthology.org/2025.emnlp-main.1780/)). Hipótese do grupo, a testar: detectores treinados sobretudo em inglês podem generalizar mal para o português e para sotaques regionais, e 62 falantes cobrem apenas parte da diversidade do país.
-- **Menos exemplos checados.** No mapeamento global da Lupa, foram 427 casos de desinformação com IA em inglês, 198 em espanhol e 111 em português ([Agência Brasil](https://agenciabrasil.ebc.com.br/geral/noticia/2026-04/ia-acelera-desinformacao-e-ameaca-democracias-alerta-pesquisa)); por inferência, há menos material rotulado em português para treinar e avaliar detectores.
-- **Canal de circulação.** Áudios sintéticos levados à Justiça em 2024 circularam principalmente pelo WhatsApp ([Aos Fatos](https://www.aosfatos.org/noticias/acoes-inteligencia-artificial-justica-eleitoral/)), onde o reenvio e a recompressão degradam os sinais descritos acima.
+- **Pouca base de referência.** O BRSpeech-DF, de 2025, é o primeiro conjunto público para detecção de deepfakes de áudio em português, com 458.411 arquivos (cerca de 160 horas de fala natural e 823 horas de fala sintética) de 62 falantes reais, em português do Brasil e de Portugal. Os autores afirmam que a pesquisa em detecção se concentra no inglês, o que cria viés linguístico (Filho et al., 2025 (R11)). Hipótese do grupo, a testar: detectores treinados sobretudo em inglês podem generalizar mal para o português e para sotaques regionais, e 62 falantes cobrem apenas parte da diversidade do país.
+- **Menos exemplos checados.** No mapeamento global da Lupa, foram 427 casos de desinformação com IA em inglês, 198 em espanhol e 111 em português (Agência Brasil (R18)); por inferência, há menos material rotulado em português para treinar e avaliar detectores.
+- **Canal de circulação.** Aplicativos de mensagens podem recomprimir e reenviar arquivos, degradando sinais úteis à perícia e dificultando a recuperação do original.
 - **Medida necessária.** Antes de qualquer piloto, avaliar o desempenho por sotaque, região, gênero, qualidade de gravação e tipo de dispositivo, em linha com a matriz de riscos da seção 3 e as métricas da seção 6.
 
-### 1.3 O que já existe e por que não basta?
+### 1.3 O que já existe e por que não basta
 
-| Solução existente | O que faz | Limitação a investigar |
-|---|---|---|
-| Detectores de deepfake | Identificam sinais estatísticos de manipulação | Podem errar em conteúdos não vistos no treinamento |
-| C2PA / Content Credentials | Permite verificar informações assinadas sobre origem e histórico de arquivos | Nem todo conteúdo possui credenciais; sua ausência não comprova falsidade |
-| Agência Lupa | Realiza checagens jornalísticas | A análise humana exige tempo e recursos |
-| Aos Fatos | Investiga informações e conteúdos suspeitos | Não cobre necessariamente todo conteúdo que circula |
-| Sistemas de moderação | Aplicam políticas das plataformas | Podem apresentar falta de transparência ou decisões contestáveis |
+As iniciativas já disponíveis respondem a partes distintas do problema: detecção estatística, histórico criptográfico, checagem jornalística e moderação por plataformas. A comparação abaixo explicita o alcance de cada abordagem.
 
 **Comparação com evidências:**
 
 | Iniciativa | Como atua | Por que não basta para o recorte |
 |---|---|---|
-| Detectores automáticos (Deepware, TruthScan, Hive, Gemini/SynthID) | Estimam a probabilidade de o conteúdo ser sintético; o VigIA usa três ferramentas e depois a revisão de pesquisadores ([Agência Brasil](https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mesmo-proibidos-deepfakes-tomam-conta-das-redes-antes-da-eleicao)) | Diagnósticos conflitantes em 20 casos e 125 de 226 conteúdos sem confirmação; a Deepware treinou até 2020 e o SynthID só cobre conteúdos do Google; a maioria das ferramentas só oferece versão paga ou limita o uso gratuito ([Lupa](https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf)) |
-| C2PA / Content Credentials | Assina a origem e o histórico de edições; a versão 2.2 prevê *soft binding* para recuperar manifestos removidos ([C2PA](https://c2pa.org/specifications/specifications/2.2/softbinding/Decoupled.html)) | Em teste do Washington Post, nenhuma das oito plataformas manteve as credenciais ([AI Incident Database](https://incidentdatabase.ai/reports/6301)); só protege o que foi assinado na origem, e a ausência de credenciais não prova falsidade |
-| VigIA, da Lupa com o Recod.ai | Monitoramento sistemático de conteúdos político-eleitorais: 1.941 suspeitos coletados e 920 com IA confirmada | Quando o relatório saiu, só 972 dos 1.941 haviam sido analisados: a análise humana é o gargalo ([Agência Brasil](https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mesmo-proibidos-deepfakes-tomam-conta-das-redes-antes-da-eleicao)) |
-| Comprova | Rede de 42 veículos de imprensa que verifica conteúdos suspeitos ([SBT News](https://sbtnews.sbt.com.br/noticia/comprova/confira-as-checagens-do-comprova-sobre-as-eleicoes-municipais-em-quatro-capitais)); em 2026, oferece apoio a jornalistas pelo WhatsApp, inclusive na checagem de conteúdo gerado por IA ([Correio Braziliense](https://www.correiobraziliense.com.br/holofote/2026/09/7507556-comprova-lanca-projeto-para-as-eleicoes-com-servico-de-apoio-a-jornalistas-no-combate-a-desinformacao.html)) | Atende sobretudo jornalistas e conteúdos que ganham escala; no caso de Fortaleza, nem os peritos concordaram ([O Povo](https://www.opovo.com.br/noticias/politica/eleicoes/2024/10/27/amp/analises-de-audio-apontado-por-andre-fernandes-como-deepfake-tem-resultados-divergentes.html)) |
-| TSE e Google (Detecção por Semelhanças, do YouTube) | Candidatos cadastrados localizam vídeos que usam sua aparência; o cadastro exige documento oficial e selfie ([Diario de Pernambuco](https://www.diariodepernambuco.com.br/politica/2026/08/11722378-tse-e-google-lancam-ferramenta-para-candidatos-identificarem-deepfakes-no-youtube.html)) | Vale só para o YouTube e só para quem se cadastra; casos em outras plataformas seguem as denúncias e regras de cada serviço ([Correio Braziliense](https://www.correiobraziliense.com.br/brasil/2026/08/amp/7488108-candidatos-poderao-rastrear-deepfakes-com-nova-ferramenta-do-youtube.html)), e o eleitor comum e o WhatsApp ficam de fora |
-| Rotulagem e moderação das plataformas, com as regras do TSE | A Resolução 23.755/2026 exige identificação do uso de IA e restringe deepfakes na propaganda ([Correio Braziliense](https://www.correiobraziliense.com.br/politica/2026/09/7491361-tse-comeca-a-julgar-acao-sobre-uso-de-deepfake-na-eleicao.html)) | Só 371 de 920 conteúdos do VigIA estavam rotulados; no teste do Washington Post, apenas uma de oito plataformas sinalizou o vídeo, de forma discreta ([resumo do teste](https://fredritchin.substack.com/p/major-platforms-are-not-labeling)); uma auditoria do Indicator achou que cinco plataformas rotularam corretamente cerca de 33% dos conteúdos de IA testados ([Medianama](https://www.medianama.com/2025/11/223-audit-social-media-google-meta-ai-labelling/)) |
+| Detectores automáticos (Deepware, TruthScan, Hive, Gemini/SynthID) | Estimam a probabilidade de o conteúdo ser sintético; o VigIA usa três ferramentas e depois a revisão de pesquisadores (Agência Brasil (R04)) | Diagnósticos conflitantes em 20 casos e 125 de 226 conteúdos sem confirmação; a Deepware treinou até 2020 e o SynthID só cobre conteúdos do Google; a maioria das ferramentas só oferece versão paga ou limita o uso gratuito (Lupa (R05)) |
+| C2PA / Content Credentials | Assina a origem e o histórico de edições; a versão 2.2 prevê *soft binding* para recuperar manifestos removidos (C2PA (R19)) | Em teste do Washington Post, nenhuma das oito plataformas manteve as credenciais (AI Incident Database (R16)); só protege o que foi assinado na origem, e a ausência de credenciais não prova falsidade |
+| VigIA, da Lupa com o Recod.ai | Monitoramento sistemático de conteúdos político-eleitorais: 1.941 suspeitos coletados e 920 com IA confirmada | Quando o relatório saiu, só 972 dos 1.941 haviam sido analisados: a análise humana é o gargalo (Agência Brasil (R04)) |
+| Comprova | Rede de 42 veículos de imprensa que verifica conteúdos suspeitos; em 2026 oferece apoio a jornalistas pelo WhatsApp, inclusive na checagem de conteúdo gerado por IA (Correio Braziliense (R20)) | Atende sobretudo jornalistas e conteúdos que ganham escala; a revisão editorial é necessária quando detectores apresentam conclusões divergentes |
+| TSE e Google (Detecção por Semelhanças, do YouTube) | Candidatos cadastrados localizam vídeos que usam sua aparência; o cadastro exige documento oficial e selfie (Diario de Pernambuco (R21)) | Vale só para o YouTube e só para quem se cadastra; casos em outras plataformas seguem as denúncias e regras de cada serviço (Correio Braziliense (R22)), e o eleitor comum e o WhatsApp ficam de fora |
+| Rotulagem e moderação das plataformas, com as regras do TSE | A Resolução 23.755/2026 exige identificação do uso de IA e restringe deepfakes na propaganda (Correio Braziliense (R08)) | Só 371 de 920 conteúdos do VigIA estavam rotulados; no teste do Washington Post, apenas uma de oito plataformas sinalizou o vídeo, de forma discreta (resumo do teste (R23)); uma auditoria do Indicator achou que cinco plataformas rotularam corretamente cerca de 33% dos conteúdos de IA testados (Medianama (R24)) |
 
-**Por que nenhuma resolve integralmente o recorte.** Cada iniciativa cobre uma camada e deixa as outras descobertas. A detecção é probabilística e inconsistente entre ferramentas; a proveniência depende de assinatura na origem e de sobreviver ao reenvio; a checagem jornalística é precisa, mas lenta e limitada em volume; as ferramentas das plataformas e do TSE só alcançam os próprios serviços ou os candidatos. O recorte (áudio e vídeo político circulando em redes e mensageria) exige as três camadas juntas e acessíveis ao cidadão, e hoje não há um fluxo único que as una. O próprio VigIA mostra a assimetria: a maior parte dos deepfakes partiu de usuários comuns, mas a maioria das ferramentas de detecção é paga ou limitada para o público em geral ([Lupa](https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf)).
+**Por que nenhuma resolve integralmente o recorte.** Cada iniciativa cobre uma camada e deixa as outras descobertas. A detecção é probabilística e inconsistente entre ferramentas; a proveniência depende de assinatura na origem e de sobreviver ao reenvio; a checagem jornalística é precisa, mas lenta e limitada em volume; as ferramentas das plataformas e do TSE só alcançam os próprios serviços ou os candidatos. O recorte (áudio e vídeo político circulando em redes e mensageria) exige as três camadas juntas e acessíveis ao cidadão, e não foi identificada, entre as iniciativas examinadas, uma solução pública que reúna integralmente essas etapas. O VigIA evidencia uma assimetria: a maior parte dos deepfakes monitorados veio de perfis não identificados como candidaturas ou partidos, mas a maioria das ferramentas de detecção é paga ou limitada para o público em geral (Lupa (R05)).
 
 **Oportunidade de melhoria.**
 
 1. Reunir proveniência, sinais técnicos e checagens existentes em um único relatório, com a incerteza explícita.
-2. Reaproveitar checagens já feitas antes de gastar processamento e tempo humano. As checagens estão dispersas entre várias organizações (Lupa, Aos Fatos, UOL Confere, AFP Checamos, Fato ou Fake, Estadão Verifica, E-farsas e Boatos.org, segundo a [Abraji](https://abraji.org.br/noticias/em-medida-contra-a-desinformacao-eleitoral-projeto-comprova-podera-ser-acessado-sem-cobranca-de-dados-do-celular)) e a marcação *ClaimReview* permite publicá-las de forma estruturada ([Google](https://developers.google.com/search/docs/data-types/factcheck)), mas a API de busca do Google cobre apenas afirmações por texto e por imagem ([Google](https://developers.google.com/fact-check/tools/api/reference/rpc)); não há busca por áudio ou vídeo, lacuna que o VerificaBR pode preencher com transcrição e impressão digital de mídia.
+2. Reaproveitar checagens já feitas antes de gastar processamento e tempo humano. As checagens estão dispersas em diferentes organizações, e a marcação *ClaimReview* permite publicá-las de forma estruturada (Google (R25)), mas a API de busca do Google cobre apenas afirmações por texto e por imagem (Google (R26)); não há busca por áudio ou vídeo, lacuna que o VerificaBR pode preencher com transcrição e impressão digital de mídia.
 3. Encaminhar à revisão humana apenas os casos inconclusivos ou de alto risco, atacando o gargalo observado no VigIA.
 4. Oferecer o serviço em linguagem simples ao eleitor comum, que é quem recebe e reenvia a maior parte desses conteúdos.
 
-**Autenticidade técnica não é veracidade da informação.** São três perguntas distintas: de onde o arquivo veio (proveniência), se foi gerado ou alterado por IA (integridade técnica) e se o que ele afirma é verdadeiro (veracidade, que é trabalho editorial de checagem). Um arquivo pode ser autêntico e mentir, como uma gravação real tirada de contexto; pode ser sintético sem ser desinformação, como as sátiras (60% dos casos do Observatório IA nas Eleições) ou a voz do pai falecido em Andorinha, que o TSE veda mesmo assim; e uma credencial C2PA válida em um vídeo gerado por IA comprova apenas que ele foi criado por IA. A regra eleitoral segue a mesma lógica: ter rótulo de IA não torna permitido um conteúdo que a norma proíbe ([Correio Braziliense](https://www.correiobraziliense.com.br/politica/2026/09/7491361-tse-comeca-a-julgar-acao-sobre-uso-de-deepfake-na-eleicao.html)). O VerificaBR responde às duas primeiras perguntas com evidências e aponta a terceira quando já existe checagem publicada, sem decidir sobre ela.
+**Autenticidade técnica não é veracidade da informação.** São três perguntas distintas: de onde o arquivo veio (proveniência), se foi gerado ou alterado por IA (integridade técnica) e se o que ele afirma é verdadeiro (veracidade, que é trabalho editorial de checagem). Um arquivo pode ser autêntico e mentir, como uma gravação real tirada de contexto; pode ser sintético sem ser desinformação, como as sátiras (60% dos casos do Observatório IA nas Eleições) ou a voz do pai falecido em Andorinha, que o TSE veda mesmo assim; e uma credencial C2PA válida em um vídeo gerado por IA comprova apenas que ele foi criado por IA. A regra eleitoral segue a mesma lógica: ter rótulo de IA não torna permitido um conteúdo que a norma proíbe (Correio Braziliense (R08)). O VerificaBR apresenta evidências técnicas úteis às duas primeiras perguntas e aponta a terceira quando já existe checagem publicada, sem decidir sobre ela.
 
 **Conclusão preliminar:**
 
 A solução proposta não deve substituir a verificação jornalística nem tratar classificações automáticas como provas definitivas. Seu objetivo é reunir evidências para apoiar uma avaliação mais transparente.
 
----
 
 ## 2. Proposta tecnológica
 
 **Responsável:** Gabriel Anjos Albuquerque
 
-### 2.1 Como o usuário utilizaria a solução?
+### 2.1 A solução, do ponto de vista do usuário
 
-**Nome provisório:** VerificaBR.
+**Nome da solução:** VerificaBR.
 
 **Objetivo:** oferecer uma plataforma acessível para análise assistida de áudios e vídeos suspeitos.
 
@@ -177,12 +153,12 @@ A solução proposta não deve substituir a verificação jornalística nem trat
 
 1. O usuário acessa a plataforma.
 2. Envia um arquivo de áudio ou vídeo, ou informa um link compatível.
-3. A plataforma informa as condições de privacidade e solicita a confirmação necessária.
+3. O protótipo informa as condições de privacidade antes de solicitar o envio.
 4. O sistema verifica a existência e a validade de credenciais de proveniência.
 5. Um módulo analisa possíveis sinais de manipulação.
 6. O sistema pesquisa conteúdos semelhantes em uma base de checagens.
 7. As evidências são reunidas em um relatório compreensível.
-8. Casos inconclusivos ou de maior risco são encaminhados para revisão humana.
+8. Casos inconclusivos ou de maior risco podem entrar na fila de revisão humana, por solicitação do usuário e conforme critérios de prioridade e capacidade informados.
 9. O usuário recebe o resultado e pode solicitar reavaliação.
 
 **Estados possíveis do resultado:**
@@ -195,17 +171,17 @@ A solução proposta não deve substituir a verificação jornalística nem trat
 
 **Importante:** a plataforma não deve utilizar uma simples classificação "verdadeiro" ou "falso" baseada apenas em inteligência artificial.
 
-**Situação realista de uso (cenário ilustrativo, inspirado no caso de Fortaleza em 2024).** Ana, 58 anos, recebe em um grupo de família no WhatsApp, na véspera de uma votação, um áudio de 40 segundos atribuído a um candidato que fala em comprar apoio de lideranças. A mensagem está marcada como encaminhada várias vezes, e ela não sabe se é verdadeira. No caso real de Fortaleza, o áudio circulou assim e nem peritos nem ferramentas chegaram à mesma conclusão ([O Povo](https://www.opovo.com.br/noticias/politica/eleicoes/2024/10/27/amp/analises-de-audio-apontado-por-andre-fernandes-como-deepfake-tem-resultados-divergentes.html)). Ana abre o VerificaBR no celular e envia o arquivo.
+**Situação de uso hipotética, não um caso real:** Ana, 58 anos, recebe por aplicativo de mensagens um áudio de 40 segundos atribuído a uma pessoa pública. O conteúdo foi encaminhado muitas vezes, está sem fonte identificada e ela não sabe se é autêntico. Ana abre o VerificaBR no celular e envia o arquivo, após receber as informações de privacidade.
 
 **O que aparece em cada tela:**
 
 1. **Início.** Um campo grande para enviar o arquivo ou colar um link, uma frase curta dizendo que a plataforma analisa sinais técnicos e procura checagens parecidas, mas não decide o que é verdade, o tamanho máximo aceito e uma estimativa do consumo de dados.
-2. **Privacidade e confirmação.** Resumo em linguagem simples do que será coletado (o arquivo e metadados técnicos), da finalidade, de por quanto tempo fica guardado e de quem pode ver. A confirmação exige ação do usuário (caixa não pré-marcada) e há a opção de não enviar. A base legal de cada operação será definida na seção 3.4.
+2. **Privacidade e confirmação.** Resumo em linguagem simples do que será coletado (o arquivo e metadados técnicos), da finalidade, de por quanto tempo fica guardado e de quem pode ver. A confirmação exige ação do usuário (caixa não pré-marcada) e há a opção de desistir do envio. A base legal de cada operação será definida na seção 3.4.
 3. **Acompanhamento.** Número de protocolo, três etapas visíveis (proveniência, sinais técnicos, checagens semelhantes), tempo estimado e a opção de voltar depois com o protocolo, sem exigir cadastro.
 4. **Relatório.** No topo, o estado do resultado em texto, ícone e cor (nunca só cor), com um resumo de duas linhas. Abaixo, quatro blocos: *O que verificamos*, *O que encontramos*, *O que não conseguimos verificar* e *O que fazer agora*. Há uma tabela de evidências por módulo, os links das checagens relacionadas com publicador e data, e um painel expansível de detalhes técnicos para jornalistas e checadores.
 5. **Revisão e contestação.** Formulário curto com o protocolo, campo opcional de contexto (onde o arquivo foi recebido e por que o usuário o considera autêntico ou falso) e o acompanhamento do pedido.
 
-**Resultado no cenário.** O áudio chegou recomprimido pelo WhatsApp e sem credenciais C2PA, o que o relatório explica como esperado e sem significado de falsidade. Dois dos três módulos técnicos apontam indícios de síntese e um não encontra sinais, e a qualidade baixa do áudio reduz a confiança de todos. O sistema não pode concluir, então mostra *Análise inconclusiva* e, por tratar-se de conteúdo eleitoral, muda o caso para *Aguardando revisão humana*. A orientação exibida é evitar o compartilhamento até a revisão, explicando por que.
+**Resultado no cenário:** o áudio está comprimido e sem credenciais C2PA, circunstâncias que não provam falsificação. Detectores independentes divergem e a qualidade de gravação é baixa. O resultado principal é *Análise inconclusiva*; mediante solicitação ou prioridade, o caso poderá receber o estado adicional *Aguardando revisão humana*. A orientação é buscar outras fontes antes de compartilhar, sem acusar o autor do arquivo.
 
 **Como apresentar resultados incertos:**
 
@@ -213,32 +189,11 @@ A solução proposta não deve substituir a verificação jornalística nem trat
 - Mostrar a concordância entre os módulos (por exemplo, "2 de 3 indicam indícios") e os fatores que reduzem a confiança: qualidade do áudio, duração, compressão, e idioma ou sotaque fora da faixa já validada.
 - Evitar os termos "verdadeiro" e "falso" como veredito. Usar "indícios", "não foi possível determinar" e "origem comprovada".
 - Dar uma ação proporcional ao risco, como "evite compartilhar até a revisão", e dizer que isso não equivale a afirmar que o conteúdo é falso.
-- Texto-padrão para o estado inconclusivo: "Não conseguimos determinar com segurança. Isso não significa que o conteúdo seja verdadeiro nem falso." Esse resultado é tratado como legítimo e esperado: no experimento da Lupa com ferramentas gratuitas, 125 de 226 conteúdos suspeitos (55%) ficaram sem confirmação ([relatório](https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf)).
+- Texto-padrão para o estado inconclusivo: "Não conseguimos determinar com segurança. Isso não significa que o conteúdo seja verdadeiro nem falso." Esse resultado é tratado como legítimo e esperado: no experimento da Lupa com ferramentas gratuitas, 125 de 226 conteúdos suspeitos (55%) ficaram sem confirmação (relatório (R05)).
 
-**Como o usuário solicita revisão.** O botão *Pedir revisão humana* aparece em toda tela de resultado. O pedido gera um protocolo, mostra a posição na fila e a prioridade (casos eleitorais têm prioridade) e permite informar contexto, com consentimento para que o revisor o veja. O revisor recebe apenas o caso atribuído, com as evidências, e devolve uma decisão com justificativa escrita. O usuário pode contestar a decisão, e a contestação é analisada por outro revisor. O prazo-alvo de cada etapa será definido na seção 6 (indicadores). Esse fluxo também atende ao direito do titular de pedir revisão de decisões tomadas unicamente por tratamento automatizado (art. 20 da [LGPD](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)).
+**Como o usuário solicita revisão.** O botão *Pedir revisão humana* aparece em toda tela de resultado. O pedido utiliza um protocolo, informa o prazo estimado e a prioridade conforme risco de dano e alcance, sem preferência político-partidária e permite informar contexto, com consentimento para que o revisor o veja. O revisor recebe apenas o caso atribuído, com as evidências, e devolve uma decisão com justificativa escrita. O usuário pode contestar a decisão, e a contestação é analisada por outro revisor. O prazo-alvo de cada etapa será definido na seção 6 (indicadores). Esse fluxo também atende ao direito do titular de pedir revisão de decisões tomadas unicamente por tratamento automatizado (art. 20 da LGPD (R27)).
 
-### 2.2 Arquitetura tecnológica
-
-**Arquitetura conceitual sugerida:**
-
-```mermaid
-flowchart TD
-    A["Usuário"] --> B["Interface web acessível"]
-    B --> C["API de análise"]
-    C --> D["Validação de proveniência C2PA"]
-    C --> E["Análise de áudio e vídeo"]
-    C --> F["Busca de checagens semelhantes"]
-    D --> G["Motor de evidências"]
-    E --> G
-    F --> G
-    G --> H{"Há evidência suficiente?"}
-    H -->|Não| I["Fila de revisão humana"]
-    H -->|Sim| J["Relatório com ressalvas"]
-    I --> J
-    J --> K["Resultado e contestação"]
-    C --> L["Armazenamento temporário protegido"]
-    G --> M["Registro de auditoria minimizado"]
-```
+### 2.2 Arquitetura
 
 **Componentes propostos:**
 
@@ -253,7 +208,7 @@ flowchart TD
 | Infraestrutura | Executar e monitorar serviços | Ambiente de nuvem |
 | Auditoria | Registrar decisões e revisões | Logs protegidos e minimizados |
 
-**Dados de entrada:** arquivo ou link, metadados técnicos disponíveis e informações estritamente necessárias à análise.
+**Dados de entrada:** arquivo enviado voluntariamente ou link público compatível, metadados técnicos disponíveis e informações estritamente necessárias à análise. A aplicação não acessa conversas privadas nem recolhe contatos do usuário.
 
 **Dados de saída:** relatório, evidências encontradas, limitações e possibilidade de contestação.
 
@@ -261,43 +216,47 @@ flowchart TD
 
 **Acesso:** usuários acessam seus relatórios; revisores autorizados acessam apenas casos atribuídos; administradores possuem permissões limitadas e auditadas.
 
-**Arquitetura final proposta.** O desenho conceitual acima é mantido e detalhado: a API grava o arquivo em armazenamento temporário cifrado, publica uma tarefa em uma fila e responde ao usuário com um protocolo. Trabalhadores em contêineres executam o pré-processamento (validação do arquivo, cálculo de hash e extração de metadados) e, em paralelo, a validação C2PA, os detectores e a busca de checagens. O motor de evidências reúne os resultados e decide se o caso segue para o relatório ou para a revisão humana. Diagrama refinado:
+**Arquitetura proposta.** A API recebe a mídia após validações de segurança, armazena temporariamente o arquivo cifrado e publica uma tarefa assíncrona. Trabalhadores isolados preparam a mídia, executam verificação de proveniência, detecção de sinais e busca por checagens; o motor de evidências reúne resultados e informa limites. A aplicação só apresenta evidências, não decide a veracidade factual. O diagrama abaixo é o único diagrama principal, compatível com renderização Mermaid no GitHub:
 
 ```mermaid
 flowchart LR
-    U["Usuário"] -->|"HTTPS"| W["Interface web acessível"]
-    W --> A["API de análise"]
-    A -->|"arquivo cifrado"| S[("Armazenamento temporário cifrado")]
+    U["Usuário"] --> W["Web responsiva e acessível"]
+    W -->|"HTTPS"| A["API FastAPI: validação e autenticação"]
+    A --> S[("Mídia temporária cifrada")]
     A --> Q["Fila de tarefas"]
-    Q --> P["Pré-processamento: validação, hash e metadados"]
-    P --> D1["Validação C2PA"]
-    P --> D2["Detectores de áudio e vídeo"]
-    P --> D3["Busca de checagens semelhantes"]
-    D3 --> DB[("Base de checagens")]
-    D1 --> E["Motor de evidências"]
-    D2 --> E
-    D3 --> E
-    E --> H{"Evidência suficiente e risco baixo?"}
-    H -->|"Sim"| T["Relatório com ressalvas"]
-    H -->|"Não"| R["Fila de revisão humana"]
+    Q --> P["Pré-processamento isolado: formato, hash e qualidade"]
+    S --> P
+    P --> C["Validação C2PA"]
+    P --> M["Detectores de áudio e vídeo"]
+    P --> B["Busca de similaridade"]
+    B --> DB[("Base de checagens")]
+    C --> E["Motor de evidências e incerteza"]
+    M --> E
+    B --> E
+    E --> T["Relatório com limitações"]
+    E --> H{"Solicitação ou prioridade para revisão?"}
+    H -->|"Sim"| R["Fila de revisão humana"]
     R --> T
-    T --> U
-    U -->|"Contestação"| R
-    E --> L[("Registro de auditoria minimizado")]
+    T --> W
+    W -->|"Contestação"| R
+    E --> L[("Auditoria minimizada")]
     R --> L
+    A --> O["Métricas, limites e monitoramento"]
 ```
+
+A validação C2PA distingue ausência de manifesto, manifesto válido, assinatura inválida e credencial não verificável. A detecção de IA produz indícios probabilísticos, nunca provas. A checagem por similaridade é contextualizada com a fonte, a data e a possibilidade de falso pareamento. Os três resultados podem coexistir; o estado principal da análise (*indícios* ou *inconclusiva*) não apaga os achados de proveniência e similaridade. O encaminhamento para revisão não altera retrospectivamente a evidência observada.
 
 **Tecnologias escolhidas e justificativas:**
 
 | Decisão | Escolha | Justificativa |
 |---|---|---|
-| Interface | Aplicação web responsiva e leve (HTML/CSS/JS, React se necessário) | Dispensa instalação e funciona no celular, onde o conteúdo é recebido; a decisão é registrada no quadro de decisões (seção 7) |
-| API | Python/FastAPI | Mesma linguagem das bibliotecas de aprendizado de máquina e do SDK de C2PA, que tem biblioteca em Python para ler e validar manifestos ([CAI](https://opensource.contentauthenticity.org/docs/introduction); [c2pa-python](https://github.com/contentauth/c2pa-python)) |
-| Validação C2PA | c2pa-python (ligação para a biblioteca c2pa-rs) | Código aberto; a biblioteca Rust implementa um subconjunto da especificação (README do c2pa-rs, [cópia no repositório da Monotype](https://github.com/Monotype/c2pa-rs)), então os testes de conformidade fazem parte do plano |
+| Interface | Aplicação web responsiva e leve (HTML/CSS/JS, React se necessário) | Dispensa instalação e funciona no celular, onde o conteúdo é recebido; a decisão consta do quadro da seção 7 |
+| API | Python/FastAPI | Mesma linguagem das bibliotecas de aprendizado de máquina e do SDK de C2PA, que dispõe de biblioteca em Python para ler e validar manifestos (CAI (R28); c2pa-python (R29)) |
+| Validação C2PA | c2pa-python (ligação para a biblioteca c2pa-rs) | Código aberto; a biblioteca Rust implementa um subconjunto da especificação (README do c2pa-rs, repositório oficial c2pa-rs (R30)), então os testes de conformidade fazem parte do plano |
 | Processamento | Fila de tarefas e trabalhadores em contêineres | Análise de vídeo é pesada e a demanda tende a ter picos em períodos eleitorais; a fila permite escalar, limitar uso e separar revisão humana |
-| Detectores | Conjunto de módulos independentes (voz, vídeo, qualidade do sinal), reavaliados e calibrados com dados locais | Modelos abertos tiveram AUC máxima de 0,58 em dados reais e melhoraram quando ajustados com dados representativos ([Chandra et al., 2025](https://doi.org/10.48550/arXiv.2503.02857)); o BRSpeech-DF fornece dados de áudio em português ([Filho et al., 2025](https://aclanthology.org/2025.emnlp-main.1780/)) |
+| Detectores | Conjunto de módulos independentes (voz, vídeo, qualidade do sinal), reavaliados e calibrados com dados locais | Modelos abertos tiveram AUC máxima de 0,58 em dados reais e melhoraram quando ajustados com dados representativos (Chandra et al., 2025 (R12)); o BRSpeech-DF fornece dados de áudio em português (Filho et al., 2025 (R11)) |
 | Motor de evidências | Regras explícitas e auditáveis, com opção de abstenção | Permite explicar por que um caso é inconclusivo e evita um escore único e opaco |
-| Base de checagens | PostgreSQL com busca textual e vetorial, mais índice por hash e impressão digital de mídia | Reaproveita checagens já publicadas; a API de busca do Google cobre texto e imagem, mas não áudio nem vídeo ([Google](https://developers.google.com/fact-check/tools/api/reference/rpc)), logo o áudio e o vídeo precisam ser transcritos e indexados |
+| Base de checagens | PostgreSQL com busca textual e vetorial, mais índice por hash e impressão digital de mídia | Reaproveita checagens já publicadas; a API de busca do Google cobre texto e imagem, mas não áudio nem vídeo (Google (R26)), logo o áudio e o vídeo precisam ser transcritos e indexados |
 | Fila humana | Sistema de gestão de casos com permissões por caso | Aplica o princípio do menor acesso e registra a revisão |
 | Infraestrutura | Contêineres em nuvem, de preferência em região no Brasil, com monitoramento e limite de custo | Reduz exposição de dados e permite controlar consumo (conexão com a seção 5) |
 
@@ -305,50 +264,54 @@ flowchart LR
 
 - **Em trânsito e em repouso:** TLS em todas as conexões; criptografia em repouso com chaves gerenciadas por serviço de chaves (KMS) e rotação periódica; chaves separadas por lote de casos.
 - **Entrada de arquivos:** validação de tipo real do arquivo, limites de tamanho e duração, verificação contra malware e processamento em ambiente isolado, sem acesso à internet, porque os decodificadores de mídia são superfície de ataque.
-- **Acesso:** o usuário vê apenas seus relatórios, por protocolo e link de curta duração; o revisor vê apenas os casos atribuídos, com autenticação multifator; o administrador gerencia a infraestrutura sem acesso ao conteúdo, e qualquer acesso excepcional exige justificativa registrada.
+- **Acesso:** o usuário vê apenas seus relatórios, por protocolo associado a segredo de acesso aleatório e link de curta duração; o revisor vê apenas os casos atribuídos, com autenticação multifator; o administrador gerencia a infraestrutura sem acesso ao conteúdo, e qualquer acesso excepcional exige justificativa registrada.
 - **Auditoria:** registros só de acréscimo, com identificadores, hashes, ator, ação e justificativa, sem o conteúdo dos arquivos.
-- **Base normativa:** a LGPD exige medidas de segurança técnicas e administrativas para proteger os dados pessoais (art. 46, [LGPD](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)).
+- **Base normativa:** a LGPD exige medidas de segurança técnicas e administrativas para proteger os dados pessoais (art. 46, LGPD (R27)).
 
 **Armazenamento e exclusão.** Valores iniciais propostos para o piloto, sujeitos à validação jurídica e à tabela da seção 3.4:
 
-- **Arquivo original:** apagado automaticamente até 7 dias após a entrega do relatório (prazo para contestação) ou antes, a pedido do usuário; casos em revisão são mantidos até a conclusão, mais 7 dias.
+- **Arquivo original:** apagado em até 7 dias após a entrega do relatório; casos em revisão poderão permanecer por até 30 dias para processamento e até 7 dias após a conclusão. A exclusão antecipada será atendida quando não houver obrigação de preservação aplicável. Todos os prazos são metas de política interna para validação jurídica.
 - **Derivados mínimos** (hash, indicadores de qualidade, resultados dos módulos e relatório): 90 dias, para contestação e auditoria.
-- **Logs de segurança:** prazo mínimo exigido pela norma aplicável, a ser fixado na seção 3.4.
-- **Reaproveitamento:** casos repetidos são reconhecidos pelo hash e pela impressão digital, sem reprocessar nem guardar uma segunda cópia, o que também reduz custo de processamento.
+- **Logs de segurança:** retenção de até 90 dias como política de piloto, ressalvados os prazos legais específicos que incidam sobre o operador (por exemplo, guarda de registros de acesso de aplicações abrangidas pelo Marco Civil da Internet; R38).
+- **Reaproveitamento:** pode-se localizar conteúdo publicamente checado por hash e impressão digital, mas sem revelar mídias privadas de outros usuários nem confundir hash exato com semelhança aproximada; o reaproveitamento só ocorre se finalidade, autorização e qualidade da comparação permitirem.
 
 **Integração entre os componentes.** Todos os módulos devolvem ao motor de evidências um mesmo registro padronizado (módulo, versão, resultado, fatores que reduzem a confiança e limitações). O motor aplica regras com esta precedência:
 
 | Estado | Condição para o motor emitir |
 |---|---|
 | Proveniência verificada | Manifesto C2PA válido, cadeia de certificados confiável e assinatura compatível com o arquivo; o relatório descreve só o que foi comprovado (quem assinou e o histórico declarado) |
-| Indícios técnicos de manipulação | Pelo menos dois módulos independentes acima do limiar calibrado e qualidade do sinal suficiente |
+| Indícios técnicos de manipulação | Modelos independentes e aplicáveis ao tipo de arquivo convergem acima de limiares previamente calibrados, com qualidade suficiente; resultado sujeito a revisão se puder causar dano reputacional |
 | Conteúdo relacionado a uma checagem existente | Similaridade acima do limiar com uma checagem publicada; exibe publicador, data e link e informa que similaridade não é identidade |
 | Análise inconclusiva | Módulos em desacordo, qualidade baixa, idioma ou duração fora da faixa validada, ou nenhuma evidência suficiente |
-| Aguardando revisão humana | Estado inconclusivo ou indícios em conteúdo político-eleitoral, ou pedido do usuário |
+| Aguardando revisão humana | Estado adicional de fluxo quando o pedido é aceito na fila, segundo criticidade e capacidade, sem substituir o resultado técnico |
 
-**Revisão do diagrama Mermaid.** O diagrama original foi conferido: sintaxe de `flowchart TD`, rótulos entre aspas e losango de decisão com saídas "Sim" e "Não". Foram identificadas lacunas, que o diagrama refinado cobre: não havia fila de tarefas nem pré-processamento, a contestação não retornava à revisão humana e a revisão não alimentava a auditoria. Recomenda-se conferir a renderização na prévia do GitHub antes da entrega, pois o teste local não substitui o visualizador da plataforma.
+### 2.3 O trabalho de cada área
 
-### 2.3 Contribuição das áreas profissionais
+#### Ciência de Dados
 
-| Área | Responsabilidade na solução | Entrega técnica esperada |
-|---|---|---|
-| Ciência de Dados | Avaliar detectores e medir erros | Métricas, testes e análise de vieses |
-| Cibersegurança | Garantir integridade e proveniência | Assinaturas, validação C2PA e controles de segurança |
-| Engenharia de Dados | Organizar evidências e checagens | Pipeline de dados e mecanismo de busca |
-| Cloud Computing | Garantir disponibilidade e escalabilidade | Infraestrutura, monitoramento e controle de custos |
-| Gestão de Tecnologia | Organizar revisão e resposta pública | Governança, procedimentos e indicadores |
+A área, representada por João Pedro Theodoro de Sousa Andrade, especifica e avalia os modelos que procuram sinais de síntese. Um procedimento viável é comparar baselines abertos de detecção de áudio e vídeo, com amostras autorizadas e rotuladas, sem pressupor acesso a serviços comerciais pagos. A base BRSpeech-DF poderá apoiar a avaliação de áudio em português, respeitando sua licença, sua composição e a limitação de diversidade de falantes. Uma coleção separada de gravações reais autorizadas e de mídias degradadas por recompressão é necessária para testar transferência ao cenário brasileiro (Filho et al., 2025, R11; Chandra et al., 2025/2026, R12).
 
-**Como as áreas reais do grupo se complementam.** O grupo tem três integrantes em Engenharia de Dados (Albert dos Santos Mariano, Gabriel Anjos Albuquerque e Petterson Michel Lima Aguilar), um em Ciência de Dados (João Pedro Theodoro de Sousa Andrade) e um em Cibersegurança (Samuel Carmoni de Oliveira). As três áreas dependem uma da outra: a Cibersegurança valida a proveniência e entrega o resultado ao pipeline, a Engenharia de Dados o transforma em evidência padronizada e preserva o histórico, e a Ciência de Dados define quando essa evidência é forte o bastante para ser usada e quando o sistema deve declarar que não sabe.
+A avaliação deve separar treinamento, validação e teste por pessoa de origem, episódio e família de arquivos; versões quase idênticas não podem ficar em conjuntos diferentes. O teste final deve incluir geradores não vistos no treinamento. Serão calculados precisão positiva (*precision*), sensibilidade (*recall*), F1, AUC, falso positivo, falso negativo, calibração por curva de confiabilidade e taxa de abstenção. Os resultados também serão separados por sotaque e região quando houver dados autorizados e representativos, idioma, duração, compressão, ruído e dispositivo. Uma classe sem amostra suficiente será declarada não avaliada, jamais considerada aprovada. A queda significativa de desempenho, o aumento de erros por subgrupo ou a chegada de novos geradores aciona reavaliação ou suspensão do rótulo automático.
 
-| Área (integrantes) | Problema técnico que resolve | Método ou tecnologia | Resultado que entrega | Dependência das outras áreas |
-|---|---|---|---|---|
-| Engenharia de Dados (Albert, Gabriel e Petterson) | Transformar mídias, metadados, resultados de módulos e checagens em evidências consultáveis e rastreáveis, sem reter dados além do necessário | Pipeline assíncrono (ingestão, pré-processamento, módulos e motor de evidências), registro de evidências padronizado, base de checagens com busca textual, vetorial e por hash, políticas de retenção e exclusão | Base de checagens pesquisável, relatório padronizado, trilha de auditoria e conjuntos de teste versionados | Ciência de Dados (modelos, limiares e métricas); Cibersegurança (assinaturas, chaves e controles de acesso); infraestrutura em nuvem para executar o pipeline |
-| Ciência de Dados (João Pedro) | Medir o quanto cada detector merece confiança no contexto brasileiro | Avaliação em dados locais (como o BRSpeech-DF e amostras de checagens), AUC e taxas de falso positivo e negativo por grupo (sotaque, região, qualidade do arquivo), calibração de limiares, acompanhamento de desempenho ao longo do tempo | Relatório de desempenho e vieses, limiares calibrados e critérios para o estado inconclusivo | Dados rotulados e versionados da Engenharia de Dados; rótulos da revisão humana |
-| Cibersegurança (Samuel) | Garantir integridade, confidencialidade e resistência a ataques | Validação C2PA e da cadeia de certificados, hash e assinatura dos relatórios, criptografia, controle de acesso, isolamento do processamento, testes de robustez contra ataques adversariais e testes de invasão | Validação de proveniência confiável, relatórios com integridade verificável e checklist de segurança | Engenharia de Dados (onde os dados ficam e como circulam); infraestrutura em nuvem |
+#### Cibersegurança
 
-**Áreas da tabela sem integrante no grupo.** Cloud Computing e Gestão de Tecnologia não têm representante. A mitigação proposta é usar serviços gerenciados com configuração documentada e limites de custo, e cobrir a governança provisoriamente com o quadro de decisões (seção 7) e os controles éticos (seção 3), reconhecendo essa lacuna como risco do projeto.
+A área, representada por Samuel Carmoni de Oliveira, define os controles de integridade, acesso e proteção contra abuso. Na ingestão, propõe calcular SHA-256 do arquivo original, validar cabeçalhos e formato real e executar decodificadores em processos isolados. A validação C2PA examina vínculo do manifesto com a mídia, assinatura, cadeia de certificados, revogação e confiança do emissor, registrando separadamente falha de validação, ausência de credenciais e credencial válida. Uma assinatura confirma determinadas declarações de origem e integridade segundo um modelo de confiança: não atesta a veracidade do discurso (C2PA, 2025, R15).
 
-### 2.4 Limitações tecnológicas
+A proteção prevista inclui HTTPS/TLS, criptografia em repouso, gestão de segredos, princípio do menor privilégio, autenticação multifator para revisores, limites de requisição, detecção de abuso, relatórios com acesso temporário por segredo, auditoria sem exposição da mídia e resposta a incidentes. Testes prévios examinam upload malicioso, travessia de diretórios, falhas de autorização entre casos, manipulação de metadados, documentos com manifestos malformados e tentativas adversariais de enganar detectores. Logs registram decisões e eventos, não conteúdo íntimo.
+
+#### Engenharia de Dados
+
+Albert dos Santos Mariano, Gabriel Anjos Albuquerque e Petterson Michel Lima Aguilar integram, no plano de arquitetura, a ingestão assíncrona, a normalização dos resultados de IA e C2PA, a base de checagens, a rastreabilidade dos relatórios e o descarte programado. Um contrato comum entre módulos deve conter `id_caso`, `tipo_evidencia`, `versao_modulo`, `resultado`, `limite_interpretacao`, `data`, `qualidade_arquivo` e `origem_referencia`. IDs e hashes podem ser dados pessoais quando vinculáveis; o acesso e a retenção também precisam ser controlados.
+
+O banco PostgreSQL pode armazenar metadados mínimos, histórico de decisões e índices de similaridade; um armazenamento temporário de objetos recebe as mídias cifradas. A fila evita bloqueio da API durante inferência, permite retentativas idempotentes e encaminha falhas a uma fila de erro sem divulgar conteúdo. A busca em checagens públicas deve registrar fonte, data, versão e revisão humana antes de apresentar uma correspondência. O pipeline deve monitorar integridade, latência, duplicidades e execução efetiva da exclusão.
+
+**Áreas de apoio — Cloud Computing e Gestão:** não há integrantes formalmente designados nessas duas áreas. Suas funções continuam necessárias: a infraestrutura deve controlar custos, capacidade, observabilidade, backups mínimos e recuperação de falhas; a gestão deve especificar critérios de prioridade, treinamento dos revisores, orçamento, política de contestação e suspensão. As responsabilidades serão distribuídas entre a equipe em um piloto, sem fingir que existem profissionais adicionais ou contratos já celebrados.
+
+#### Como as áreas se complementam
+
+A Engenharia de Dados entrega ao detector entradas consistentes e conjuntos de avaliação versionados; a Ciência de Dados devolve modelos calibrados, limites e indicadores de erro; a Cibersegurança verifica a integridade da mídia e protege todo o ciclo de vida. O motor de evidências não pode tratar pontuação estatística, assinatura criptográfica e checagem jornalística como equivalentes. As decisões de governança, os controles de acesso e os prazos de exclusão são compartilhados entre as três áreas, conforme as seções 3, 5, 6 e 7.
+
+### 2.4 O que a tecnologia não resolve
 
 A proposta apresenta limitações importantes:
 
@@ -361,16 +324,16 @@ A proposta apresenta limitações importantes:
 - Revisões humanas podem gerar filas e custos.
 - Ataques adversariais podem tentar enganar os mecanismos de análise.
 
-**Critério de classificação.** Uma limitação é *aceitável* quando não induz o usuário a erro e é informada; *aceitável com mitigação* quando exige um controle verificável; e *impeditiva* quando, sem tratamento, a plataforma não deve ser implantada nem em piloto. Os limites numéricos (taxas de erro e de inconclusivos) serão fixados na seção 6.
+**Critério de classificação.** Uma limitação é *aceitável* quando não induz o usuário a erro e é informada; *aceitável com mitigação* quando exige um controle verificável; e *impeditiva* quando, sem tratamento, a plataforma não deve ser implantada nem em piloto. As metas numéricas de qualidade, proteção e operação são propostas na seção 6 e precisam ser validadas no piloto.
 
 | Limitação | Classificação | Como a plataforma comunica |
 |---|---|---|
 | Falsos negativos (deepfake não detectado) | Aceitável com mitigação: nunca tratar "sem indícios" como "autêntico" e combinar várias evidências | "Não encontramos indícios, mas isso não prova que o conteúdo seja autêntico." |
-| Falsos positivos (conteúdo legítimo sinalizado) | Aceitável só se a taxa ficar abaixo do limite da seção 6 e houver contestação; impeditiva se não houver nenhum dos dois | O relatório fala em "indícios", mostra os motivos e oferece revisão humana |
+| Falsos positivos (conteúdo legítimo sinalizado) | Aceitável só se os requisitos de qualidade da seção 6 forem alcançados e houver contestação; impeditiva se não houver nenhum dos dois | O relatório fala em "indícios", mostra os motivos e oferece revisão humana |
 | Ausência de credenciais C2PA | Aceitável | "Sem credenciais: isso não significa falsificação." |
 | Credencial válida não prova que o conteúdo é verdadeiro | Aceitável | "Origem comprovada: [quem assinou e o histórico]. Isso não confirma que o conteúdo afirme algo verdadeiro." |
 | Desempenho desigual por idioma, sotaque ou qualidade | Aceitável com mitigação se for medido e informado; impeditiva se a diferença não for medida ou for grande e sem mitigação | Fator de redução de confiança visível: "sotaque, idioma ou qualidade fora da faixa já validada" |
-| Alta taxa de inconclusivos | Aceitável, pois é esperada (55% sem confirmação no experimento da Lupa com ferramentas gratuitas); o teto será fixado na seção 6 | O estado inconclusivo é apresentado como resultado legítimo, com próximos passos |
+| Alta taxa de inconclusivos | Aceitável como limitação mensurada; o piloto deve investigar sua causa e sua distribuição por grupo, sem forçar classificações para reduzir o percentual | O estado inconclusivo é apresentado como resultado legítimo, com próximos passos |
 | Compressão e reenvio degradam os sinais | Aceitável com mitigação: pedir o original e registrar indicadores de qualidade | Aviso de que o arquivo está recomprimido e limita a análise |
 | Filas e custo da revisão humana | Aceitável em casos não urgentes; impeditiva para casos eleitorais críticos se não houver capacidade mínima de revisão (o piloto fica limitado ao volume que a equipe consegue revisar) | Tempo estimado, prioridade e orientação de cautela enquanto aguarda |
 | Ataques adversariais contra os detectores | Aceitável com monitoramento; impeditiva se não houver testes de robustez antes do piloto | Aviso geral de que a análise pode ser enganada e que os módulos são atualizados |
@@ -380,190 +343,92 @@ A proposta apresenta limitações importantes:
 
 **Como a plataforma comunicaria sua incerteza.** Em quatro regras: usar sempre o estado em palavras junto com os motivos e as limitações; dizer o que não foi possível verificar; evitar percentuais isolados; e, quando houver risco de dano (conteúdo eleitoral), recomendar cautela e oferecer revisão humana. A incerteza faz parte do resultado e não é apresentada como falha do usuário ou do sistema.
 
----
 
 ## 3. Análise ética
 
-**Responsável:** [ Albert dos Santos Mariano ]
+**Responsável pela redação inicial:** Albert dos Santos Mariano.
 
-### 3.1 Matriz de riscos éticos
+### 3.1 Matriz de riscos (mínimo 5)
 
-| Risco | Categoria | Impacto | Controle proposto |
+Os níveis qualitativos abaixo são **avaliações iniciais de risco**, não frequências observadas. Gravidade e probabilidade deverão ser recalibradas após testes. Os controles são condições de implantação e devem gerar registros verificáveis.
+
+| # | Risco | Classificação | Impacto (quem e quão grave) | Controle |
+|---|---|---|---|---|
+| 1 | Falso positivo: gravação real indicada como sintética | Ético | Alto: dano reputacional a cidadãos, jornalistas e pessoas públicas; risco de acusação injusta | Proibir veredito automático; medir FPR por conjunto de teste; revisão por pessoa diferente do primeiro avaliador e contestação com protocolo. |
+| 2 | Falso negativo: mídia sintética não identificada | Ético | Alto: eleitores podem receber falsa sensação de segurança | Nunca classificar como "verdadeiro"; combinar fontes, abster-se com baixa confiança e auditar FNR por tipo de mídia. |
+| 3 | Desempenho desigual por sotaque, ruído e dispositivo | Viés/inclusão | Alto: grupos regionais ou usuários de celulares simples podem ser prejudicados | Matriz de testes por subgrupo; registrar amostras, intervalos de incerteza e diferenças de FPR/FNR; não liberar modelo sem cobertura mínima. |
+| 4 | Exposição de vídeos, vozes e dados de terceiros | Legal/privacidade | Crítico: violação da intimidade e possíveis dados sensíveis | Criptografia, segregação de casos, acesso mínimo, revisão de base legal, retenção de 7 dias após relatório e exclusão auditada. |
+| 5 | Coleta e retenção desnecessárias | Legal/privacidade | Alto: uso secundário indevido e aumento de superfície de ataque | Inventário de dados, bloqueio de treinamento com uploads, política de descarte e teste automatizado de eliminação. |
+| 6 | Upload malicioso ou ataque à API e aos detectores | Segurança | Alto: comprometimento de dados, indisponibilidade ou classificação distorcida | Isolamento do processamento, limites de tamanho, rate limiting, análise de dependências, testes de intrusão e monitoramento. |
+| 7 | C2PA apresentada erroneamente como prova da verdade | Ético | Alto: usuário pode acreditar em declaração falsa apenas por ela ter origem assinada | Tela e relatório separam autenticidade técnica, sinais de síntese e checagem factual; teste de compreensão com usuários. |
+| 8 | Uso político ou seletivo da fila de análise | Governança | Crítico: tratamento desigual e interferência na confiança pública | Priorizar por dano e alcance, critérios documentados, amostragem de auditoria independente e divulgação de métricas agregadas sem identificação de pessoas. |
+| 9 | Decisão sem justificativa ou contestação efetiva | Governança | Alto: pessoas atingidas não conseguem corrigir erro | Versão do módulo, regra aplicada, evidências e responsável humano por caso; canal de recurso com outro revisor e prazo mensurável. |
+| 10 | Correspondência falsa com checagem ou exposição de mídia privada por busca | Segurança | Alto: associação indevida de mídia distinta e quebra de confidencialidade | Limiares aferidos, revisão de correspondências sensíveis; indexação exclusiva de checagens públicas ou dados autorizados. |
+
+### 3.2 Decisão
+
+**Implantar com controles.**
+
+A decisão é **condicional** e refere-se apenas a um piloto restrito, não ao lançamento público imediato. Antes de receber mídias reais, a equipe deve realizar avaliação de privacidade, testar a segurança e o desempenho de modelos por subgrupo, implementar retenção e exclusão e garantir revisão humana e contestação. A comunicação deve distinguir proveniência, indícios e checagem factual, sem rótulos binários. Se a taxa de erros ou a capacidade de revisão não forem aceitáveis, o piloto permanecerá suspenso. O funcionamento efetivo somente poderá ser afirmado após testes documentados.
+
+### 3.3 Controles antes de entrar em produção
+
+| Eixo | Controle | Quem faz | Como saber que foi cumprido |
 |---|---|---|---|
-| Conteúdo verdadeiro classificado como manipulado | Justiça e reputação | Alto | Revisão humana e contestação |
-| Deepfake não identificado | Segurança e informação | Alto | Combinar evidências e comunicar incerteza |
-| Desempenho desigual por sotaque | Viés e discriminação | Alto | Testes por grupos e condições de gravação |
-| Vazamento de vídeos privados | Privacidade | Alto | Criptografia, acesso restrito e retenção limitada |
-| Coleta excessiva de dados | Proteção de dados | Alto | Minimização e descarte |
-| Manipulação adversarial do detector | Segurança | Alto | Testes de robustez e monitoramento |
-| C2PA interpretado como prova da verdade | Transparência | Alto | Explicação clara do significado da credencial |
-| Uso político enviesado da plataforma | Governança | Alto | Critérios públicos, auditoria e revisão independente |
+| Transparência | Relatório com evidências, versão do modelo, limitações e distinção entre assinatura e veracidade | Gabriel (especificação), João Pedro (explicação do modelo) | Protótipo revisado e teste de compreensão: pelo menos 80% dos participantes distinguem origem verificável de afirmação verdadeira. |
+| Revisão humana | Procedimento de triagem com critérios neutros, segundo revisor para recursos e registro de justificativa | Gabriel e Petterson (fluxo), Albert (governança de registros) | Casos simulados passam do pedido ao relatório com dois revisores distintos em contestação; logs de aprovação. |
+| Minimização de dados | Coleta estritamente necessária e expurgo de originais e derivados dentro dos prazos publicados | Albert e Petterson (dados), Samuel (auditoria) | Inventário de dados e teste automatizado em ambiente de homologação comprovam exclusão e ausência de cópias indevidas. |
+| Segurança | HTTPS, cifragem, MFA de revisores, verificação de uploads e autorização por caso | Samuel (segurança), Gabriel (API) | Testes de acesso cruzado negados, relatório de varredura e correção de vulnerabilidades críticas antes de liberar. |
+| Teste de viés | Avaliação FPR/FNR por sotaque, compressão, idioma e dispositivo, quando houver amostras suficientes | João Pedro (avaliação), Engenharia de Dados (amostras) | Relatório reproduzível com dados autorizados, métricas por grupo e decisão documentada sobre lacunas de cobertura. |
+| Canal de contestação | Protocolo de contestação sem conta obrigatória e reexame por outro revisor | Petterson (fluxo), Albert (auditoria), Samuel (controle de acesso) | Teste ponta a ponta registra pedido, prazo, justificativa e revisão em até 5 dias úteis no piloto. |
 
-**[DETALHANDO]**
+### 3.4 LGPD
 
-Detalhando probabilidade e gravidade de cada risco, quem pode ser prejudicado, explicar como cada controle seria verificado. 
+O VerificaBR pode tratar dados de quem envia a mídia **e de terceiros** nela identificáveis. O envio voluntário não equivale a consentimento das pessoas retratadas. O princípio de minimização, o enquadramento das bases legais (LGPD, arts. 7º e 11), os direitos dos titulares e a segurança do art. 46 condicionam qualquer operação com dados reais. A avaliação de legítimo interesse exige teste de finalidade, necessidade e balanceamento e **não pode** legitimar por si só tratamento de dados pessoais sensíveis. A descrição abaixo é uma proposta de política para um piloto; bases legais específicas ainda dependem de avaliação contextual do controlador (LGPD, versão vigente; R27).
 
-- **Conteúdo verdadeiro classificado como manipulado:**
-  Probabilidade média e gravidade alta de danos reputacionais e censura indevida, Criadores de conteúdo, jorbalistas e utilizadores legítimos serão os mais prejudicados. (Revisão humana e contestação): Verificado por meio de auditorias semanais de solicitações de contestação aprovadas e medição da taxa de falsos positivos
+| Dado pessoal | Finalidade | Base legal | Por quanto tempo | Sensível ou de criança/adolescente? |
+|---|---|---|---|---|
+| Arquivo de áudio/vídeo enviado, quando contiver pessoas identificáveis | Analisar indícios e proveniência do conteúdo solicitado | Art. 7º, IX, **somente** se o legítimo interesse estiver documentado e os direitos de terceiros forem preservados; se houver dado sensível, é necessária hipótese autônoma do art. 11 ou recusa do processamento | Até 7 dias após relatório; caso em revisão: no máximo 30 dias para conclusão mais 7 dias; exclusão antecipada quando cabível | Pode conter imagem, voz, menor de idade e dados sensíveis conforme conteúdo e uso |
+| Metadados técnicos selecionados (formato, duração, origem declarada, hash) | Executar checagem e documentar sua integridade | Art. 7º, IX, condicionado a teste de balanceamento; se houver dado sensível ou de terceiro, reavaliar individualmente | Dados necessários ao relatório: até 90 dias; metadados não utilizados: descarte na ingestão | Pode conter localização ou identificadores de terceiros; devem ser expurgados |
+| Token secreto e identificador aleatório do protocolo | Permitir acesso controlado ao resultado sem cadastro obrigatório | Art. 7º, IX, com minimização e proteção do acesso | Até 90 dias após entrega do relatório, salvo exclusão anterior | Não intencionalmente; token é dado pessoal se vinculado ao caso |
+| Resumo do relatório e justificativas de revisão | Explicar resultado, permitir recurso e auditoria | Art. 7º, IX, após balanceamento; art. 7º, VI, apenas na medida efetivamente necessária ao exercício regular de direitos | Até 90 dias, salvo preservação legal documentada | Pode conter dados pessoais de terceiro; remover identificadores dispensáveis |
+| Formulário de contestação e contato opcional | Receber pedido e apresentar resposta ao interessado | Art. 7º, IX, após balanceamento, ou art. 7º, VI, se necessário ao exercício de direitos | Até 90 dias após encerramento, ressalvada necessidade jurídica comprovada | Evitar dados sensíveis; bloquear anexos não necessários |
+| Registro de acesso à aplicação e IP, se coletados | Segurança, investigação de abuso e cumprimento de dever legal aplicável | Art. 7º, IX, para proteção proporcional; art. 7º, II, **quando** incidir dever de guarda do Marco Civil da Internet | Até 90 dias como regra de segurança; **6 meses** para registros de acesso quando aplicável o art. 15 do Marco Civil, com acesso restrito | Normalmente não sensível; pode identificar usuário |
 
+**Responsabilidades e direitos.** Uma instituição que efetivamente definir finalidades e meios essenciais será controladora; o vínculo acadêmico por si só não determina esse papel. Provedores contratados podem ser operadores, sujeitos a acordos de tratamento; fornecedores não devem usar as mídias para treinar modelos. O titular terá canal para confirmação, acesso, correção de dados cadastrais eventuais, informação, oposição quando aplicável e eliminação nas condições da LGPD. Solicitações de terceiros identificados na mídia exigem conferência proporcional de identidade, sem exigir documentos excessivos.
 
-- **Deepfake não identificado:**
-  Probabilidade média e alta e gravidade critica de disseminação em larga escala. O público em geral, figuras públicas e alvos diretos de desinformação serão prejudicados. Combinar evidências e comunicar incerteza): Verificado mediante testes de estresse na API de deteção e checagem da interface para assegurar que a incerteza é exibida claramente. 
+**Dados sensíveis e crianças.** Não haverá reconhecimento facial ou identificação biométrica como finalidade do projeto. A presença de imagem ou voz não torna automaticamente todo arquivo "dado biométrico sensível"; o risco aumenta se forem extraídos identificadores biométricos ou se o conteúdo revelar dados do art. 5º, II. No piloto, arquivos com dados sensíveis, violência íntima ou crianças identificáveis serão bloqueados para revisão jurídica ou recusados, salvo demonstração de base legal adequada, melhor interesse e controles reforçados. Não haverá formação de acervo de treinamento com uploads de usuários.
 
+**Retenção, incidentes e RIPD.** A exclusão de objetos em armazenamento deve abranger cópias temporárias, derivados e filas; arquivos de auditoria mínimos não conterão mídia bruta. Um plano de resposta a incidentes terá registro, contenção, avaliação de risco e comunicação à ANPD/titulares quando exigida. O Relatório de Impacto à Proteção de Dados (RIPD) será preparado **antes do piloto**, por precaução diante do potencial alto risco e conforme a orientação atualizada da ANPD; a obrigação jurídica de apresentá-lo pode depender de solicitação da autoridade, não é automática em todo tratamento (ANPD, orientação atualizada em 2026; R33).
 
+### 3.5 Comunicado público
 
-- **Desempenho desigual por sotaque:**
-  Probabilidade alta e gravidade alta de discriminação e exclusão regional. Grupos minoritários e utilizadores de regiões com sotaques menos representados serão mais afetados. (Testes por grupos e condições de gravação): Verificado através da avaliação de métricas de precisão segmentadas por dados demográficos e variações de áudio.  
+> O VerificaBR é uma proposta acadêmica de verificação assistida de áudios e vídeos potencialmente manipulados. A plataforma pretende reunir registros de origem, sinais técnicos e checagens publicadas, indicando também o que não consegue verificar. Resultados automáticos não são provas de verdade ou falsidade. Casos relevantes poderão passar por revisão humana, e o usuário poderá contestar conclusões. Privacidade, acessibilidade e transparência são requisitos do projeto, ainda não validado em produção.
 
-
-- **Vazamento de vídeos privados:**
-  Probabilidade baixa e média e gravidade muito alta da violação de privacidade e impactos legais. Utilizadores da plataforma e consumidores de notícias, são os públicos mais prejudicados. (Criptografia, acesso restrito e retenção limitada): Verificado por testes de penetração (pentests), auditorias de permissão (IAM) e rotinas automáticas de exclusão de dados. 
-
-
-
-- **Coleta excessiva de dados:**
-  Probabilidade média e gravidade média e alta de desconformidade com a LGPD. Todos que interagem com o sistemas serão prejudicados. (Minimização e descarte): Verificado mediante revisão do pipeline de engenharia para confirmar que apenas os metadados estritamente necessários são armazenados. (Testes de robustez e monitoramento): Verificado por simulações periódicas de ataques e monitorização contínua de anomalias no tráfego.  
-
-
-- **Manipulação adversarial do detector:**
-  Probabilidade alta de ataques intencionais e gravidade alta de perca de eficácia do sistema. A plataforma e a integridade da informação pública serão afetadas
-
-
-- **C2PA interpretado como prova da verdade:**
-  Probabilidade alta confusão entre proveniência e veracidade factual, e gravidade média e alta. Utilizadores das plataformas e consumidores de notícias não terão segurança 100%.  (Explicação clara do significado da credencial): Verificado por testes de usabilidade e inquéritos de compreensão com utilizadores sobre os selos de procedência.
-
-
-- **Uso político enviesado da plataforma:**
-- Probabilidade média e gravidade crítica, com riscos de interferência política ou eleitoral. A sociedade, partidos políticos e a neutralidade institucional serão afetadas. (Critérios públicos, auditoria e revisão independente): Verificado através da publicação de relatórios transparentes e auditorias externas realizadas por terceiros.
-
-
-
-### 3.2 Decisão ética de implantação
-
-**Decisão preliminar: implantar somente com controles.**
-
-A solução não deve ser lançada como ferramenta de julgamento automático da veracidade de conteúdos. Uma implantação piloto dependeria de validação dos modelos, testes de viés, mecanismos de proteção de dados, revisão humana e canal de contestação. Resultados incertos devem ser apresentados como inconclusivos. Casos de maior impacto reputacional ou eleitoral exigem procedimentos reforçados. A continuidade do projeto dependeria das evidências obtidas durante os testes.
-
-**[REVISAR — GRUPO]** Confirmar a decisão e manter a justificativa final em até 10 linhas.
-
-### 3.3 Controles éticos obrigatórios
-
-| Controle | Como funcionaria | Responsável | Evidência verificável |
-|---|---|---|---|
-| Transparência | Exibir critérios e limitações da análise | [Nome] | Exemplo de relatório |
-| Revisão humana | Encaminhar casos críticos ou incertos | [Nome] | Procedimento e registro de revisão |
-| Minimização | Coletar apenas dados necessários | [Nome] | Inventário de dados |
-| Segurança | Aplicar criptografia e controle de acesso | [Nome] | Checklist de segurança |
-| Teste de viés | Comparar taxas de erro entre grupos | [Nome] | Relatório de avaliação |
-| Contestação | Permitir revisão de decisões | [Nome] | Fluxo de contestação |
-| Auditoria | Registrar alterações e justificativas | [Nome] | Exemplo de trilha de auditoria |
-
-**[DESENVOLVER — RESPONSÁVEL]**
-
-Especificar a frequência de cada controle, os responsáveis e os critérios para verificar sua eficácia.
-
-### 3.4 LGPD e proteção de dados
-
-A Lei Geral de Proteção de Dados deve orientar a coleta, o tratamento, o compartilhamento e a exclusão de informações pessoais.
-
-A base legal de cada operação depende da finalidade e do contexto concreto. Ela não deve ser escolhida automaticamente.
-
-| Dado tratado | Finalidade | Base legal | Prazo de retenção |
-|---|---|---|---|
-| Arquivo enviado | Realizar análise técnica | [AVALIAR] | [DEFINIR] |
-| Metadados do arquivo | Verificar características e proveniência | [AVALIAR] | [DEFINIR] |
-| Identificador de solicitação | Permitir acompanhamento | [AVALIAR] | [DEFINIR] |
-| Evidências da análise | Justificar o resultado | [AVALIAR] | [DEFINIR] |
-| Registro de contestação | Reavaliar decisões | [AVALIAR] | [DEFINIR] |
-| Logs de segurança | Proteger a infraestrutura | [AVALIAR] | [DEFINIR] |
-
-**Dados sensíveis e menores de idade:**
-
-Áudios e vídeos podem conter informações pessoais e, dependendo do tratamento, dados biométricos sensíveis. Também podem envolver crianças e adolescentes.
-
-
-**Detalhamento dos Pontos Requeridos**
-
-Identificação do Controlador e Operadores 
-
-Controlador: A instituição acadêmica responsável pelo desenvolvimento e governança da ferramenta VerificaBR (define a finalidade e as regras do tratamento).
-
-Operadores: Provedores de infraestrutura em nuvem, serviços de hospedagem e ferramentas terceirizadas de processamento/IA integradas.
-
-
-
-Justificativa das Bases Legais Aplicáveis
-
-Legítimo Interesse (Art. 7º, IX): Utilizado para o processamento de mídias enviadas espontaneamente para checagem, ponderando o interesse do usuário na verificação e a transparência pública de boa-fé.
-
-Cumprimento de Obrigação Legal/Regulatória (Art. 7º, II): Aplicado à guarda de logs de acesso nos termos da legislação brasileira (Marco Civil da Internet, Lei nº 12.965/2014).
-
-Exercício Regular de Direitos (Art. 7º, VI): Utilizado na manutenção dos históricos de contestações e relatórios técnicos em caso de eventuais disputas judiciais ou administrativas.
-
-
-
-Diferenciação de Dados Pessoais Comuns e Sensíveis
-
-Dados Comuns: Identificadores de solicitação, registros de data/hora, logs de IP e metadados de sistema.
-
-Dados Sensíveis (Art. 5º, II): Áudios e vídeos contendo voz e imagem facial tratadas com técnicas de identificação única (reconhecimento facial/biometria vocal). Para estes, caso ocorra extração de vetor biométrico, exige-se consentimento explícito do titular (Art. 11, I) ou a hipótese de salvaguarda de direitos/legítimo interesse com estrito controle de segurança e anonimização imediata após o processamento. 
-
-
-
-
-Critérios de Retenção e Descarte
-
-Retenção: Os arquivos originais (áudio/vídeo) devem permanecer no servidor apenas pelo tempo estritamente necessário para concluir a verificação automática e a eventual revisão humana (máximo 30 dias para checagens pendentes).  
-
-Descarte: Após o encerramento da solicitação, o arquivo bruto deve sofrer eliminação segura (sobrescrita/deleção permanente) ou anonimização irreversível, retendo-se apenas o relatório sintético e os logs exigidos por lei.
-
-
-
-Procedimentos para Conteúdos Envolvendo Menores 
-
-Em consonância com o Art. 14 da LGPD e diretrizes da ANPD sobre o melhor interesse da criança e do adolescente:   Arquivos que contenham imagens ou vozes identificáveis de menores não devem ser armazenados para formar bases permanentes de treinamento de modelos de IA.Deve ser aplicado procedimento imediato de ofuscação (desfoque facial/alteração vocal) ou descarte acelerado após a análise técnica pontual.
-
-
-
-Avaliação dos Direitos dos Titulares (Art. 18) 
-
-Garantia de confirmação de tratamento, acesso aos dados e explicação transparente sobre a lógica da análise automatizada (conforme também exigido nos princípios do projeto).   Possibilidade de contestar o resultado automatizado diretamente na plataforma. 
-
-
-
-Necessidade do Relatório de Impacto à Proteção de Dados (RIPD / DPIA) 
-
-Obrigatório: Devido ao tratamento automatizado de mídias que podem conter dados biométricos sensíveis e arquivos envolvendo menores de idade, a elaboração do RIPD (Art. 38) é fundamental para mapear os riscos de falsos positivos, vazamentos de imagem e mitigação de vieses nos modelos de verificação.
-
-Referência: [ANPD — Nota Técnica nº 1/2026](https://www.gov.br/anpd/pt-br/centrais-de-conteudo/documentos-tecnicos-orientativos/nota-tecnica-no-1-2026-fis-cgf-anpd.pdf).
-
-### 3.5 Comunicado público para LinkedIn
-
- O VerificaBR é uma proposta académica focada na verificação assistida de áudios e vídeos suspeitos. O sistema analisa registos de proveniência e compara sinais técnicos, encaminhando casos incertos para revisão humana. Nenhuma classificação automática é considerada prova definitiva. Além disso, os utilizadores podem compreender os motivos da análise e contestar resultados. A ferramenta prioriza a privacidade, acessibilidade e transparência.
-
----
+**Contagem:** 505 caracteres (incluindo espaços e pontuação; texto do comunicado, sem os marcadores Markdown).
 
 ## 4. Acessibilidade e inclusão digital
 
 **Responsável:** Samuel Carmoni de Oliveira
 
-O VerificaBR atende conteúdos político-eleitorais que chegam, em geral, por WhatsApp e redes sociais. Quem recebe esse conteúdo é muito diverso: eleitores de todas as idades, muitos com celular simples, internet limitada e pouca familiaridade digital. A acessibilidade, portanto, não é um detalhe do projeto: se o resultado não for compreendido por essas pessoas, a ferramenta não cumpre a função de reduzir os danos da desinformação.
+O VerificaBR se destina à análise voluntária de conteúdos político-eleitorais recebidos por mensagens e redes sociais. Quem recebe esse conteúdo é muito diverso: eleitores de todas as idades, muitos com celular simples, internet limitada e pouca familiaridade digital. A acessibilidade, portanto, não é um detalhe do projeto: se o resultado não for compreendido por essas pessoas, a ferramenta não cumpre a função de reduzir os danos da desinformação.
 
-### 4.1 Quem poderia ser excluído?
+### 4.1 Quem pode ficar de fora
 
-#### 4.1.1 Grupos e barreiras
+A tabela a seguir sintetiza quem pode ter dificuldades de acesso e os controles previstos. Trata-se de **requisitos a implementar e testar**, não de funções já entregues.
 
-- **Pessoas cegas.** Barreira: interface só visual e gráficos de "nível de confiança" sem descrição. O que a solução faz: compatibilidade com leitores de tela, resultado sempre em texto e descrição textual dos gráficos.
-- **Pessoas com baixa visão.** Barreira: texto pequeno, contraste insuficiente e tela quebrada ao ampliar. O que a solução faz: contraste mínimo, texto ampliável até 200% sem perda de função e nenhuma dependência de cor.
-- **Pessoas surdas.** Barreira: vídeos de ajuda e orientações apenas em áudio. O que a solução faz: legenda e transcrição em todo conteúdo de ajuda, com janela de Libras (por exemplo, o VLibras) como meta.
-- **Pessoas idosas.** Barreira: muitos passos, medo de errar e linguagem técnica. O que a solução faz: fluxo de 3 passos (enviar, aguardar, ver resultado), botões grandes e exemplo na tela inicial.
-- **Pessoas com internet limitada.** Barreira: envio de vídeo pesado, páginas lentas e franquia de dados curta. O que a solução faz: interface leve, aviso de consumo antes do envio, limites de tamanho e envio com retomada (ver 4.1.3).
-- **Pessoas com baixa alfabetização digital.** Barreira: termos como "proveniência", "C2PA" ou "modelo de IA". O que a solução faz: frases curtas e exemplos, deixando os termos técnicos em um "saiba mais" opcional.
-- **Pessoas com limitações motoras.** Barreira: arrastar arquivo com mouse e botões pequenos. O que a solução faz: envio por botão, navegação completa por teclado e alvos grandes.
-- **Pessoas com celular simples ou sem smartphone próprio.** Barreira: não instalam aplicativo e têm pouco espaço de armazenamento. O que a solução faz: solução web, sem instalação, que funciona em navegador comum e em telas pequenas.
-- **Pessoas com deficiência cognitiva ou dificuldade de leitura.** Barreira: excesso de informação e linguagem abstrata. O que a solução faz: resumo de uma frase no topo, detalhes abaixo e nenhum tempo-limite curto para concluir ações.
+| Grupo | Barreira | O que a solução faz |
+|---|---|---|
+| Pessoas cegas | Elementos exclusivamente visuais e gráficos sem descrição | HTML semântico, rótulos para leitores de tela e interpretação dos resultados em texto. |
+| Pessoas com baixa visão | Texto pequeno, contraste baixo e quebra do layout em zoom | Contraste AA, reflow, ampliação de 200% e estados não dependentes apenas de cor. |
+| Pessoas surdas | Instruções de ajuda somente em áudio | Legendas e transcrição de vídeos de ajuda; eventual Libras somente após viabilidade e testes. |
+| Pessoas idosas | Jargões, passos longos e medo de erro | Etapas curtas, botões visíveis, instruções por exemplo e revisão fácil. |
+| Pessoas com limitação motora | Upload por arrastar/soltar e alvo pequeno | Upload por botão, fluxo completo por teclado e alvos com tamanho mínimo WCAG. |
+| Pessoas com deficiência cognitiva ou baixa escolaridade | Informação excessiva e explicações abstratas | Resumo simples, progressão orientada e detalhes técnicos opcionais. |
+| Pessoas com internet limitada | Arquivos grandes e instabilidade durante o envio | Página leve, aviso do tamanho, retomada de upload e alternativa de link público compatível. |
+| Pessoas sem smartphone próprio ou com aparelho antigo | Falta de espaço ou capacidade para instalar aplicativos | Interface web sem instalação e modo leve; sem acesso à internet, dependerá de apoio presencial de parceiros, ainda não contratado. |
 
-#### 4.1.2 Barreiras específicas do recorte (político-eleitoral, WhatsApp e redes sociais)
+**Barreiras específicas do recorte (político-eleitoral, WhatsApp e redes sociais)**
 
 - **O conteúdo costuma estar no WhatsApp e não tem link.** O usuário precisa salvar o áudio ou vídeo no celular e enviar o arquivo. Isso é uma barreira para quem não sabe localizar arquivos. A interface terá instruções curtas, com imagens e texto, de como encaminhar o arquivo a partir do WhatsApp.
 - **Formatos comuns de mensagens.** Áudios de aplicativos de mensagem usam formatos próprios. A plataforma deve aceitar os formatos mais comuns de áudio e vídeo desses aplicativos e dizer claramente, em texto, quando o formato não é aceito.
@@ -571,17 +436,17 @@ O VerificaBR atende conteúdos político-eleitorais que chegam, em geral, por Wh
 - **Confiança política.** O usuário pode rejeitar um resultado que contraria o que ele acredita. A explicação deve mostrar as evidências em linguagem simples e oferecer revisão humana, sem tom de acusação.
 - **Privacidade.** Muitos usuários vão enviar conteúdo que receberam de conhecidos. A plataforma deve avisar, antes do envio, que o arquivo pode conter dados de terceiros e o que será feito com ele (ligação com a seção 3.4).
 
-#### 4.1.3 Alternativas para conexões lentas
+**Alternativas para conexões lentas**
 
 1. Mostrar, antes do envio, o tamanho do arquivo e uma estimativa de consumo de dados.
 2. Aplicar limites de tamanho e duração (valores iniciais a validar com Ciência de Dados e Cloud, por exemplo 50 MB e 3 minutos), com aviso claro quando o arquivo passar do limite. Isso também reduz o custo ambiental (seção 5).
 3. Permitir enviar só o trecho suspeito, em vez do vídeo inteiro.
 4. Envio com retomada: se a conexão cair, o usuário continua de onde parou.
-5. Não manter a pessoa esperando na tela: o resultado fica disponível por um **código de acompanhamento**, e o usuário pode fechar a página e voltar depois.
+5. Não manter a pessoa esperando na tela: o resultado fica disponível por um **código de acompanhamento protegido por token secreto**, e o usuário pode fechar a página e voltar depois.
 6. **Modo leve:** página só com texto, sem imagens decorativas e sem vídeo automático.
 7. Quando o conteúdo já estiver publicado, aceitar o link em vez do arquivo, para evitar o envio.
 
-#### 4.1.4 Como o usuário recebe o resultado
+**Como o usuário recebe o resultado**
 
 - O resultado aparece na tela, em **texto**, com um resumo de uma frase no topo e os detalhes abaixo.
 - O estado do resultado é sempre escrito, nunca só por cor, som ou ícone.
@@ -597,7 +462,7 @@ Frases-modelo para cada estado do resultado, em linguagem simples:
 - **Análise inconclusiva:** "Não conseguimos saber. Isso não quer dizer que seja verdadeiro nem falso."
 - **Aguardando revisão humana:** "Uma pessoa está analisando este conteúdo. Guarde o seu código para ver o resultado depois."
 
-#### 4.1.5 Testes com participantes representativos
+**Testes com participantes representativos**
 
 - **Quem:** de 5 a 8 pessoas por perfil prioritário: pessoa idosa, pessoa cega ou com baixa visão (usando leitor de tela), pessoa com celular simples ou internet limitada, pessoa com baixa familiaridade digital. Se o grupo só conseguir testar com colegas e familiares, isso deve ser dito de forma clara no texto, e o teste com os perfis acima fica como etapa obrigatória antes do piloto.
 - **Tarefas reais:** "envie este áudio e me diga o que o resultado significa", "volte ao resultado de ontem usando o código", "peça revisão humana".
@@ -606,11 +471,11 @@ Frases-modelo para cada estado do resultado, em linguagem simples:
 - **Privacidade:** participação voluntária, com consentimento e coleta mínima de dados.
 - **Depois do teste:** os problemas viram correções antes de qualquer ampliação, e o teste é repetido. Os resultados alimentam o indicador "Acessibilidade" da seção 6.1.
 
-### 4.2 Critérios concretos de acessibilidade
+### 4.2 Requisitos de acessibilidade
 
-Referência: WCAG 2.2, do W3C. Nível de conformidade alvo: **AA**.
+Referência: WCAG 2.2, do W3C (R34). Nível de conformidade alvo: **AA**.
 
-#### 4.2.1 Critérios, como testar e como corrigir
+**Critérios, como testar e como corrigir**
 
 **1.1.1 Conteúdo não textual**
 - Aplicação: gráficos e ícones de resultado têm texto alternativo útil. Imagens decorativas ficam sem descrição.
@@ -672,45 +537,44 @@ Referência: WCAG 2.2, do W3C. Nível de conformidade alvo: **AA**.
 - Como testar: teste com NVDA e TalkBack.
 - Se falhar: marcar as mensagens com regiões de status (`aria-live`).
 
-#### 4.2.2 Rotina de teste
+**Rotina de teste**
 
 1. **Automático, a cada versão:** axe e Lighthouse. Encontram só parte dos problemas, então não bastam sozinhos.
 2. **Manual:** teclado completo, zoom de 200%, simulação de baixa conexão e leitor de tela (NVDA no computador, TalkBack no Android, VoiceOver no iPhone).
 3. **Com usuários reais:** conforme a seção 4.1.5.
 4. **Revisão de linguagem:** conferir se os textos do resultado estão em frases curtas, sem jargão, e se a ressalva de incerteza aparece em todos os estados.
 
-#### 4.2.3 Como corrigir as falhas
+**Como corrigir as falhas**
 
 - Cada falha vira uma tarefa no repositório com: critério violado, onde ocorre, gravidade e responsável.
 - Falhas que impedem concluir o fluxo (por exemplo, não dá para enviar o arquivo pelo teclado) **bloqueiam a liberação** de uma nova versão.
 - A tarefa só é fechada depois de testar novamente.
 - Também é necessário reavaliar a acessibilidade quando o relatório ou a interface mudarem.
 
-#### 4.2.4 Limitações assumidas
+**Limitações assumidas**
 
 O grupo não afirma que a plataforma será 100% acessível: a conformidade com WCAG 2.2 AA é uma meta, verificada por testes automáticos, manuais e com usuários. Se não for possível oferecer Libras no piloto, isso será dito de forma explícita, junto com a alternativa (legenda e transcrição).
----
 
 ## 5. Sustentabilidade
 
 **Responsável:** João Pedro Theodoro de Sousa Andrade
 
-### 5.1 Sustentabilidade ambiental
+### 5.1 Impacto ambiental da solução
 
 A sustentabilidade do VerificaBR deve ser considerada em três dimensões: ambiental, técnica e financeira. Como a plataforma utiliza inteligência artificial para verificar possíveis manipulações em áudios e vídeos, seu funcionamento exige recursos computacionais, armazenamento de dados e manutenção contínua. Dessa forma, é necessário desenvolver estratégias que reduzam o desperdício de recursos, garantam a continuidade tecnológica e possibilitem sua manutenção financeira sem comprometer a qualidade das análises.
 
-O processamento de conteúdos por inteligência artificial exige energia elétrica e infraestrutura computacional, especialmente quando envolve modelos complexos de análise audiovisual. Segundo o relatório *Energy and AI*, publicado pela Agência Internacional de Energia (IEA) em 2025, os centros de dados consumiram aproximadamente 415 TWh de eletricidade em 2024, representando cerca de 1,5% do consumo mundial. O estudo também projeta que esse consumo poderá chegar a aproximadamente 945 TWh até 2030, impulsionado, entre outros fatores, pelo crescimento da inteligência artificial.
+O processamento de conteúdos por inteligência artificial exige energia elétrica e infraestrutura computacional, especialmente quando envolve modelos complexos de análise audiovisual. Segundo o relatório *Energy and AI*, publicado pela Agência Internacional de Energia (IEA) em 2025 (R35), os centros de dados em todo o mundo consumiram aproximadamente 415 TWh de eletricidade em 2024, representando cerca de 1,5% do consumo mundial de eletricidade. O estudo também projeta que esse consumo poderá chegar a aproximadamente 945 TWh até 2030, impulsionado, entre outros fatores, pelo crescimento da inteligência artificial.
 
-Considerando esse cenário, o VerificaBR propõe uma arquitetura que prioriza a eficiência computacional. Antes de executar modelos de inteligência artificial mais exigentes, a plataforma realizará a verificação de proveniência digital por meio do padrão C2PA e consultará uma base de conteúdos anteriormente analisados. Essa estratégia poderá reduzir processamentos repetitivos, direcionando análises mais complexas apenas aos casos em que forem necessárias. Entretanto, a economia de recursos não deverá comprometer a confiabilidade dos resultados, uma vez que a presença de credenciais digitais ou de verificações anteriores não garante, isoladamente, a veracidade de um conteúdo.
+Considerando esse cenário, o VerificaBR propõe uma arquitetura que prioriza a eficiência computacional. Antes de executar modelos de inteligência artificial mais exigentes, a plataforma deverá realizar validações leves de proveniência e consultar checagens públicas previamente indexadas quando isso não comprometer a integridade da análise. Essa estratégia poderá reduzir processamentos repetitivos, direcionando análises mais complexas apenas aos casos em que forem necessárias. Entretanto, a economia de recursos não deverá comprometer a confiabilidade dos resultados, uma vez que a presença de credenciais digitais ou de verificações anteriores não garante, isoladamente, a veracidade de um conteúdo.
 
 Outras medidas incluem estabelecer limites de tamanho e duração dos arquivos, utilizar processamento sob demanda, evitar servidores de alto desempenho ociosos e realizar a exclusão automática de dados temporários após o período necessário. A escolha de provedores de nuvem também deverá considerar informações sobre eficiência energética e emissões de carbono.
 
-Para acompanhar os resultados, serão utilizados indicadores como consumo de CPU e GPU por análise, quantidade de dados armazenados, volume de transferência e estimativa de emissões de carbono. Como metas iniciais, propõe-se reduzir em 20% o consumo computacional médio por análise e em 15% o volume de dados transferidos durante o primeiro ano de monitoramento, tomando como referência os resultados obtidos nos testes iniciais. Essas metas são estimativas acadêmicas e poderão ser ajustadas conforme a viabilidade técnica.
+Para acompanhar os resultados, propõem-se indicadores como consumo de CPU e GPU por análise, quantidade de dados armazenados, volume de transferência e estimativa de emissões de carbono. Como metas iniciais, propõe-se reduzir em 20% o tempo de CPU/GPU por análise comparável e em 15% o volume de dados transferidos durante o primeiro ano de monitoramento, tomando como referência os resultados obtidos nos testes iniciais. Essas metas são estimativas acadêmicas e poderão ser ajustadas conforme a viabilidade técnica.
 
-O acompanhamento será realizado mensalmente pelos responsáveis por Ciência de Dados e Engenharia de Dados, utilizando ferramentas de monitoramento da infraestrutura. Como referência metodológica, poderá ser utilizada a **Software Carbon Intensity (SCI)**, da Green Software Foundation, que permite avaliar a intensidade de carbono associada ao funcionamento de sistemas computacionais.
+O acompanhamento está previsto mensalmente, sob coordenação de Ciência de Dados e Engenharia de Dados, utilizando ferramentas de monitoramento da infraestrutura. Como referência metodológica, poderá ser utilizada a **Software Carbon Intensity (SCI)**, da Green Software Foundation (R36), como metodologia de intensidade de carbono por unidade funcional. Seu cálculo exige dados de energia, fronteira do sistema e fatores de emissão e não pode ser inferido apenas do gasto financeiro.
 
 
-### 5.2 Sustentabilidade técnica e manutenção
+### 5.2 Sustentabilidade do projeto
 
 
 A sustentabilidade técnica está relacionada à capacidade de manter o VerificaBR funcional, seguro e atualizado ao longo do tempo. Como as tecnologias utilizadas para produzir deepfakes evoluem constantemente, os modelos de detecção precisam ser avaliados periodicamente para identificar possíveis perdas de desempenho diante de novos métodos de manipulação.
@@ -721,17 +585,17 @@ A manutenção será dividida entre as áreas profissionais presentes no projeto
 
 Propõe-se que o desempenho dos modelos e os custos operacionais sejam acompanhados mensalmente, enquanto revisões mais completas dos conjuntos de teste e da arquitetura sejam realizadas trimestral e semestralmente, respectivamente. Atualizações críticas de segurança deverão ser tratadas assim que identificadas, conforme sua gravidade.
 
-Essas práticas estão alinhadas às recomendações do *Artificial Intelligence Risk Management Framework*, desenvolvido pelo National Institute of Standards and Technology (NIST), que destaca a importância do gerenciamento contínuo dos riscos associados à inteligência artificial.
+Essas práticas estão alinhadas às recomendações do *Artificial Intelligence Risk Management Framework*, desenvolvido pelo National Institute of Standards and Technology (NIST; R37), que destaca a importância do gerenciamento contínuo dos riscos associados à inteligência artificial.
 
 Para o planejamento financeiro, estima-se inicialmente uma necessidade de 12 horas mensais de manutenção técnica. Considerando um valor hipotético de R$ 100,00 por hora, o custo mensal seria de aproximadamente R$ 1.200,00. Essa estimativa deverá ser revisada conforme a complexidade do sistema e a quantidade de usuários.
 
 A documentação do projeto e o versionamento no GitHub também contribuirão para sua sustentabilidade, permitindo que novos colaboradores compreendam a estrutura desenvolvida e realizem melhorias sem depender exclusivamente dos responsáveis iniciais.
 
-### 5.3 Sustentabilidade financeira após o primeiro ano
+**Viabilidade financeira após o primeiro ano**
 
 Para garantir sua continuidade após os primeiros 12 meses, o VerificaBR precisará de um planejamento financeiro que considere despesas com hospedagem, processamento de inteligência artificial, armazenamento, segurança, revisão humana e manutenção técnica. Embora a plataforma tenha finalidade acadêmica e social, sua eventual disponibilização pública dependerá de recursos suficientes para manter uma operação confiável.
 
-Como ainda não existe uma implementação em funcionamento, foi elaborado um cenário hipotético de operação com **2.000 análises mensais**, das quais aproximadamente 10% poderiam necessitar de revisão humana. Considerando 200 revisões com duração média de 10 minutos e custo hipotético de R$ 48,00 por hora, a despesa mensal com essa atividade seria de aproximadamente R$ 1.600,00.
+Como ainda não existe uma implementação em funcionamento, foi elaborado um cenário hipotético de operação com **2.000 análises mensais**, com **capacidade orçada para até 200 revisões humanas por mês (10%)**; esse número é um limite operacional da simulação, não uma previsão de quantos casos reais precisarão de revisão. Considerando 200 revisões com duração média de 10 minutos e custo hipotético de R$ 48,00 por hora, a despesa mensal com essa atividade seria de R$ 1.600,00. Se a procura ultrapassar 200 revisões, o piloto limitará novas entradas de alto risco ou buscará financiamento adicional; não publicará resultados finais sem revisão apenas para reduzir a fila.
 
 A tabela apresenta uma estimativa inicial dos custos necessários para manter a plataforma nesse cenário:
 
@@ -749,7 +613,7 @@ A tabela apresenta uma estimativa inicial dos custos necessários para manter a 
 
 Com base nesses valores, o custo anual estimado seria de **R$ 64.170,00**. Considerando 24.000 análises por ano, o custo médio corresponderia a aproximadamente **R$ 2,67 por análise**, incluindo as despesas operacionais e a reserva de contingência.
 
-É importante destacar que esses valores representam uma **simulação acadêmica**, não uma cotação de mercado. Os custos reais dependerão da infraestrutura escolhida, da demanda dos usuários e da complexidade dos modelos utilizados. Ferramentas como o [AWS Pricing Calculator](https://aws.amazon.com/aws-cost-management/aws-pricing-calculator/) poderão auxiliar na elaboração de orçamentos mais precisos durante uma eventual implementação.
+É importante destacar que esses valores representam uma **simulação acadêmica**, não uma cotação de mercado. Os custos reais dependerão da infraestrutura escolhida, da demanda dos usuários e da complexidade dos modelos utilizados. Ferramentas como o AWS Pricing Calculator (R31) poderão auxiliar na elaboração de orçamentos mais precisos durante uma eventual implementação.
 
 Para reduzir despesas, o projeto deverá priorizar ferramentas de código aberto, processamento sob demanda, armazenamento temporário e reutilização de análises anteriores quando tecnicamente adequado. O acompanhamento financeiro será mensal, permitindo identificar aumentos inesperados e ajustar os recursos contratados.
 
@@ -762,398 +626,263 @@ Portanto, a sustentabilidade do VerificaBR não depende apenas da redução de c
 
 ## 6. Impacto esperado
 
-**Responsável:** Petterson Michel Lima Aguilar
+**Responsável pela redação inicial:** Petterson Michel Lima Aguilar.
 
-### 6.1 Indicadores de resultado
+### 6.1 Indicadores
 
-As metas abaixo são hipóteses acadêmicas para um piloto de 3 meses. Como a espinha dorsal do *VerificaBR* depende da agilidade em processar mídias e extrair metadados, os indicadores medem o impacto social integrado à saúde do pipeline de dados, conectando-se diretamente às diretrizes de infraestrutura, sustentabilidade e acessibilidade definidas pelo grupo.
+Todos os valores abaixo são **metas propostas para estudo piloto**, não resultados obtidos. A janela inicial de acompanhamento é de três meses; dados de teste serão desagregados por subgrupo quando houver amostra adequada. O orçamento da seção 5 descreve uma capacidade operacional ilustrativa de 2.000 análises/mês e **até 200 revisões/mês**, não uma demanda garantida.
 
-| Indicador | Como medir | Meta inicial proposta | Frequência |
+| Indicador | Como medir | Meta | Prazo |
 |---|---|---|---|
-| **Latência de ingestão e análise** | Mediana do tempo de travessia do arquivo pelo pipeline assíncrono (upload, pré-processamento e motor de evidências). | Inferior a 15 segundos para mídias de até 3 minutos, conforme fila estruturada na Seção 2. | Semanal |
-| **Taxa de inconclusivos** | Proporção de análises sem evidência suficiente (reflete a qualidade dos dados de entrada e dos modelos). | Teto de 40% (a linha de base apontada na Seção 1 é 55% em ferramentas abertas). | Quinzenal |
-| **Eficiência e Custo (TI Verde)** | Gasto total e Software Carbon Intensity (SCI) divididos pelo volume de análises, conforme Seção 5. | Teto de R$ 2,67 por análise processada; redução de 15% na transferência de dados. | Mensal |
-| **Taxa de retenção mínima (LGPD)** | Percentual de arquivos brutos (vídeo/áudio) expurgados automaticamente após o relatório. | 100% dos arquivos excluídos em até 7 dias, cumprindo a matriz de riscos da Seção 3. | Semanal |
-| **Acessibilidade e Inclusão** | Taxa de conclusão de tarefas em testes de usabilidade com leitores de tela e redes móveis limitadas. | 100% de conformidade com WCAG 2.2 AA nos fluxos críticos, conforme métricas da Seção 4. | A cada versão |
-| **Taxa de falsos positivos/negativos** | Casos classificados incorretamente após auditoria e pedidos de revisão humana. | FP < 2% (danos reputacionais) / FN < 5% (segurança da informação). | Mensal |
+| Falsos positivos (FPR) | FP / (FP + TN), em conjunto independente rotulado; por idioma e qualidade | Até 2% em grupos com amostra suficiente; caso contrário, manter resultado inconclusivo | Antes do piloto e revisão mensal |
+| Falsos negativos (FNR) | FN / (FN + TP) em teste com manipulações variadas e não vistas no treino | Até 5% nos cenários validados; não afirmar cobertura universal | Antes do piloto e revisão mensal |
+| Precisão, recall, F1 e AUC | Validação reprodutível em bases documentadas, com intervalos de confiança | Publicar valores por conjunto e não liberar classificações com desempenho abaixo do mínimo definido no protocolo de testes | Antes do piloto |
+| Disparidade de erro | Comparar FPR/FNR por sotaque, compressão, idioma e dispositivo | Diferença absoluta de FPR de até 3 pontos percentuais entre grupos suficientemente representados; lacunas bloqueiam uso generalizado | Antes de ampliar o piloto |
+| Tempo de processamento automático | Percentil 90 do envio ao relatório automático, por tamanho e modalidade | Até 120 segundos para arquivos de até 3 minutos e 50 MB, **meta a testar**, não SLA prometido | Mês 3 do piloto |
+| Casos inconclusivos | Casos sem evidência suficiente / análises válidas, com motivos | Medir e segmentar 100% dos inconclusivos; não impor teto artificial que incentive acusações | Mensal |
+| Encaminhamentos e capacidade humana | Contar pedidos, revisões aceitas, recusadas por capacidade e pendentes | Planejar no máximo 200 revisões/mês no cenário orçamentário; publicar percentual efetivo e fila | Mensal |
+| Tempo de contestação | Dias úteis entre aceitação do recurso e resposta fundamentada | 90% respondidos em até 5 dias úteis, dentro da capacidade do piloto | Mês 3 do piloto |
+| Exclusão de dados | Auditoria de objetos e derivados após vencimento das políticas de retenção | 100% dos originais excluídos em 7 dias após relatório, ressalvada revisão de até 30+7 dias e retenção legal | Semanal |
+| Acessibilidade | Testes de teclado/leitor de tela, WCAG 2.2 AA e conclusão de tarefas | Nenhum bloqueio crítico; pelo menos 85% das tarefas concluídas sem auxílio entre participantes do estudo | Antes do piloto e por versão |
+| Compreensão e confiança | Pesquisa breve e entrevista sobre significado de C2PA e resultado inconclusivo | 80% distinguem proveniência de veracidade; satisfação média de pelo menos 4/5 | Mês 3 do piloto |
+| Adoção e viabilidade | Análises voluntárias, abandono por etapa, custo por análise e fila de revisão | Atingir 500 análises/mês no piloto; custo hipotético de referência até R$ 2,67 por análise no cenário de 2.000/mês | Mês 3; custos mensais |
+| Eficiência ambiental | CPU/GPU por análise comparável e bytes transferidos por análise, com linha de base | Reduzir 20% do tempo computacional e 15% da transferência após otimizações, sem aumentar FPR/FNR | Ao final de 12 meses |
 
-### 6.2 Como ouvir os usuários?
+Os limiares de FPR/FNR são aspirações técnicas, não garantias alcançáveis com todos os modelos e sotaques. A equipe deve preservar a abstenção e suspender classificações em contextos não validados, em vez de manipular limiares para cumprir metas. O custo por análise não inclui integração com WhatsApp nem parcerias institucionais inexistentes.
 
-Como a Engenharia de Dados trabalha fortemente com telemetria, a escuta dos usuários combinará a leitura do comportamento dos dados no pipeline com feedback qualitativo, respeitando a privacidade:
+### 6.2 Como os usuários serão ouvidos
 
-*   **Telemetria Estruturada (Feedback Implícito):** Implementação de logs no *front-end* e na API (proposta na Seção 2) para medir onde o usuário abandona o processo. Monitorar *timeouts* de upload ajudará a confirmar se os limites de tamanho estão adequados para usuários com pacotes de dados restritos (Seção 4).
-*   **Questionários em Tela (Feedback Explícito):** Microquestionários rápidos e anônimos ("A explicação ficou clara? Sim/Não") armazenados apenas com o ID do protocolo, sem exigir criação de conta.
-*   **Avaliação com Usuários Representativos:** Testes de usabilidade moderados com pessoas idosas e usuários de leitores de tela para garantir que a saída em texto do "Motor de Evidências" seja compreensível sem jargões.
+O piloto terá entrevistas exploratórias e testes com participantes voluntários de perfis distintos: pessoas idosas, usuários de internet móvel limitada, pessoas que utilizam leitor de tela, profissionais de checagem e cidadãos com diferentes níveis de familiaridade digital. O plano inicial é de cinco a oito participantes por perfil, condicionado à disponibilidade e à proteção dos dados. Cada participante realizará tarefas fictícias: enviar um áudio, ler um resultado inconclusivo, retornar com protocolo e solicitar contestação. A equipe medirá êxito sem ajuda, tempo, erros e interpretação correta, além de colher comentários por entrevista sem induzir respostas.
 
-### 6.3 E se a adesão for baixa?
+Na aplicação, microquestionários opcionais e métricas agregadas de falhas de upload poderão indicar abandono, sem rastrear navegação individual fora do serviço. Não se gravarão áudios e vídeos de participantes sem base legal, nem se reutilizarão uploads para treinamento. Toda melhoria será registrada como item de trabalho, e falhas críticas de acesso ou de compreensão serão corrigidas antes de ampliar o piloto.
 
-Se o volume for inferior a 500 análises mensais no segundo mês ou a taxa de abandono (*drop-off*) no upload for superior a 30%, a Engenharia de Dados atuará investigando os gargalos no fluxo:
+### 6.3 Se a solução não pegar
 
-1.  **Investigar barreiras de infraestrutura:** Analisar logs da nuvem para verificar se conexões móveis lentas estão causando queda no envio. Se sim, aplicar o *upload com retomada* e otimização de compressão sugeridos na Seção 4.
-2.  **Ajuste do Pipeline de Busca:** Se os custos computacionais ou a lentidão afastarem os usuários, inverteremos o peso do pipeline: a busca vetorial por similaridade na *Base de Checagens* (banco de dados) será executada antes de acionar os pesados modelos de IA, economizando processamento (atendendo à sustentabilidade da Seção 5).
-3.  **Redução de atrito de acesso:** Confirmar se o acesso via navegador está sendo uma barreira. Se necessário, projetar uma integração via API para o WhatsApp, permitindo que o usuário encaminhe o vídeo suspeito direto no aplicativo.
+Se houver menos de 500 análises/mês no terceiro mês ou abandono superior a 30% no envio, o grupo investigará dificuldades de acesso, confiança, qualidade da internet e clareza da interface antes de modificar o escopo. O primeiro ajuste será reduzir peso da página e melhorar retomada do upload; o segundo será consultar checagens públicas antes de executar inferência cara, **sem substituir** a validação quando necessária. Integrações com mensageiros só seriam expansão futura, sujeita a autorização, custos e revisão de privacidade; não são pressupostos do MVP.
 
----
+Se FPR/FNR excederem os limites nos cenários validados, houver disparidade grave não mitigada, incidente crítico de privacidade, falta de recursos para revisão humana ou prejuízo reputacional reiterado, as classificações e o recebimento público de mídias serão suspensos. O projeto poderá continuar como estudo acadêmico com dados sintéticos e públicos. A descontinuação exigirá eliminar mídias retidas, encerrar acessos e publicar aviso claro aos usuários.
 
-## 7. Quadro de decisões
+## 7. Quadro de decisões (mínimo 5)
 
-**Responsável:** Petterson Michel Lima Aguilar 
+**Responsável pela redação inicial:** Petterson Michel Lima Aguilar.
 
-Este quadro consolida as principais escolhas arquiteturais do projeto. As decisões refletem o compromisso de construir um pipeline de dados escalável, sustentável, ético e acessível, integrando os levantamentos de todas as áreas do grupo.
-
-| Decisão | Alternativas consideradas | Justificativa e Evidências | Participantes e Conexão |
-|---|---|---|---|
-| **Pipeline assíncrono (Filas) e limite de mídias** | Processamento síncrono (API trava aguardando a IA) e uploads ilimitados. | Modelos de vídeo são pesados. O uso de mensageria (filas) evita a queda do sistema em picos eleitorais. Limitar tamanho (ex: 50MB) reduz pegada de carbono e atende usuários com internet fraca.
-| **Banco Vetorial combinado com Relacional** | Usar apenas um banco relacional (SQL) para armazenar o histórico de checagens jornalísticas. | Para achar vídeos já checados, a API precisa calcular o "hash/embedding" da mídia. Bancos vetoriais fazem busca por similaridade de forma mais eficiente, evitando reprocessar a mesma *deepfake* na IA. |
-| **Arquitetura híbrida (C2PA + Detecção)** | Depender só da assinatura C2PA ou só da IA probabilística. | Redes sociais apagam os metadados C2PA no reenvio (*soft binding* frequentemente falha). A IA isolada tem altas taxas de erro (falsos positivos). Cruzar ambos no "Motor de Evidências" garante maior robustez. | Petterson (Eng. de Dados), Samuel (Cibersegurança). |
-| **Descarte físico de mídias originais** | Manter vídeos em *Cold Storage* para treinar modelos futuros do próprio grupo. | Conteúdo eleitoral possui voz e rostos (dados biométricos sensíveis). A regra de expurgo automático em até 7 dias garante a minimização e conformidade total com a LGPD. |
-| **Acesso por Protocolo (Sem Criação de Conta)** | Exigir login e senha, ou cadastro com e-mail/celular para ver o resultado. | A exigência de conta gera atrito para idosos e pessoas de baixa literacia digital, além de violar a minimização de dados da LGPD. O acesso por código de acompanhamento resolve ambos os problemas. |
-| **Incluir o resultado "Análise inconclusiva"** | Forçar o algoritmo a dar um veredito binário ("Verdadeiro" ou "Falso"). | Testes da Lupa mostraram que 55% dos conteúdos ficam sem confirmação clara. Forçar uma resposta com base em uma pontuação baixa do modelo cria falsa segurança e agrava a desinformação. |
-
----
+| Decisão | Alternativas consideradas | Por que escolhemos esta |
+|---|---|---|
+| Triagem por proveniência, detecção e checagens | Somente IA ou somente assinatura digital | Evidências complementares, com limites distintos, reduzem dependência de um único mecanismo; não geram veredito factual automático. |
+| Interface web responsiva | Aplicativo nativo para cada sistema operacional | Menor barreira de instalação, uso por celular simples e manutenção concentrada. |
+| API assíncrona com fila | Processar vídeos no mesmo pedido HTTP | A fila evita travar a API, permite priorização, tentativas controladas e limite de custos. |
+| Modelos abertos avaliados localmente | Treinar do zero ou assumir acurácia de fornecedor | Um projeto universitário não dispõe de dados/recursos para modelo fundacional próprio; avaliar modelos existentes e abster-se fora do escopo é mais realista. |
+| PostgreSQL e índices de texto/vetor | Banco exclusivamente vetorial ou diversos serviços gerenciados | Manter checagens, auditoria e similaridade em uma base controlável reduz integrações e facilita backups e política de retenção. |
+| Nuvem com orçamento e região avaliada | Servidor próprio ou contratação sem limite | Flexibilidade de capacidade, observabilidade e custos controlados, condicionados à análise jurídica e à localização efetiva dos dados. |
+| Armazenamento temporário de mídias | Arquivo permanente e biblioteca de uploads para treinamento | Minimiza exposição de terceiros e custo; auditoria conserva apenas evidências essenciais e de prazo definido. |
+| Relatório inconclusivo e revisão humana | Rótulo binário por limiar único | Mantém a incerteza visível, evita acusação indevida e permite contestação; revisão restrita à capacidade do piloto. |
+| Protocolo secreto sem cadastro obrigatório | Conta com e-mail/senha ou código público simples | Reduz coleta de dados e fricção, sem sacrificar confidencialidade: o segredo deve ser aleatório, não adivinhável e expirar. |
+| Consulta a checagens públicas antes de inferência cara, quando viável | Executar todos os detectores em todos os arquivos | Poupa processamento e custo, mas correspondências aproximadas continuam sujeitas a confirmação e não substituem análise necessária. |
+| Limites iniciais de 50 MB e 3 minutos | Upload de tamanho ilimitado | Permite controlar tempo e custo e orientar pessoas com franquia pequena; parâmetros são hipóteses de teste, não valores definitivos. |
+| Governança de revisão com critérios de risco e alcance | Preferência por posições políticas, candidatos ou volume de denúncias sem controle | Critérios publicados, logs e revisão independente ajudam a prevenir uso político indevido e ataques coordenados. |
 
 ## 8. Capítulos individuais
 
-**IMPORTANTE:** cada integrante deve escrever seu próprio capítulo. Os capítulos precisam demonstrar contribuições verificáveis, competências, metas SMART e feedback coletivo.
+Os dados pessoais e atividades a seguir foram **informados no documento do grupo**. Os papéis devem ser confrontados com a autoria real no histórico do GitHub. Textos de feedback já fornecidos são relatos a confirmar; os propostos para capítulos incompletos não representam opiniões efetivamente emitidas.
 
-### 8.1 Capítulo individual — Albert dos Santos Mariano
+### 8.1 Albert dos Santos Mariano — Engenharia de Dados
 
-**Área de carreira:** Engenharia de Dados 
-**GitHub:** [AlbertdosSantosMariano](https://github.com/AlbertdosSantosMariano)
+**Papel no projeto:** declarou responsabilidade pela elaboração da seção 3, especialmente matriz de riscos, política de retenção, controles éticos, LGPD e comunicado público. A contribuição conecta Engenharia de Dados à governança de evidências, à rastreabilidade e ao descarte. O integrante descreveu dois commits relacionados à seção ética e ao capítulo individual; conferir IDs/URLs no repositório antes da entrega.
 
-#### 8.1.1 Papel no projeto e entregas verificáveis
+**Plano de desenvolvimento**
 
-**Responsabilidades assumidas:**
-Responsável pela parte 3 (Análise Ética) do dossiê. A engenharia de dados é fundamental na análise ética de deepfakes e na proveniência digital porque constrói a infraestrutura que garante confiabilidade, transparência e privacidade. É ela que estrutura a rastreabilidade dos arquivos para validar a sua origem, assegura a eliminação segura e a anonimização de dados sensíveis e biométricos em conformidade com a LGPD, e mantém registos auditáveis de segurança para permitir revisões humanas e contestações públicas.
-
-[]
-
-**Entregas realizadas:**
-
-- [Revisão de conteúdo e detalhamento da matriz de riscos éticos]
-- [3.2 Decisão ética de implantação,  3.3 Controles éticos obrigatórios, 3.4 LGPD e proteção de dados, 3.5 Comunicado público para LinkedIn ]
-- [Capitulo Individual e feedbacks ]
-
-**Evidências no GitHub:**
-
-- Commit: [Link]
-- Pull request: [Link]
-
-#### 8.1.2 Competências técnicas e comportamentais
-
-| Tipo | Competências que já possuo | Competências que preciso desenvolver |
+| Competência que a solução exige | Técnica ou comportamental | Já tenho? |
 |---|---|---|
-| Técnicas | Python, HTML,CSS E JAVASCRIPT e Engenharia de prompt, formação técnica em administração e pacote Office. aplicações de conhecimento de python no github, automações em interfaces de buscas utilizando N8N, gemini e google, inglês intermediário |  SQL básico; MySQL e modelagem de banco de dados, ETL e pipelines de ingestão; Power BI.
-| Comportamentais | Raciocínio lógico, negociação, praticidade, organização, facilidade em aprender e aplicar | Comunicação e networking, ser ativo nas redes profissionais e captar entrevistas e contatos, confiança e destreza em entrevistas. |
+| Python e automação de processos | Técnica | Sim, conforme autodeclaração; validar exemplos no portfólio. |
+| HTML, CSS, JavaScript e integração de serviços | Técnica | Sim, conforme autodeclaração. |
+| SQL avançado, modelagem e pipelines ETL | Técnica | A desenvolver. |
+| Gestão de privacidade e ciclo de vida dos dados | Técnica | Parcial; aprofundar implementação e auditoria. |
+| Organização, raciocínio lógico e negociação | Comportamental | Sim, conforme autodeclaração. |
+| Comunicação profissional e apresentação técnica | Comportamental | A desenvolver. |
 
-#### 8.1.3 Plano de desenvolvimento — metas SMART
+O integrante também mencionou formação técnica em Administração, pacote Office, inglês intermediário e experiências com automação usando n8n e ferramentas de IA. Essas habilidades são complementares, mas não substituem a demonstração de SQL e ETL aplicada ao projeto.
 
-**Meta 1 (6 meses):** Obter uma certificação de entrada em tecnologia/dados (como a Oracle Certified Associate ou Microsoft Azure Fundamentals) e concluir um repositório de portfólio funcional focado na integração de Engenharia de Dados/Back-End (incorporando pipelines com validação de metadados, regras da LGPD e estruturação de APIs em Python/Flask).
+**Metas SMART (6 a 12 meses)**
 
-**Meta 2 (12 meses):** Conquistar a transição ou consolidação profissional na área de tecnologia (como Analista de Suporte N1, Desenvolvedor Back-End Junior ou Engenheiro de Dados Junior), além de publicar uma versão completa de um projeto autoral (como o VerificaBR ou o projeto de gestão de dados/mídias) no GitHub, contendo documentação técnica, modelagem de banco de dados (DDL) e conformidade legal integrada.
+1. **Em 6 meses:** concluir um curso ou trilha certificável de fundamentos de dados/cloud e publicar um repositório em Python com API e pipeline de metadados, incluindo README, regras de descarte, três testes automatizados e modelagem SQL. Evidências: certificado de conclusão ou registro da trilha, repositório e execução dos testes.
+2. **Em 12 meses:** publicar uma segunda versão documentada de um projeto de governança de dados, com DDL, política de retenção e relatório de testes, e registrar ao menos 10 candidaturas a vagas de tecnologia compatíveis com o estágio de formação. Obter uma vaga é objetivo profissional desejável, mas não indicador inteiramente controlável.
 
-**Como comprovarei os resultados:** [Certificações (Oracle/Azure), Repositórios públicos no GitHub contendo código-fonte limpo, arquivos DDL, relatórios de teste de requisitos, documentação de pipelines de dados e READMEs semânticos estruturados. Comprovação de participação em projetos acadêmicos aplicados e histórico de candidatura/inserção no mercado de trabalho de TI.   
+**Feedback dos colegas**
 
-#### 8.1.4 Feedback coletivo
+O texto original relata como pontos fortes a organização, a familiaridade com Python e a preocupação com governança, LGPD e rastreabilidade. Como pontos de evolução, menciona necessidade de SQL mais avançado, ETL completo, documentação de projetos e presença profissional. **Confirmação coletiva pendente:** os demais integrantes devem aprovar essa síntese e atribuir os comentários corretamente; não se consideram depoimentos formalmente comprovados. Ação sugerida: publicar um pipeline de ingestão e exclusão com testes e registrar as melhorias na documentação.
 
-**Pontos fortes identificados pelos colegas:**
+### 8.2 Gabriel Anjos Albuquerque — Engenharia de Dados
 
-Os colegas destacaram o domínio em governança de dados, LGPD e arquitetura de requisitos para plataformas digitais, evidenciado pela construção da matriz de dados sensíveis, retenção e logs de segurança no projeto VerificaBR. O Gabriel reforçou que a capacidade de traduzir obrigações legais em fluxos técnicos de dados (como retenção de metadados e expurgo de arquivos) demonstra um forte pensamento analítico e visão de negócios para o ecossistema de dados. O João Pedro ressaltou a precisão na estruturação do código, nas rotinas em Python/Flask e na documentação semântica no GitHub.
+**Papel no projeto:** declarou responsabilidade pelas seções 1 e 2, incluindo pesquisa dos levantamentos, comparação de iniciativas, jornadas de usuário, política de incerteza e arquitetura de processamento/armazenamento. No texto original registra dois commits vinculados às seções e ao capítulo pessoal; verificar os registros reais no GitHub.
 
-**Pontos de melhoria:**
+**Plano de desenvolvimento**
 
-Os colegas concordaram que o perfil técnico pode evoluir ainda mais ao expandir a camada prática de Engenharia de Dados pesada: faltam pipelines completos de ETL documentados publicamente no GitHub e maior visibilidade aos scripts de modelagem SQL (DDL/DML). O Gabriel observou que o repositório precisa demonstrar a integração dos fluxos de dados com automação de descarte de dados biométricos sensíveis. O João Pedro e o Gabriel apontaram também a necessidade de dar maior consistência às publicações de projetos técnicos no LinkedIn e aprimorar conceitos de SQL avançado e infraestrutura em nuvem.
-
-**Como utilizarei esse feedback:**
-
-Acho importante começar a publicar e estruturar no GitHub os repositórios de projetos em Python, Flask e modelagem de banco de dados (scripts DDL), incluindo READMEs semânticos e detalhados. Implementar um pipeline em Python que automatize o consumo, tratamento e descarte seguro de arquivos/metadados conforme os prazos da LGPD, servindo como projeto central de Engenharia de Dados. Aprofundar os estudos em SQL avançado, aplicados à gestão de logs de segurança. Fortalecer a presença profissional no LinkedIn com publicações periódicas sobre governança de dados, conformidade legal em TI e os aprendizados na transição de carreira. 
-
----
-
-### 8.2 Capítulo individual — Gabriel Anjos Albuquerque
-
-**Área de carreira:** Engenharia de Dados  
-**GitHub:** [Nerd8im](https://github.com/Nerd8im)
-#### 8.2.1 Papel no projeto e entregas verificáveis
-
-**Responsabilidades:** Responsável pelas seções 1 (Análise do problema) e 2 (Proposta tecnológica) do dossiê. A Engenharia de Dados foi relevante porque o problema é, em boa parte, de dados: levantamentos com populações e métodos diferentes, detectores que divergem entre si e checagens dispersas em várias organizações. Coube levantar e comparar essas fontes e projetar o fluxo de dados do VerificaBR, da entrada do arquivo até o relatório com evidências, incluindo retenção mínima e trilha de auditoria.
-
-**Entregas realizadas:**
-
-- Seção 1: análise do problema com cinco levantamentos quantitativos de 2024 a 2026, quatro casos documentados no Brasil, explicação técnica sobre detecção e proveniência e comparação de seis iniciativas existentes, todos com links para as fontes.
-- Seções 2.1 e 2.2: fluxo de uso com cenário e telas, regras para resultados incertos, decisões de arquitetura justificadas, segurança, armazenamento e exclusão, e diagrama refinado.
-- Seções 2.3 e 2.4: complementaridade entre as áreas de carreira do grupo e classificação das limitações em aceitáveis, aceitáveis com mitigação e impeditivas.
-
-**Commits e pull requests:** [Links]
-
-#### 8.2.2 Competências técnicas e comportamentais
-
-| Tipo | Já possuo | Preciso desenvolver |
+| Competência que a solução exige | Técnica ou comportamental | Já tenho? |
 |---|---|---|
-| Técnicas | JavaScript, Node.js e Express, HTML e CSS, Python e SQL básico; MySQL e modelagem de banco de dados (script do TCC); autenticação com JWT; documentação de API com Swagger/OpenAPI; integração com API externa (Google Gemini); Git e GitHub; Scrum; pacote básico do Microsoft Office. Evidência: o Plantools API, TCC do técnico em Informática para Internet (Etec Cidade Tiradentes, 2023–2025) | SQL avançado (JOINs, subconsultas, agregações); modelagem analítica de dados; ETL e pipelines de ingestão; Power BI; conceitos de cloud; projetos de dados mais completos no GitHub; inglês, hoje em nível básico |
-| Comportamentais | Visão de processos e de regras de negócio, desenvolvida como Aprendiz Administrativo na Sanhidrel Engekit (desde 26/01/2026); aprendizado contínuo e disposição para a transição de carreira; organização de projetos | Networking e presença profissional (2 conexões no LinkedIn e nenhuma publicação técnica); consistência na documentação e no histórico de commits; segurança em entrevistas técnicas; comunicação dos resultados dos projetos |
+| JavaScript, Node.js, Express, Python e SQL básico | Técnica | Sim, informado pelo integrante; há referência ao projeto Plantools API. |
+| APIs, autenticação JWT, Swagger/OpenAPI e Git/GitHub | Técnica | Sim, autodeclarado. |
+| SQL avançado, ETL, análise de dados e Power BI | Técnica | Preciso desenvolver. |
+| Cloud e operação de pipelines | Técnica | Conhecimento introdutório; aprofundar. |
+| Organização de processos e aprendizado contínuo | Comportamental | Sim, autodeclarado. |
+| Networking e comunicação de resultados técnicos | Comportamental | Preciso desenvolver. |
 
-#### 8.2.3 Plano de desenvolvimento — metas SMART
+Como contexto profissional autodeclarado, o integrante informou formação técnica em Informática para Internet (Etec Cidade Tiradentes, 2023–2025), projeto Plantools API e experiência como Aprendiz Administrativo desde janeiro de 2026. Relatou ainda 11 repositórios públicos no GitHub e duas conexões no LinkedIn na data de seu levantamento pessoal; esses números são linha de base informada, não uma verificação independente.
 
-**Meta de 6 meses:** Fortalecer a camada de dados do meu portfólio, que hoje tem 11 repositórios públicos, mas só um (Plantools API) detalhado. Em 6 meses, publicar no GitHub pelo menos 4 projetos com README completo (objetivo, tecnologias, como executar e resultados), incluindo os dois que hoje estão fora da plataforma (a aplicação desktop em Python e o projeto de modelagem de banco de dados de estoque) e um projeto de pipeline: um script em Python que consome periodicamente os dados do Plantools API, trata as informações e as grava em um banco SQL. Também concluir uma trilha de estudos de SQL (SELECT, JOINs, agregações e subconsultas) e aplicá-la nesse projeto. Essa meta é relevante porque alinha meu perfil de back-end à Engenharia de Dados, a área do grupo, e responde diretamente aos feedbacks recebidos.
+**Metas SMART (6 a 12 meses)**
 
-**Meta de 12 meses:** Em 12 meses, publicar de 2 a 3 projetos de análise ou tratamento de dados com Python e SQL a partir de conjuntos de dados públicos, incluindo 1 dashboard em Power BI e 1 pipeline de ETL funcional e documentado, chegar a 50 conexões relevantes no LinkedIn com pelo menos 4 publicações por mês sobre os aprendizados, e participar de processos seletivos para estágio em Tecnologia da Informação ou Dados, registrando candidaturas e entrevistas. Como passo inicial em cloud, concluir um curso introdutório de cloud, conforme previsto no PDI, e aplicar o aprendizado em um dos projetos.
+1. **Em 6 meses:** publicar pelo menos quatro projetos com README completo (objetivo, tecnologias, execução e resultados), incluindo um pipeline em Python que consulte dados de uma API, trate os registros e os grave em SQL; concluir trilha de JOINs, agregações e subconsultas. Evidências: repositórios, commits e exercícios.
+2. **Em 12 meses:** publicar dois a três projetos adicionais de dados, pelo menos um dashboard em Power BI e um pipeline ETL documentado; realizar quatro publicações técnicas mensais e ampliar a rede profissional até 50 conexões, registrando candidaturas a estágios e entrevistas. Evidências: repositórios, dashboard, publicações e planilha de acompanhamento.
 
-**Indicadores, ações e evidências:**
+**Feedback dos colegas**
 
-| Meta | Indicador | Ações principais | Evidência |
-|---|---|---|---|
-| 6 meses | 4 repositórios com README completo; 1 projeto SQL + Python publicado; trilha de SQL concluída | Publicar os projetos que estão fora do GitHub; seguir o padrão de README do Plantools API; criar o pipeline que consome o Plantools API; resolver exercícios de SQL e aplicar no projeto | Links dos repositórios e dos commits, certificado ou registro da trilha |
-| 12 meses | 2 a 3 projetos de dados, 1 dashboard em Power BI, 1 pipeline de ETL; 50 conexões; 4 publicações por mês; candidaturas e entrevistas registradas | Escolher conjuntos de dados públicos; tratar e analisar com Python e SQL; aprender Power BI; publicar conteúdo técnico; candidatar-se regularmente a vagas | Repositórios, arquivo do dashboard, perfil do LinkedIn, planilha de candidaturas |
+O documento original atribui aos colegas reconhecimento pela experiência com API, autenticação JWT, documentação e integração de serviços, e recomenda avançar em SQL, ETL, projetos de dados e presença profissional. **Confirmação coletiva pendente:** revisar nomes atribuídos a falas e verificar se todos concordam com a síntese. Como desdobramento sugerido, criar pipeline a partir da Plantools API e documentar o tratamento em banco SQL.
 
-O acompanhamento será mensal, com registro da linha de base atual: 11 repositórios públicos, 4 seguidores e 6 seguindo no GitHub, e 2 conexões no LinkedIn.
+### 8.3 João Pedro Theodoro de Sousa Andrade — Ciência de Dados
 
-#### 8.2.4 Feedback coletivo
+**Papel no projeto:** informou ter preparado o esqueleto inicial do documento e sua organização, além de redigir a seção 5 (Sustentabilidade) e trabalhar na consolidação das referências. Essa contribuição relaciona Ciência de Dados à eficiência dos modelos, custos computacionais e indicadores ambientais. O histórico de commits descrito pelo integrante precisa ser conferido no repositório.
 
-**Pontos fortes:** Os colegas destacaram a base técnica acima da média para o início de carreira, comprovada pelo Plantools API (API REST com autenticação JWT, documentação no Swagger, banco de dados e integração com a API do Gemini), como disse o Petterson. O João Pedro e o Albert reforçaram que o projeto é uma evidência concreta de capacidade técnica e que a combinação com a experiência como Aprendiz Administrativo dá uma visão integrada de processos e de regras de negócio. O Albert também apontou a busca ativa pela transição de carreira.
+**Plano de desenvolvimento**
 
-**Pontos de melhoria:** Os três colegas coincidiram em que o portfólio e a presença profissional ainda precisam ser aproximados da Engenharia de Dados: faltam projetos públicos com SQL aplicado, tratamento de dados, ETL e pipelines. O Petterson observou que meu perfil é forte em APIs e aplicações web, mas precisa dar visibilidade à camada de dados. O João Pedro e o Albert apontaram também o LinkedIn com poucas conexões e pouca atividade, a quantidade reduzida de repositórios públicos e as lacunas em SQL avançado, modelagem de dados, Power BI e ETL.
-
-**Ações a partir do feedback:**
-
-- Publicar com urgência os projetos que estão fora do GitHub (aplicação em Python e modelagem de banco de dados), cada um com README detalhado.
-- Seguir a sugestão do Petterson: criar um script em Python que consuma os dados do Plantools API (ou gere logs de uso), trate as informações e as grave em um banco SQL, como projeto central das metas de 6 e 12 meses.
-- Seguir a sugestão do João Pedro: desenvolver ao menos um projeto completo de coleta, tratamento, armazenamento e consulta de dados.
-- Divulgar a transição de carreira e os projetos no LinkedIn, com meta de conexões e publicações mensais.
-
----
-
-### 8.3 Capítulo individual — João Pedro Theodoro de Sousa Andrade
-
-**Área de carreira:** Ciência de Dadoss
-**GitHub:** jp-theodoro
-
-#### 8.3.1 Papel no projeto e entregas verificáveis
-
-**Responsabilidades:** Formatar e organizar o arquivo, deixando organizado, facilitando a compreensão das informações. Além disso, responsável pela parte 5 (Sustentabilidade).
-
-**Commits e pull requests:**
-
-1º commit: Adicionar esqueleto do documento, organizando para os outros integrantes adicionarem suas partes e separar a função de cada integrante.
-2º commit: Adicionar a parte 5 de sustentabilidade, além de adicionar as referencias
-
-#### 8.3.2 Competências técnicas e comportamentais
-
-**Competência que a solução exige:** Organização, liderança, proatividade, senso de sociedade, empatia, pensamento crítico, gestão de projetos, TI verde, entre outras competências similares.
-**Já possuo:**  Organização, liderança, senso de sociedade, empatia, TI verde. 
-
-Claro, que preciso desenvolver as outras competências para melhor desempenho!
-
-#### 8.3.3 Plano de desenvolvimento — metas SMART
-
-**Meta de 6 meses:** Pretendo aprofundar meus conhecimentos sobre sustentabilidade na área de Tecnologia da Informação, por meio de estudos e da realização de pelo menos um curso sobre TI Verde. Como resultado, pretendo elaborar um relatório identificando três estratégias para reduzir o consumo de energia, o armazenamento desnecessário e os custos operacionais da plataforma de verificação de deepfakes.
-
-**Meta de 12 meses:** Quero desenvolver minhas competências em gestão de recursos tecnológicos e planejamento financeiro, estudando conceitos básicos de Cloud Computing e análise de custos. Meu objetivo será elaborar um planejamento de sustentabilidade para a plataforma, contendo uma estimativa de custos operacionais, pelo menos três medidas de otimização de recursos e duas possibilidades de financiamento ou parceria para garantir a continuidade do projeto.
-
-#### 8.3.4 Feedback coletivo
-
-**Pontos fortes:** [Feedback dos colegas]
-
-**Pontos de melhoria:** [Feedback dos colegas]
-
-**Ações a partir do feedback:** [PREENCHER]
-
----
-
-### 8.4 Capítulo individual — Petterson Michel Lima Aguilar
-
-**Área de carreira:** Engenharia de Dados
-**GitHub:** PettersonAguilar
-
-#### 8.4.1 Papel no projeto e entregas verificáveis
-
-**Responsabilidades:** Fui responsável por estruturar a visão de Engenharia de Dados do projeto, redigindo as seções 6 (Impacto esperado) e 7 (Quadro de decisões). Minha atuação focou em definir como a arquitetura lidaria com a ingestão, o processamento assíncrono (filas) e o armazenamento dos dados, garantindo escalabilidade, governança (regras de exclusão da LGPD) e a criação de métricas de telemetria para monitorar a saúde da plataforma.
-
-**Entregas realizadas:**
-
-- Definição de Indicadores de Impacto (Secção 6.1): Estabelecimento de métricas de engenharia de dados e operação, tais como latência de ingestão de mídias, disponibilidade da base vetorial e eficiência de armazenamento na nuvem.
-- Estruturação de Telemetria e Monitorização (Secções 6.2 e 6.3): Desenho do fluxo de feedback implícito (logs de funil e timeouts) e explícito do pipeline de dados, além dos planos de contingência arquitetural (ex: pivotagem para B2B).
-- Elaboração do Quadro de Decisões Arquiteturais (Secção 7): Documentação e justificação de escolhas técnicas fundamentais de infraestrutura de dados, incluindo a adoção de processamento assíncrono (filas), a utilização de bancos de dados vetoriais cruzados com relacionais, e a implementação de expurgo automático (hard delete) para conformidade com a LGPD.
-- Integração Técnica Multidisciplinar: Alinhamento do pipeline de dados com os requisitos de TI Verde (redução de carga de processamento), segurança e acessibilidade definidos pelos restantes membros do grupo.
-
-**Commits e pull requests:** [Links]
-
-8.4.2 Competências técnicas e comportamentaisCompetência que a solução exigeTécnica ou comportamentalJá tenho?Lógica de programação e controle de versionamentoTécnicaSim (utilizo GitHub e versionamento em projetos web e Python).
-Visão de processos e organização de rotinas operacionaisComportamentalSim (desenvolvidas na experiência profissional como auxiliar administrativo e estoquista).Domínio em Python para automação e manipulação de dadosTécnicaParcialmente (possuo base em Python e construção de interfaces, mas preciso focar em processamento de dados).
-Modelagem de bancos de dados relacionais (SQL) e vetoriaisTécnicaNão (preciso aprofundar na criação de queries e estruturação de tabelas).
-Construção de pipelines de dados (ETL) e mensageriaTécnicaNão (preciso aprender a integrar sistemas utilizando filas assíncronas).
-Comunicação técnica e exposição de projetos no portfólioComportamentalNão (preciso tornar meu repositório mais ativo e documentar melhor minhas entregas).
-
-8.4.3 Plano de desenvolvimento — metas SMART
-
-Meta de 6 meses: Construir e publicar no GitHub um pipeline de dados (ETL) funcional. O projeto consistirá em um script em Python que consome dados de uma API pública, realiza o tratamento dessas informações e as salva estruturadas em um banco de dados relacional (PostgreSQL). O repositório deverá conter um arquivo README detalhado explicando a arquitetura e como executar o código.
-
-Meta de 12 meses: Obter uma certificação de entrada em fundamentos de computação em nuvem (como AWS Cloud Practitioner, Microsoft Azure Fundamentals ou Google Cloud Digital Leader) para entender onde os pipelines de dados são hospedados comercialmente. Além disso, aplicar para pelo menos 15 vagas de estágio ou nível júnior em Engenharia de Dados/Back-end, registrando as candidaturas para acompanhar a evolução nos processos seletivos.
-
-Indicadores, ações e evidências:
-
-Indicadores: 1 pipeline de ETL concluído; 1 certificação em nuvem obtida; 15 candidaturas registadas.
-
-Ações: Dedicar 4 horas semanais ao estudo de bancos de dados relacionais e SQL; criar uma conta de nível gratuito (Free Tier) na nuvem para testes; atualizar o LinkedIn com o projeto de ETL.
-
-Evidências: Link público do repositório no GitHub documentado; link do certificado digital da prova de nuvem emitido pela plataforma oficial; planilha de acompanhamento de envio de currículos.
-
-#### 8.4.4 Feedback coletivo
-
-**Pontos fortes:** [Feedback dos colegas]
-
-**Pontos de melhoria:** [Feedback dos colegas]
-
-**Ações a partir do feedback:** [PREENCHER]
-
----
-
-### 8.5 Capítulo individual — Samuel Carmoni de Oliveira
-
-**Área de carreira:** Cybersegurança
-**GitHub:** Samuel Carmoni
-
-#### 8.5.1 Papel no projeto e entregas verificáveis
-
-**Responsabilidades:** [PREENCHER]
-
-**Entregas realizadas:**
-
-- [Entrega 1]
-- [Entrega 2]
-- [Entrega 3]
-
-**Commits e pull requests:** [Links]
-
-#### 8.5.2 Competências técnicas e comportamentais
-
-| Tipo | Já possuo | Preciso desenvolver |
+| Competência que a solução exige | Técnica ou comportamental | Já tenho? |
 |---|---|---|
-| Técnicas | [PREENCHER] | [PREENCHER] |
-| Comportamentais | [PREENCHER] | [PREENCHER] |
+| Organização do trabalho, liderança e empatia | Comportamental | Sim, conforme autodeclaração. |
+| Fundamentos de TI Verde | Técnica | Conhecimento prévio informado; aprofundar avaliação quantitativa. |
+| Medição de CPU/GPU e emissões por unidade de análise | Técnica | Preciso desenvolver. |
+| Planejamento de custos de nuvem e orçamento | Técnica | Preciso desenvolver. |
+| Pensamento crítico e comunicação de resultados | Comportamental | A desenvolver e praticar. |
 
-#### 8.5.3 Plano de desenvolvimento — metas SMART
+**Metas SMART (6 a 12 meses)**
 
-**Meta de 6 meses:** [PREENCHER]
+1. **Em 6 meses:** concluir pelo menos um curso de TI Verde com carga horária mínima de 10 horas e produzir um relatório técnico contendo três estratégias de redução de consumo energético, dados transferidos ou armazenamento, com indicadores propostos e justificativas.
+2. **Em 12 meses:** estudar fundamentos de Cloud Computing e gestão de custos e publicar um plano de sustentabilidade do VerificaBR com orçamento de 12 meses, três medidas mensuráveis de otimização e duas possibilidades de financiamento ou parceria; registrar premissas e fontes utilizadas.
 
-**Meta de 12 meses:** [PREENCHER]
+**Feedback dos colegas**
 
-**Indicadores, ações e evidências:** [PREENCHER]
+**Minuta para discussão, não feedback efetivamente realizado.** Pontos fortes a validar: organização da estrutura do trabalho e capacidade de relacionar sustentabilidade à operação técnica. Pontos de desenvolvimento a discutir: detalhar métricas de consumo e demonstrar as premissas das estimativas financeiras. Ações sugeridas: comparar ao menos duas estratégias de processamento sob demanda e manter tabela de medição e custos. **Os demais integrantes deverão confirmar, corrigir ou substituir este texto antes da entrega.**
 
-#### 8.5.4 Feedback coletivo
+### 8.4 Petterson Michel Lima Aguilar — Engenharia de Dados
 
-**Pontos fortes:** [Feedback dos colegas]
+**Papel no projeto:** declarou responsabilidade pelas seções 6 e 7, com indicadores de impacto, monitoramento de pipeline, plano para baixa adesão e quadro de decisões. A perspectiva de Engenharia de Dados aparece no fluxo assíncrono, na busca por similaridade, no descarte programado e nas métricas de operação. Não há URLs de commits/PRs anexadas ao texto original; o integrante deverá identificá-las no histórico real.
 
-**Pontos de melhoria:** [Feedback dos colegas]
+**Plano de desenvolvimento**
 
-**Ações a partir do feedback:** [PREENCHER]
+| Competência que a solução exige | Técnica ou comportamental | Já tenho? |
+|---|---|---|
+| Lógica de programação e Git/GitHub | Técnica | Sim, conforme autodeclaração. |
+| Python para manipulação de dados | Técnica | Parcial; aperfeiçoar. |
+| SQL relacional e índices vetoriais | Técnica | Preciso desenvolver. |
+| Pipelines ETL e mensageria assíncrona | Técnica | Preciso desenvolver. |
+| Organização de rotinas e visão de processos | Comportamental | Sim, conforme autodeclaração. |
+| Comunicação técnica e documentação do portfólio | Comportamental | Preciso desenvolver. |
 
----
+**Metas SMART (6 a 12 meses)**
+
+1. **Em 6 meses:** dedicar quatro horas semanais ao estudo de SQL, Python e ETL e publicar um pipeline que consuma uma API pública, trate dados e salve o resultado em PostgreSQL, com instruções de execução e pelo menos três testes automatizados no GitHub.
+2. **Em 12 meses:** concluir uma formação introdutória ou certificação de fundamentos de nuvem, documentar a implantação simulada do pipeline e registrar pelo menos 15 candidaturas a estágio/júnior em Engenharia de Dados ou Back-end. Evidências: curso/certificado, repositório e planilha pessoal de candidaturas.
+
+**Feedback dos colegas**
+
+**Minuta para discussão, não feedback efetivamente realizado.** Pontos fortes a validar: clareza na escolha de métricas operacionais e preocupação com governança de dados. Pontos de desenvolvimento a discutir: consolidar prática com SQL, ETL e tecnologias de mensageria; revisar limites de desempenho à luz do custo real. Ações sugeridas: construir pipeline reproduzível e documentar critérios de descarte, latência e retentativa. **A síntese precisa ser escrita ou aprovada coletivamente.**
+
+### 8.5 Samuel Carmoni de Oliveira — Cibersegurança
+
+**Papel no projeto:** o texto do grupo atribui a Samuel a redação da seção 4 (Acessibilidade e inclusão digital). A participação é compatível com segurança do acesso e proteção de usuários, mas **suas contribuições técnicas, os commits e a confirmação do papel individual estão pendentes**. O conteúdo a seguir é um modelo de plano, não uma descrição de atividades já realizadas.
+
+**Plano de desenvolvimento**
+
+| Competência que a solução exige | Técnica ou comportamental | Já tenho? |
+|---|---|---|
+| Validação de assinaturas, hashes e credenciais C2PA | Técnica | [SAMUEL: informar nível real] |
+| Segurança de APIs e autorização por caso | Técnica | [SAMUEL: informar nível real] |
+| Tratamento de uploads, criptografia e resposta a incidentes | Técnica | [SAMUEL: informar nível real] |
+| Acessibilidade digital e testes de teclado/leitores de tela | Técnica | [SAMUEL: informar nível real] |
+| Comunicação e colaboração interdisciplinar | Comportamental | [SAMUEL: informar nível real] |
+
+**Metas SMART (6 a 12 meses)**
+
+1. **Proposta para 6 meses — validar com Samuel:** concluir uma formação introdutória de segurança de aplicações web de pelo menos 12 horas e produzir, em repositório de estudos, um protótipo de API com três controles testados: restrição de upload, autorização por caso e registro de acessos sem dados sensíveis.
+2. **Proposta para 12 meses — validar com Samuel:** documentar uma avaliação de segurança do fluxo de mídias, com checklist de ameaças, pelo menos oito cenários de teste e plano de correção; incluir uma avaliação WCAG dos fluxos de envio e contestação. Evidências: relatórios, testes e histórico de versionamento. Ajustar as metas às competências e à disponibilidade do integrante.
+
+**Feedback dos colegas**
+
+**Modelo não validado pelo grupo:** discutir a contribuição de Samuel à acessibilidade, a clareza das orientações para usuários e a integração entre segurança e proteção de dados. Recomendações possíveis: demonstrar teste de teclado/leitor de tela e mapear ataques contra uploads e autenticação. **Não atribuir essa avaliação a colegas antes de eles a redigirem/aprovarem.**
 
 ## 9. Referências
 
-As referências abaixo são sugestões iniciais de fontes para o Dossiê 4. O grupo deve conferir os dados, as datas e a correspondência entre as citações do texto e a lista final.
+As referências estão numeradas por código **Rxx** na ordem de primeira menção. Os URLs completos foram centralizados nesta seção para facilitar leitura automática e conferência. Leis, padrões técnicos e páginas continuamente atualizadas são citados pela versão vigente; materiais jornalísticos e científicos foram priorizados a partir de novembro de 2024. As datas exatas não identificadas devem ser confirmadas antes da submissão.
 
-### Legislação e documentos oficiais
+- **R01**. DATA PRIVACY BRASIL; ALÁFIA LAB. *IA na pré-eleição: deepfakes, desinformação e novos desafios para a integridade das eleições de 2026*. Data Privacy Brasil Research, 2026. Disponível em: https://www.dataprivacybr.org/documentos/ia-na-pre-eleicao-deepfakes-desinformacao-e-novos-desafios-para-a-integridade-das-eleicoes-de-2026/
 
-1. BRASIL. **Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais (LGPD)**. Versão vigente. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
+- **R02**. FOLHAPRESS. *Lula foi alvo de 1 em cada 4 conteúdos com IA publicados na pré-campanha, diz levantamento*. Bahia Notícias (reprodução Folhapress), 2026. Disponível em: https://www.bahianoticias.com.br/folha/noticia/409339-lula-foi-alvo-de-1-em-cada-4-conteudos-com-ia-publicados-na-pre-campanha-diz-levantamento
 
-2. TRIBUNAL SUPERIOR ELEITORAL. **Resolução nº 23.610/2019**. Texto compilado vigente. Disponível em: https://www.tse.jus.br/legislacao/compilada/res/2019/resolucao-no-23-610-de-18-de-dezembro-de-2019?texto=compilado
+- **R03**. AGÊNCIA BRASIL. *Flávio e PL lideram uso indevido de IA, diz observatório*. Portal Acessa (reprodução), set. 2026. Disponível em: https://www.acessa.com/politica/2026/09/339752-flavio-e-pl-lideram-uso-indevido-de-ia-diz-observatorio.html
 
-3. TRIBUNAL SUPERIOR ELEITORAL. **Resolução nº 23.755, de 2 de março de 2026**. Disponível em: https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-755-de-2-de-marco-de-2026
+- **R04**. FREIRE, Tâmara. *Mesmo proibidos, deepfakes tomam conta das redes antes da eleição*. Agência Brasil, 2 out. 2026. Disponível em: https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mesmo-proibidos-deepfakes-tomam-conta-das-redes-antes-da-eleicao
 
-4. AUTORIDADE NACIONAL DE PROTEÇÃO DE DADOS. **Nota Técnica nº 1/2026**. Disponível em: https://www.gov.br/anpd/pt-br/centrais-de-conteudo/documentos-tecnicos-orientativos/nota-tecnica-no-1-2026-fis-cgf-anpd.pdf
+- **R05**. AGÊNCIA LUPA; FAAP. *A IA do Nosso Feed*. Observatório Lupa, ago. 2026. Disponível em: https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf
 
-### Normas e especificações técnicas
+- **R06**. AGÊNCIA LUPA. *I panorama da desinformação no Brasil: padrões, estratégias e impacto*. Observatório Lupa, 5 fev. 2026. Disponível em: https://www.agencialupa.org/observatorio/2026/02/05/i-panorama-da-desinformacao-no-brasil-padroes-estrategias-e-impacto/
 
-5. COALITION FOR CONTENT PROVENANCE AND AUTHENTICITY. **C2PA Technical Specification, versão 2.2**. Disponível em: https://spec.c2pa.org/specifications/specifications/2.2/index.html
+- **R07**. CONGRESSO EM FOCO. *Deepfakes: a ameaça que já chegou às eleições de 2026*. Congresso em Foco, 2026. Disponível em: https://www.congressoemfoco.com.br/conteudo/121736/deepfakes-a-ameaca-que-ja-chegou-as-eleicoes-de-2026
 
-6. WORLD WIDE WEB CONSORTIUM. **Web Content Accessibility Guidelines (WCAG) 2.2**. Recomendação vigente. Disponível em: https://www.w3.org/TR/WCAG22/
+- **R08**. CORREIO BRAZILIENSE. *TSE começa a julgar ação sobre uso de deepfake na eleição*. Correio Braziliense, set. 2026. Disponível em: https://www.correiobraziliense.com.br/politica/2026/09/7491361-tse-comeca-a-julgar-acao-sobre-uso-de-deepfake-na-eleicao.html
 
-### Pesquisas acadêmicas
+- **R09**. O POVO. *IA nas eleições 2026: saiba o que é proibido, prazos e multas*. O Povo, 25 jul. 2026. Disponível em: https://www.opovo.com.br/noticias/politica/eleicoes/2026/07/25/ia-nas-eleicoes-2026-saiba-o-que-e-proibido-prazos-e-multas.html
 
-7. **Deepfake-Eval-2024: A Multi-Modal In-the-Wild Benchmark of Deepfakes Circulated in 2024**. 2025. Disponível em: https://doi.org/10.48550/arXiv.2503.02857
+- **R10**. NOSSO MEIO. *CNN Brasil lidera ranking de confiança entre marcas jornalísticas no Brasil*. Nosso Meio, 2026. Disponível em: https://nossomeio.com.br/cnn-brasil-lidera-ranking-de-confianca-entre-marcas-jornalisticas-no-brasil/
 
-8. **BRSpeech-DF: A Deep Fake Synthetic Speech Dataset for Portuguese Zero-Shot TTS**. 2025. Disponível em: https://aclanthology.org/2025.emnlp-main.1780.pdf
+- **R11**. FILHO, Alexandre Costa Ferro et al. *BRSpeech-DF: A Deep Fake Synthetic Speech Dataset for Portuguese Zero-Shot TTS*. Proceedings of EMNLP, ACL Anthology, nov. 2025. Disponível em: https://aclanthology.org/2025.emnlp-main.1780/
 
-### Pesquisas e checagem de fatos no Brasil
+- **R12**. CHANDRA, Nuria Alina et al. *Deepfake-Eval-2024: A Multi-Modal In-the-Wild Benchmark of Deepfakes Circulated in 2024*. arXiv, mar. 2025; versão publicada em CVPR Workshops, jun. 2026. Disponível em: https://doi.org/10.48550/arXiv.2503.02857
 
-9. DATA PRIVACY BRASIL. **IA na pré-eleição: deepfakes, desinformação e novos desafios para a integridade das eleições de 2026**. Disponível em: https://www.dataprivacybr.org/documentos/ia-na-pre-eleicao-deepfakes-desinformacao-e-novos-desafios-para-a-integridade-das-eleicoes-de-2026/
+- **R13**. PROJETO COMPROVA. *Áudio de Moraes sobre proibir linguajar evangélico foi feito por IA*. SBT News, 10 dez. 2025. Disponível em: https://sbtnews.sbt.com.br/noticia/comprova/audio-de-moraes-sobre-proibir-linguajar-evangelico-foi-feito-por-ia
 
-10. AGÊNCIA LUPA. **Projeto VigIA**. 2026. Disponível em: https://www.agencialupa.org/observatorio-lupa/projeto-vigia/
+- **R14**. FISCHER, Marcelo. *Deepfakes: como saber se um vídeo de candidato é verdadeiro?*. Canaltech, 30 set. 2026. Disponível em: https://canaltech.com.br/inteligencia-artificial/deepfakes-como-saber-se-um-video-de-candidato-e-verdadeiro/
 
-11. AGÊNCIA BRASIL. **Mesmo proibidos, deepfakes tomam conta das redes antes da eleição**. Outubro de 2026. Disponível em: https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mesmo-proibidos-deepfakes-tomam-conta-das-redes-antes-da-eleicao
+- **R15**. COALITION FOR CONTENT PROVENANCE AND AUTHENTICITY (C2PA). *C2PA Technical Specification, versão 2.2*. C2PA, maio 2025. Disponível em: https://spec.c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html
 
-12. AOS FATOS. **Da IA ultrarrealista ao WhatsApp, como a desinformação moldou as eleições**. Outubro de 2026. Disponível em: https://www.aosfatos.org/noticias/ia-ultrarrealista-whatsapp-desinformacao-moldou-eleicoes/
+- **R16**. AI INCIDENT DATABASE. *Report 6301: teste do Washington Post com Content Credentials*. AI Incident Database, reprodução de reportagem de out. 2025. Disponível em: https://incidentdatabase.ai/reports/6301
 
-### Pesquisas da parte 5, sustentabilidade
-1. NTERNATIONAL ENERGY AGENCY (IEA). **Energy and AI**. Paris: IEA, 2025. Disponível em: https://www.iea.org/reports/energy-and-ai/executive-summary. Acesso em: 4 nov. 2026.
+- **R17**. COALITION FOR CONTENT PROVENANCE AND AUTHENTICITY (C2PA). *C2PA Technical Specification, versão 2.3*. C2PA, versão técnica 2.3, 2026. Disponível em: https://spec.c2pa.org/specifications/specifications/2.3/specs/C2PA_Specification.html
 
-2. GREEN SOFTWARE FOUNDATION. **Software Carbon Intensity (SCI): ISO/IEC 21031:2024**. Disponível em: https://greensoftware.foundation/standards/sci/. Acesso em: 4 nov. 2026.
+- **R18**. AGÊNCIA BRASIL. *IA acelera desinformação e ameaça democracias, alerta pesquisa*. Agência Brasil, abr. 2026. Disponível em: https://agenciabrasil.ebc.com.br/geral/noticia/2026-04/ia-acelera-desinformacao-e-ameaca-democracias-alerta-pesquisa
 
-3. AMAZON WEB SERVICES (AWS). **Pilar Sustentabilidade: AWS Well-Architected Framework**. Revisão de novembro de 2024. Disponível em: https://docs.aws.amazon.com/pt_br/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html. Acesso em: 4 nov. 2026.
+- **R19**. COALITION FOR CONTENT PROVENANCE AND AUTHENTICITY. *C2PA Soft Binding API: Soft Binding Resolution API for C2PA Manifest Recovery*. C2PA, especificação versão 2.2, maio 2025. Disponível em: https://c2pa.org/specifications/specifications/2.2/softbinding/Decoupled.html
 
-4. NATIONAL INSTITUTE OF STANDARDS AND TECHNOLOGY (NIST). **Artificial Intelligence Risk Management Framework (AI RMF 1.0)**. NIST AI 100-1, 2023. Disponível em: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/. Acesso em: 4 nov. 2026.
+- **R20**. CORREIO BRAZILIENSE. *Comprova lança projeto para as eleições com serviço de apoio a jornalistas*. Correio Braziliense, set. 2026. Disponível em: https://www.correiobraziliense.com.br/holofote/2026/09/7507556-comprova-lanca-projeto-para-as-eleicoes-com-servico-de-apoio-a-jornalistas-no-combate-a-desinformacao.html
 
-5. GOOGLE CLOUD. **Carbon Footprint Reporting Methodology**. Documentação técnica. Disponível em: https://docs.cloud.google.com/carbon-footprint/docs/methodology. Acesso em: 4 nov. 2026.
+- **R21**. DIÁRIO DE PERNAMBUCO. *TSE e Google lançam ferramenta para candidatos identificarem deepfakes no YouTube*. Diário de Pernambuco, ago. 2026. Disponível em: https://www.diariodepernambuco.com.br/politica/2026/08/11722378-tse-e-google-lancam-ferramenta-para-candidatos-identificarem-deepfakes-no-youtube.html
 
-6. AMAZON WEB SERVICES (AWS). **AWS Pricing Calculator**. Disponível em: https://aws.amazon.com/aws-cost-management/aws-pricing-calculator/. Acesso em: 4 nov. 2026.
+- **R22**. CORREIO BRAZILIENSE. *Candidatos poderão rastrear deepfakes com nova ferramenta do YouTube*. Correio Braziliense, ago. 2026. Disponível em: https://www.correiobraziliense.com.br/brasil/2026/08/amp/7488108-candidatos-poderao-rastrear-deepfakes-com-nova-ferramenta-do-youtube.html
 
-7. AMAZON WEB SERVICES (AWS). **Definição de preço de instância sob demanda do Amazon EC2**. Disponível em: https://aws.amazon.com/pt/ec2/pricing/on-demand/. Acesso em: 4 nov. 2026.
+- **R23**. RITCHIN, Fred. *Major platforms are not labeling AI-generated videos*. Notes of a MetaPhotographer (Substack), 28 out. 2025. Disponível em: https://fredritchin.substack.com/p/major-platforms-are-not-labeling
 
-8. AMAZON WEB SERVICES (AWS). **Managing the Lifecycle of Objects**. Amazon S3 User Guide. Disponível em: https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html. Acesso em: 4 nov. 2026.
+- **R24**. MEDIANAMA. *Audit of AI labeling on major social platforms*. Medianama, nov. 2025. Disponível em: https://www.medianama.com/2025/11/223-audit-social-media-google-meta-ai-labelling/
 
-9. AMAZON WEB SERVICES (AWS). **Creating a Cost Budget**. AWS Cost Management User Guide. Disponível em: https://docs.aws.amazon.com/cost-management/latest/userguide/create-cost-budget.html. Acesso em: 4 nov. 2026.
+- **R25**. GOOGLE SEARCH CENTRAL. *Fact check (ClaimReview) structured data*. Google for Developers, documentação vigente, 2026. Disponível em: https://developers.google.com/search/docs/data-types/factcheck
 
-- Acrescentar as referências utilizadas pelos integrantes.
-- Conferir autoria, título, ano, URL e data de acesso.
-- Priorizar publicações a partir de novembro de 2024.
-- Utilizar leis e normas pela versão vigente.
-- Remover referências que não tenham sido utilizadas.
-- Garantir que toda afirmação quantitativa esteja acompanhada de fonte.
+- **R26**. GOOGLE. *Fact Check Tools API: referência de RPC*. Google for Developers, documentação vigente, 2026. Disponível em: https://developers.google.com/fact-check/tools/api/reference/rpc
 
----
+- **R27**. BRASIL. *Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais*. Planalto, versão vigente, 2018; versão vigente em 2026. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
 
-<!--
-=====================================================
-CHECKLIST FINAL DE ENTREGA
-=====================================================
+- **R28**. CONTENT AUTHENTICITY INITIATIVE. *Introdução às ferramentas de autenticidade de conteúdo*. CAI Open Source, documentação vigente, 2026. Disponível em: https://opensource.contentauthenticity.org/docs/introduction
 
-[ ok ] Grupo com 3 a 5 integrantes.
-[ ok ] Integrantes em ordem alfabética.
-[ok  ] Nome, RGM, GitHub e área de carreira preenchidos.
-[ ok ] Dossiê e recorte justificados.
-[ ] Problema com dados e fontes.
-[ ] Causas técnicas aprofundadas.
-[ ] Soluções existentes comparadas.
-[ ] Fluxo de usuário detalhado.
-[ ] Arquitetura e diagrama revisados.
-[ ] Contribuição de cada área profissional explicada.
-[ ] Limitações tecnológicas apresentadas.
-[ ] Matriz com pelo menos 5 riscos.
-[ ] Decisão ética justificada em até 10 linhas.
-[ ] Pelo menos 6 controles éticos com responsável e evidência.
-[ ] Tabela LGPD preenchida e validada.
-[ ] Comunicado público com até 600 caracteres.
-[ ] Acessibilidade com critérios WCAG concretos.
-[ ] Inclusão digital discutida.
-[ ] Sustentabilidade ambiental, técnica e financeira.
-[ ] Métricas com metas mensuráveis.
-[ ] Métodos para ouvir usuários.
-[ ] Plano para baixa adesão.
-[ ] Pelo menos 5 decisões justificadas.
-[ ] Capítulo individual de cada integrante.
-[ ] Competências técnicas e comportamentais.
-[ ] Metas SMART para 6 a 12 meses.
-[ ] Feedback coletivo em cada capítulo.
-[ ] Referências recentes e links conferidos.
-[ ] Apenas um arquivo .md para a entrega.
-[ ] Repositório público novo no GitHub.
-[ ] Todos os integrantes com commits próprios.
-[ ] Pull requests e contribuições verificáveis.
-[ ] Revisão de ortografia, coerência e formatação.
-[ ] Preparação de todos para a arguição.
-[ ] Entrega até 09/11/2026 às 23h59.
+- **R29**. CONTENT AUTHENTICITY INITIATIVE. *c2pa-python: biblioteca de validação de Content Credentials*. GitHub, repositório técnico vigente, 2026. Disponível em: https://github.com/contentauth/c2pa-python
 
-=====================================================
--->
+- **R30**. CONTENT AUTHENTICITY INITIATIVE. *c2pa-rs: SDK Rust para validação de credenciais C2PA*. GitHub, repositório técnico vigente, 2026. Disponível em: https://github.com/contentauth/c2pa-rs
+
+- **R31**. AMAZON WEB SERVICES. *AWS Pricing Calculator*. AWS, ferramenta vigente, 2026. Disponível em: https://aws.amazon.com/aws-cost-management/aws-pricing-calculator/
+
+- **R32**. TRIBUNAL SUPERIOR ELEITORAL. *Resolução nº 23.755, de 2 de março de 2026*. TSE, 2 mar. 2026. Disponível em: https://www.tse.jus.br/legislacao/compilada/res/2026/resolucao-no-23-755-de-2-de-marco-de-2026
+
+- **R33**. AUTORIDADE NACIONAL DE PROTEÇÃO DE DADOS. *Relatório de Impacto à Proteção de Dados Pessoais (RIPD): perguntas e respostas*. ANPD, atualização, 23 set. 2026. Disponível em: https://www.gov.br/anpd/pt-br/canais_atendimento/agente-de-tratamento/relatorio-de-impacto-a-protecao-de-dados-pessoais-ripd
+
+- **R34**. WORLD WIDE WEB CONSORTIUM. *Web Content Accessibility Guidelines (WCAG) 2.2*. W3C, versão vigente, recomendação vigente em 2026. Disponível em: https://www.w3.org/TR/WCAG22/
+
+- **R35**. INTERNATIONAL ENERGY AGENCY. *Energy and AI*. IEA, Paris, 2025. Disponível em: https://www.iea.org/reports/energy-and-ai/executive-summary
+
+- **R36**. GREEN SOFTWARE FOUNDATION. *Software Carbon Intensity Specification*. Green Software Foundation, especificação vigente, 2026. Disponível em: https://sci.greensoftware.foundation/
+
+- **R37**. NATIONAL INSTITUTE OF STANDARDS AND TECHNOLOGY. *AI Risk Management Framework (AI RMF 1.0)*. NIST, norma de referência vigente, 2023; vigente em 2026. Disponível em: https://airc.nist.gov/airmf-resources/airmf/
+
+- **R38**. BRASIL. *Lei nº 12.965/2014 — Marco Civil da Internet*. Planalto, versão vigente, 2014; vigente em 2026. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm
