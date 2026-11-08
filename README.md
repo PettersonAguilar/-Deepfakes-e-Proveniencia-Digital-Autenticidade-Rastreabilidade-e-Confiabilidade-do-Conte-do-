@@ -700,17 +700,12 @@ Para cada decisão:
 
 #### 8.1.4 Feedback coletivo
 
-**Pontos fortes identificados pelos colegas:**
+**Pontos fortes:** [Feedback dos colegas]
 
-[PREENCHER com feedback real.]
+**Pontos de melhoria:** [Feedback dos colegas]
 
-**Pontos de melhoria:**
+**Ações a partir do feedback:** [PREENCHER]
 
-[PREENCHER com feedback real.]
-
-**Como utilizarei esse feedback:**
-
-[PREENCHER.]
 
 ---
 
@@ -833,46 +828,24 @@ Claro, que preciso desenvolver as outras competências para melhor desempenho!
 
 ---
 
-### 8.5 Capítulo individual — Samuel Carmoni de Oliveira
+### 8.5 Samuel Carmoni de Oliveira — Cibersegurança
 
-**Área de carreira:** Cybersegurança
-**GitHub:** Samuel Carmoni
+**Papel no projeto:** fiquei responsável pela seção 4 (Acessibilidade e inclusão digital). Nela, pensei em quem pode ter dificuldade para usar a plataforma, como pessoas idosas, pessoas cegas ou com baixa visão e quem tem internet fraca, e no que fazer para que todos consigam usar. Meus commits: [COLE AQUI os links dos seus commits].
 
-#### 8.5.1 Papel no projeto e entregas verificáveis
+**Plano de desenvolvimento**
 
-**Responsabilidades:** [PREENCHER]
+| Competência que a solução exige                             | Técnica ou comportamental | Já tenho?                                                                                                    |
+|-------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------|
+| Validação de assinaturas, hashes e credenciais C2PA         | Técnica                   | Ainda não. É um selo digital que mostra de onde um arquivo veio. Preciso estudar.                            |
+| Segurança de APIs e autorização por caso                    | Técnica                   | Ainda não. Estou começando em programação. Preciso estudar.                                                  |
+| Tratamento de uploads, criptografia e resposta a incidentes | Técnica                   | Ainda não. Preciso aprender como proteger os arquivos que os usuários enviam.                                |
+| Acessibilidade digital e testes de teclado/leitores de tela | Técnica                   | Um pouco. Estudei as regras de acessibilidade para fazer a seção 4, mas ainda não testei na prática.         |
+| Comunicação e colaboração interdisciplinar                  | Comportamental            | Um pouco. Tenho experiência atendendo clientes e vendendo, mas preciso treinar a explicar assuntos técnicos. |
 
-**Entregas realizadas:**
+**Metas SMART (6 a 12 meses)**
 
-- [Entrega 1]
-- [Entrega 2]
-- [Entrega 3]
-
-**Commits e pull requests:** [Links]
-
-#### 8.5.2 Competências técnicas e comportamentais
-
-| Tipo | Já possuo | Preciso desenvolver |
-|---|---|---|
-| Técnicas | [PREENCHER] | [PREENCHER] |
-| Comportamentais | [PREENCHER] | [PREENCHER] |
-
-#### 8.5.3 Plano de desenvolvimento — metas SMART
-
-**Meta de 6 meses:** [PREENCHER]
-
-**Meta de 12 meses:** [PREENCHER]
-
-**Indicadores, ações e evidências:** [PREENCHER]
-
-#### 8.5.4 Feedback coletivo
-
-**Pontos fortes:** [Feedback dos colegas]
-
-**Pontos de melhoria:** [Feedback dos colegas]
-
-**Ações a partir do feedback:** [PREENCHER]
-
+1. **Em 6 meses:** fazer um curso básico de segurança na internet (pelo menos 12 horas, de preferência gratuito) e criar no GitHub um projeto pequeno em Python que bloqueia arquivos grandes ou de tipo errado e anota quem acessou. Evidências: certificado do curso e o projeto no GitHub com README.
+2. **Em 12 meses:** testar se o protótipo do VerificaBR é seguro, com uma lista de riscos e pelo menos 8 testes, e testar se ele é fácil de usar por pessoas com deficiência, com uma ferramenta gratuita como o WAVE. Também enviar currículo para vagas de estágio em TI. Evidências: relatório no GitHub e planilha com as vagas.
 ---
 
 ## 9. Referências
