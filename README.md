@@ -725,12 +725,24 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 
 **Avaliação:** A parte do Albert foi a que olhou para os riscos do projeto: o que pode dar errado e como proteger os dados de quem usa. Gostei de ele ter pensado nisso desde o começo e não só no final, Para melhorar, ele pode treinar SQL e se acostumar a explicar assuntos técnicos de um jeito mais simples.
 
-**Pontos fortes:** [Feedback dos colegas]
+### 8.2 Gabriel Anjos Albuquerque — Engenharia de Dados
 
-**Pontos de melhoria:** [Feedback dos colegas]
+**Papel no projeto:** declarou responsabilidade pelas seções 1 e 2, incluindo pesquisa dos levantamentos, comparação de iniciativas, jornadas de usuário, política de incerteza e arquitetura de processamento/armazenamento. No texto original registra dois commits vinculados às seções e ao capítulo pessoal; verificar os registros reais no GitHub.
 
-**Ações a partir do feedback:** [PREENCHER]
+**Plano de desenvolvimento**
 
+| Competência que a solução exige | Técnica ou comportamental | Já tenho? |
+|---|---|---|
+| JavaScript, Node.js, Express, Python e SQL básico | Técnica | Sim, informado pelo integrante; há referência ao projeto Plantools API. |
+| APIs, autenticação JWT, Swagger/OpenAPI e Git/GitHub | Técnica | Sim, autodeclarado. |
+| SQL avançado, ETL, análise de dados e Power BI | Técnica | Preciso desenvolver. |
+| Cloud e operação de pipelines | Técnica | Conhecimento introdutório; aprofundar. |
+| Organização de processos e aprendizado contínuo | Comportamental | Sim, autodeclarado. |
+| Networking e comunicação de resultados técnicos | Comportamental | Preciso desenvolver. |
+
+Como contexto profissional autodeclarado, o integrante informou formação técnica em Informática para Internet (Etec Cidade Tiradentes, 2023–2025), projeto Plantools API e experiência como Aprendiz Administrativo desde janeiro de 2026. Relatou ainda 11 repositórios públicos no GitHub e duas conexões no LinkedIn na data de seu levantamento pessoal; esses números são linha de base informada, não uma verificação independente.
+
+**Metas SMART (6 a 12 meses)**
 
 1. **Em 6 meses:** publicar pelo menos quatro projetos com README completo (objetivo, tecnologias, execução e resultados), incluindo um pipeline em Python que consulte dados de uma API, trate os registros e os grave em SQL; concluir trilha de JOINs, agregações e subconsultas. Evidências: repositórios, commits e exercícios.
 2. **Em 12 meses:** publicar dois a três projetos adicionais de dados, pelo menos um dashboard em Power BI e um pipeline ETL documentado; realizar quatro publicações técnicas mensais e ampliar a rede profissional até 50 conexões, registrando candidaturas a estágios e entrevistas. Evidências: repositórios, dashboard, publicações e planilha de acompanhamento.
@@ -751,7 +763,7 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 
 #### Feedback de Samuel Carmoni de Oliveira
 
-***Avaliação:** Gabriel fez a pesquisa sobre o problema e montou o desenho de como a plataforma funcionaria. Isso deixou a proposta mais clara para o grupo. Como sugestão, ele pode estudar mais SQL e publicar mais projetos no portfólio dele.
+**Avaliação:** O Gabriel foi quem pesquisou o problema e desenhou como a plataforma funcionaria por dentro, e isso deu uma base para o resto do grupo trabalhar. [ACRESCENTE algo que você viu dele no grupo.] Um ponto a evoluir é SQL mais avançado, e também vale ele mostrar mais projetos no portfólio.
 
 ### 8.3 João Pedro Theodoro de Sousa Andrade — Ciência de Dados
 
