@@ -683,7 +683,7 @@ Se FPR/FNR excederem os limites nos cenários validados, houver disparidade grav
 
 ## 8. Capítulos individuais
 
-Os dados pessoais e atividades a seguir foram **informados no documento do grupo**. Os papéis devem ser confrontados com a autoria real no histórico do GitHub. Textos de feedback já fornecidos são relatos a confirmar; os propostos para capítulos incompletos não representam opiniões efetivamente emitidas.
+Os dados pessoais e as atividades descritas foram **informados pelos integrantes no documento do grupo**; o histórico de commits do GitHub deve confirmar as contribuições. Os feedbacks aparecem separados por avaliador para facilitar o preenchimento, mas sua versão final deve ser conhecida e aprovada coletivamente pelos demais colegas, conforme a orientação do professor. Campos identificados como pendentes não representam feedback já realizado.
 
 ### 8.1 Albert dos Santos Mariano — Engenharia de Dados
 
@@ -723,7 +723,7 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 
 #### Feedback de Samuel Carmoni de Oliveira
 
-**Avaliação:** A parte do Albert foi a que olhou para os riscos do projeto: o que pode dar errado e como proteger os dados de quem usa. Gostei de ele ter pensado nisso desde o começo e não só no final, Para melhorar, ele pode treinar SQL e se acostumar a explicar assuntos técnicos de um jeito mais simples.
+**Avaliação:** A parte do Albert foi a que olhou para os riscos do projeto: o que pode dar errado e como proteger os dados de quem usa. Gostei de ele ter pensado nisso desde o começo e não só no final. Para melhorar, ele pode treinar SQL e se acostumar a explicar assuntos técnicos de um jeito mais simples.
 
 ### 8.2 Gabriel Anjos Albuquerque — Engenharia de Dados
 
@@ -763,7 +763,7 @@ Como contexto profissional autodeclarado, o integrante informou formação técn
 
 #### Feedback de Samuel Carmoni de Oliveira
 
-**Avaliação:** O Gabriel foi quem pesquisou o problema e desenhou como a plataforma funcionaria por dentro, e isso deu uma base para o resto do grupo trabalhar. [ACRESCENTE algo que você viu dele no grupo.] Um ponto a evoluir é SQL mais avançado, e também vale ele mostrar mais projetos no portfólio.
+**Avaliação:** O Gabriel foi quem pesquisou o problema e desenhou como a plataforma funcionaria por dentro, e isso deu uma base para o resto do grupo trabalhar. Um ponto a evoluir é SQL mais avançado, e também vale ele mostrar mais projetos no portfólio.
 
 ### 8.3 João Pedro Theodoro de Sousa Andrade — Ciência de Dados
 
@@ -840,26 +840,75 @@ Como contexto profissional autodeclarado, o integrante informou formação técn
 
 **Avaliação:** Petterson trabalhou nos indicadores de impacto e no quadro de decisões, que mostram se a plataforma está funcionando e por que cada escolha foi feita. Como sugestão, ele pode praticar Python e SQL em projetos reais e melhorar a documentação, explicando bem cada projeto.
 
----
 ### 8.5 Samuel Carmoni de Oliveira — Cibersegurança
 
-**Papel no projeto:** fiquei responsável pela seção 4 (Acessibilidade e inclusão digital). Nela, pensei em quem pode ter dificuldade para usar a plataforma, como pessoas idosas, pessoas cegas ou com baixa visão e quem tem internet fraca, e no que fazer para que todos consigam usar. Meus commits: [COLE AQUI os links dos seus commits].
+**Papel no projeto:** Feito a seção 4 (Acessibilidade e inclusão digital), abordando barreiras enfrentadas por pessoas idosas, pessoas cegas ou com baixa visão e usuários com conexão limitada, além de propostas para tornar a plataforma mais acessível. 
 
 **Plano de desenvolvimento**
 
-| Competência que a solução exige                             | Técnica ou comportamental | Já tenho?                                                                                                    |
-|-------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------|
-| Validação de assinaturas, hashes e credenciais C2PA         | Técnica                   | Ainda não. É um selo digital que mostra de onde um arquivo veio. Preciso estudar.                            |
-| Segurança de APIs e autorização por caso                    | Técnica                   | Ainda não. Estou começando em programação. Preciso estudar.                                                  |
-| Tratamento de uploads, criptografia e resposta a incidentes | Técnica                   | Ainda não. Preciso aprender como proteger os arquivos que os usuários enviam.                                |
-| Acessibilidade digital e testes de teclado/leitores de tela | Técnica                   | Um pouco. Estudei as regras de acessibilidade para fazer a seção 4, mas ainda não testei na prática.         |
-| Comunicação e colaboração interdisciplinar                  | Comportamental            | Um pouco. Tenho experiência atendendo clientes e vendendo, mas preciso treinar a explicar assuntos técnicos. |
+| Competência que a solução exige | Técnica ou comportamental | Já tenho? |
+|---|---|---|
+| Validação de assinaturas, hashes e credenciais C2PA | Técnica | Ainda não. É um selo digital que mostra de onde um arquivo veio. Preciso estudar. |
+| Segurança de APIs e autorização por caso | Técnica | Ainda não. Estou começando em programação. Preciso estudar. |
+| Tratamento de uploads, criptografia e resposta a incidentes | Técnica | Ainda não. Preciso aprender como proteger os arquivos que os usuários enviam. |
+| Acessibilidade digital e testes de teclado/leitores de tela | Técnica | Um pouco. Estudei as regras de acessibilidade para fazer a seção 4, mas ainda não testei na prática. |
+| Comunicação e colaboração interdisciplinar | Comportamental | Um pouco. Tenho experiência atendendo clientes e vendendo, mas preciso treinar a explicar assuntos técnicos. |
 
 **Metas SMART (6 a 12 meses)**
 
 1. **Em 6 meses:** fazer um curso básico de segurança na internet (pelo menos 12 horas, de preferência gratuito) e criar no GitHub um projeto pequeno em Python que bloqueia arquivos grandes ou de tipo errado e anota quem acessou. Evidências: certificado do curso e o projeto no GitHub com README.
 2. **Em 12 meses:** testar se o protótipo do VerificaBR é seguro, com uma lista de riscos e pelo menos 8 testes, e testar se ele é fácil de usar por pessoas com deficiência, com uma ferramenta gratuita como o WAVE. Também enviar currículo para vagas de estágio em TI. Evidências: relatório no GitHub e planilha com as vagas.
----
+
+**Feedback dos colegas**
+
+#### Feedback de Albert dos Santos Mariano
+
+**Avaliação:** [A preencher por Albert dos Santos Mariano.]
+
+#### Feedback de Gabriel Anjos Albuquerque
+
+**Avaliação:** [A preencher por Gabriel Anjos Albuquerque.]
+
+#### Feedback de João Pedro Theodoro de Sousa Andrade
+
+**Avaliação:** A parte de acessibilidade atribuída a Samuel é importante para que a plataforma VerificaBR possa atender diferentes públicos, incluindo pessoas com deficiência e usuários com pouca familiaridade tecnológica. Essa preocupação se relaciona diretamente com a proposta de desenvolver uma ferramenta inclusiva e responsável. Como sugestão de desenvolvimento, considero interessante que ele aprofunde seus conhecimentos sobre segurança de aplicações web, proteção de dados e validação de assinaturas digitais, relacionando esses conteúdos aos requisitos de acessibilidade. Também seria positivo realizar testes práticos de segurança e usabilidade para fortalecer suas competências e a qualidade das soluções propostas.
+
+#### Feedback de Petterson Michel Lima Aguilar
+
+**Avaliação:** [A preencher por Petterson Michel Lima Aguilar.]
+
+## 9. Referências
+
+As referências utilizam códigos **R01–R38**, identificados nas citações ao longo do documento. Os URLs completos foram centralizados nesta seção para facilitar leitura automática e conferência. Leis, padrões técnicos e páginas continuamente atualizadas são citados pela versão vigente; materiais jornalísticos e científicos foram priorizados a partir de novembro de 2024. As datas exatas não identificadas devem ser confirmadas antes da submissão.
+
+- **R01**. DATA PRIVACY BRASIL; ALÁFIA LAB. *IA na pré-eleição: deepfakes, desinformação e novos desafios para a integridade das eleições de 2026*. Data Privacy Brasil Research, 2026. Disponível em: https://www.dataprivacybr.org/documentos/ia-na-pre-eleicao-deepfakes-desinformacao-e-novos-desafios-para-a-integridade-das-eleicoes-de-2026/
+
+- **R02**. FOLHAPRESS. *Lula foi alvo de 1 em cada 4 conteúdos com IA publicados na pré-campanha, diz levantamento*. Bahia Notícias (reprodução Folhapress), 2026. Disponível em: https://www.bahianoticias.com.br/folha/noticia/409339-lula-foi-alvo-de-1-em-cada-4-conteudos-com-ia-publicados-na-pre-campanha-diz-levantamento
+
+- **R03**. AGÊNCIA BRASIL. *Flávio e PL lideram uso indevido de IA, diz observatório*. Portal Acessa (reprodução), set. 2026. Disponível em: https://www.acessa.com/politica/2026/09/339752-flavio-e-pl-lideram-uso-indevido-de-ia-diz-observatorio.html
+
+- **R04**. FREIRE, Tâmara. *Mesmo proibidos, deepfakes tomam conta das redes antes da eleição*. Agência Brasil, 2 out. 2026. Disponível em: https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mesmo-proibidos-deepfakes-tomam-conta-das-redes-antes-da-eleicao
+
+- **R05**. AGÊNCIA LUPA; FAAP. *A IA do Nosso Feed*. Observatório Lupa, ago. 2026. Disponível em: https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf
+
+- **R06**. AGÊNCIA LUPA. *I panorama da desinformação no Brasil: padrões, estratégias e impacto*. Observatório Lupa, 5 fev. 2026. Disponível em: https://www.agencialupa.org/observatorio/2026/02/05/i-panorama-da-desinformacao-no-brasil-padroes-estrategias-e-impacto/
+
+- **R07**. CONGRESSO EM FOCO. *Deepfakes: a ameaça que já chegou às eleições de 2026*. Congresso em Foco, 2026. Disponível em: https://www.congressoemfoco.com.br/conteudo/121736/deepfakes-a-ameaca-que-ja-chegou-as-eleicoes-de-2026
+
+- **R08**. CORREIO BRAZILIENSE. *TSE começa a julgar ação sobre uso de deepfake na eleição*. Correio Braziliense, set. 2026. Disponível em: https://www.correiobraziliense.com.br/politica/2026/09/7491361-tse-comeca-a-julgar-acao-sobre-uso-de-deepfake-na-eleicao.html
+
+- **R09**. O POVO. *IA nas eleições 2026: saiba o que é proibido, prazos e multas*. O Povo, 25 jul. 2026. Disponível em: https://www.opovo.com.br/noticias/politica/eleicoes/2026/07/25/ia-nas-eleicoes-2026-saiba-o-que-e-proibido-prazos-e-multas.html
+
+- **R10**. NOSSO MEIO. *CNN Brasil lidera ranking de confiança entre marcas jornalísticas no Brasil*. Nosso Meio, 2026. Disponível em: https://nossomeio.com.br/cnn-brasil-lidera-ranking-de-confianca-entre-marcas-jornalisticas-no-brasil/
+
+- **R11**. FILHO, Alexandre Costa Ferro et al. *BRSpeech-DF: A Deep Fake Synthetic Speech Dataset for Portuguese Zero-Shot TTS*. Proceedings of EMNLP, ACL Anthology, nov. 2025. Disponível em: https://aclanthology.org/2025.emnlp-main.1780/
+
+- **R12**. CHANDRA, Nuria Alina et al. *Deepfake-Eval-2024: A Multi-Modal In-the-Wild Benchmark of Deepfakes Circulated in 2024*. arXiv, mar. 2025; versão publicada em CVPR Workshops, jun. 2026. Disponível em: https://doi.org/10.48550/arXiv.2503.02857
+
+- **R13**. PROJETO COMPROVA. *Áudio de Moraes sobre proibir linguajar evangélico foi feito por IA*. SBT News, 10 dez. 2025. Disponível em: https://sbtnews.sbt.com.br/noticia/comprova/audio-de-moraes-sobre-proibir-linguajar-evangelico-foi-feito-por-ia
+
+- **R14**. FISCHER, Marcelo. *Deepfakes: como saber se um vídeo de candidato é verdadeiro?*. Canaltech, 30 set. 2026. Disponível em: https://canaltech.com.br/inteligencia-artificial/deepfakes-como-saber-se-um-video-de-candidato-e-verdadeiro/
+
 - **R15**. COALITION FOR CONTENT PROVENANCE AND AUTHENTICITY (C2PA). *C2PA Technical Specification, versão 2.2*. C2PA, maio 2025. Disponível em: https://spec.c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html
 
 - **R16**. AI INCIDENT DATABASE. *Report 6301: teste do Washington Post com Content Credentials*. AI Incident Database, reprodução de reportagem de out. 2025. Disponível em: https://incidentdatabase.ai/reports/6301
