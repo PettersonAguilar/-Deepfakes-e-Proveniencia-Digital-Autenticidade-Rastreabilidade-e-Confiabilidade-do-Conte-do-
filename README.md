@@ -711,11 +711,11 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 
 #### Feedback de Gabriel Anjos Albuquerque
 
-**Avaliação:** [A preencher por Gabriel Anjos Albuquerque.]
+**Avaliação:** O Albert fez um bom trabalho na parte de ética do projeto. Ele montou a matriz de riscos, explicou a LGPD e escreveu o comunicado público de um jeito claro, mostrando que se preocupou com a privacidade das pessoas que usariam o VerificaBR. Foi uma parte importante para o projeto ficar mais responsável. Como ponto de melhoria, acho que ele pode estudar mais SQL e ETL para aplicar na prática os conceitos de dados que já entende na teoria. Também vale treinar a forma de apresentar suas ideias, para passar com mais segurança o que ele sabe.
 
 #### Feedback de João Pedro Theodoro de Sousa Andrade
 
-**Avaliação:** Albert apresentou uma contribuição importante para a parte ética do projeto, abordando questões como proteção de dados, LGPD, riscos e responsabilidade no uso da tecnologia. Demonstrou preocupação com a segurança das informações e com os possíveis impactos da plataforma sobre os usuários. Como ponto de melhoria, acredito que seria interessante aprofundar seus conhecimentos em SQL e processos de ETL, além de desenvolver ainda mais a comunicação técnica. Isso permitiria que ele aplicasse os conceitos de dados de maneira mais prática e fortalecesse suas competências profissionais.
+**Avaliação:** Albert abordou questões como proteção de dados, LGPD, riscos e responsabilidade no uso da tecnologia. Demonstrou preocupação com a segurança das informações e com os possíveis impactos da plataforma sobre os usuários. Como ponto de melhoria, acredito que seria interessante aprofundar seus conhecimentos em SQL e processos de ETL, além de desenvolver ainda mais a comunicação técnica. Isso permitiria que ele aplicasse os conceitos de dados de maneira mais prática e fortalecesse suas competências profissionais.
 
 #### Feedback de Petterson Michel Lima Aguilar
 
@@ -723,7 +723,7 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 
 #### Feedback de Samuel Carmoni de Oliveira
 
-**Avaliação:** A parte do Albert foi a que olhou para os riscos do projeto: o que pode dar errado e como proteger os dados de quem usa. Gostei de ele ter pensado nisso desde o começo e não só no final. Para melhorar, ele pode treinar SQL e se acostumar a explicar assuntos técnicos de um jeito mais simples.
+**Avaliação:** A parte do Albert foi a que olhou para os riscos do projeto, o que pode dar errado e como proteger os dados de quem usa. Gostei de ele ter pensado nisso desde o começo e não só no final. Para melhorar, ele pode treinar SQL e se acostumar a explicar assuntos técnicos de um jeito mais simples.
 
 ### 8.2 Gabriel Anjos Albuquerque — Engenharia de Dados
 
@@ -792,7 +792,7 @@ Como contexto profissional autodeclarado, o integrante informou formação técn
 
 #### Feedback de Gabriel Anjos Albuquerque
 
-**Avaliação:** [A preencher por Gabriel Anjos Albuquerque.]
+**Avaliação:** O João Pedro teve uma participação muito importante. Ele montou a base do documento, organizou a estrutura e deixou o trabalho mais fácil para o resto do grupo. Também escreveu a parte de sustentabilidade, com custos, impacto ambiental e metas, e cuidou das referências. Isso deu mais confiança ao projeto. Como sugestão, acho que ele pode aprofundar o estudo de nuvem e de como medir o consumo dos modelos de IA, para deixar os números ainda mais precisos. Também vale continuar praticando a comunicação dos resultados, para explicar ainda melhor o que fez.
 
 #### Feedback de Petterson Michel Lima Aguilar
 
@@ -830,7 +830,7 @@ Como contexto profissional autodeclarado, o integrante informou formação técn
 
 #### Feedback de Gabriel Anjos Albuquerque
 
-**Avaliação:** [A preencher por Gabriel Anjos Albuquerque.]
+**Avaliação:** O Petterson foi bem na parte de impacto do projeto. Ele definiu os indicadores, pensou no que fazer se a solução não der certo e organizou o quadro de decisões, explicando os motivos de cada escolha. Isso ajuda muito a ver se o VerificaBR seria viável de verdade. Como ponto de melhoria, acho que ele pode se dedicar mais a Python, SQL e à criação de pipelines de dados, aplicando isso em projetos práticos. Também seria bom caprichar na documentação dos projetos, para mostrar melhor o que ele sabe fazer.
 
 #### Feedback de João Pedro Theodoro de Sousa Andrade
 
@@ -867,7 +867,7 @@ Como contexto profissional autodeclarado, o integrante informou formação técn
 
 #### Feedback de Gabriel Anjos Albuquerque
 
-**Avaliação:** [A preencher por Gabriel Anjos Albuquerque.]
+**Avaliação:** O Samuel ficou com a parte de acessibilidade e inclusão digital, que é muito importante para o VerificaBR poder ser usado por todo tipo de pessoa, como idosos, pessoas com deficiência e quem tem internet limitada. Ele mostrou preocupação em deixar a plataforma simples e fácil de entender. Como sugestão, acho que ele pode estudar mais segurança de aplicações web e proteção de dados, já que essa é a área dele no grupo. Também seria legal fazer testes práticos de segurança e de uso, para fortalecer ainda mais o que ele propôs.
 
 #### Feedback de João Pedro Theodoro de Sousa Andrade
 
