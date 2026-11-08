@@ -709,7 +709,21 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 
 **Feedback dos colegas**
 
-O texto original relata como pontos fortes a organização, a familiaridade com Python e a preocupação com governança, LGPD e rastreabilidade. Como pontos de evolução, menciona necessidade de SQL mais avançado, ETL completo, documentação de projetos e presença profissional. **Confirmação coletiva pendente:** os demais integrantes devem aprovar essa síntese e atribuir os comentários corretamente; não se consideram depoimentos formalmente comprovados. Ação sugerida: publicar um pipeline de ingestão e exclusão com testes e registrar as melhorias na documentação.
+#### Feedback de Gabriel Anjos Albuquerque
+
+**Avaliação:** [A preencher por Gabriel Anjos Albuquerque.]
+
+#### Feedback de João Pedro Theodoro de Sousa Andrade
+
+**Avaliação:** Albert apresentou uma contribuição importante para a parte ética do projeto, abordando questões como proteção de dados, LGPD, riscos e responsabilidade no uso da tecnologia. Demonstrou preocupação com a segurança das informações e com os possíveis impactos da plataforma sobre os usuários. Como ponto de melhoria, acredito que seria interessante aprofundar seus conhecimentos em SQL e processos de ETL, além de desenvolver ainda mais a comunicação técnica. Isso permitiria que ele aplicasse os conceitos de dados de maneira mais prática e fortalecesse suas competências profissionais.
+
+#### Feedback de Petterson Michel Lima Aguilar
+
+**Avaliação:** [A preencher por Petterson Michel Lima Aguilar.]
+
+#### Feedback de Samuel Carmoni de Oliveira
+
+**Avaliação:** [A preencher por Samuel Carmoni de Oliveira.]
 
 ### 8.2 Gabriel Anjos Albuquerque — Engenharia de Dados
 
@@ -735,7 +749,21 @@ Como contexto profissional autodeclarado, o integrante informou formação técn
 
 **Feedback dos colegas**
 
-O documento original atribui aos colegas reconhecimento pela experiência com API, autenticação JWT, documentação e integração de serviços, e recomenda avançar em SQL, ETL, projetos de dados e presença profissional. **Confirmação coletiva pendente:** revisar nomes atribuídos a falas e verificar se todos concordam com a síntese. Como desdobramento sugerido, criar pipeline a partir da Plantools API e documentar o tratamento em banco SQL.
+#### Feedback de Albert dos Santos Mariano
+
+**Avaliação:** [A preencher por Albert dos Santos Mariano.]
+
+#### Feedback de João Pedro Theodoro de Sousa Andrade
+
+**Avaliação:** Gabriel teve uma participação importante na construção da proposta, principalmente na pesquisa sobre o problema e na definição do funcionamento e da arquitetura da plataforma. Sua familiaridade com desenvolvimento de APIs e integração de sistemas contribui para a compreensão dos aspectos técnicos do projeto. Como sugestão de desenvolvimento, considero importante que aprofunde seus conhecimentos em Engenharia de Dados, especialmente SQL avançado, ETL e ferramentas de análise de dados. Também seria interessante continuar desenvolvendo sua comunicação profissional e ampliar seu portfólio com projetos relacionados à área em que pretende atuar.
+
+#### Feedback de Petterson Michel Lima Aguilar
+
+**Avaliação:** [A preencher por Petterson Michel Lima Aguilar.]
+
+#### Feedback de Samuel Carmoni de Oliveira
+
+**Avaliação:** [A preencher por Samuel Carmoni de Oliveira.]
 
 ### 8.3 João Pedro Theodoro de Sousa Andrade — Ciência de Dados
 
@@ -758,7 +786,21 @@ O documento original atribui aos colegas reconhecimento pela experiência com AP
 
 **Feedback dos colegas**
 
-**Minuta para discussão, não feedback efetivamente realizado.** Pontos fortes a validar: organização da estrutura do trabalho e capacidade de relacionar sustentabilidade à operação técnica. Pontos de desenvolvimento a discutir: detalhar métricas de consumo e demonstrar as premissas das estimativas financeiras. Ações sugeridas: comparar ao menos duas estratégias de processamento sob demanda e manter tabela de medição e custos. **Os demais integrantes deverão confirmar, corrigir ou substituir este texto antes da entrega.**
+#### Feedback de Albert dos Santos Mariano
+
+**Avaliação:** [A preencher por Albert dos Santos Mariano.]
+
+#### Feedback de Gabriel Anjos Albuquerque
+
+**Avaliação:** [A preencher por Gabriel Anjos Albuquerque.]
+
+#### Feedback de Petterson Michel Lima Aguilar
+
+**Avaliação:** [A preencher por Petterson Michel Lima Aguilar.]
+
+#### Feedback de Samuel Carmoni de Oliveira
+
+**Avaliação:** [A preencher por Samuel Carmoni de Oliveira.]
 
 ### 8.4 Petterson Michel Lima Aguilar — Engenharia de Dados
 
@@ -782,7 +824,21 @@ O documento original atribui aos colegas reconhecimento pela experiência com AP
 
 **Feedback dos colegas**
 
-**Minuta para discussão, não feedback efetivamente realizado.** Pontos fortes a validar: clareza na escolha de métricas operacionais e preocupação com governança de dados. Pontos de desenvolvimento a discutir: consolidar prática com SQL, ETL e tecnologias de mensageria; revisar limites de desempenho à luz do custo real. Ações sugeridas: construir pipeline reproduzível e documentar critérios de descarte, latência e retentativa. **A síntese precisa ser escrita ou aprovada coletivamente.**
+#### Feedback de Albert dos Santos Mariano
+
+**Avaliação:** [A preencher por Albert dos Santos Mariano.]
+
+#### Feedback de Gabriel Anjos Albuquerque
+
+**Avaliação:** [A preencher por Gabriel Anjos Albuquerque.]
+
+#### Feedback de João Pedro Theodoro de Sousa Andrade
+
+**Avaliação:** Petterson contribuiu para o planejamento do projeto ao trabalhar com indicadores de impacto e decisões tecnológicas, aspectos importantes para avaliar a viabilidade e os resultados esperados da plataforma. Sua participação demonstra preocupação com a organização do sistema e com a definição de objetivos que possam ser acompanhados ao longo do tempo. Como ponto de melhoria, acredito que seria interessante aprofundar seus conhecimentos em Python, SQL e construção de pipelines de dados, buscando aplicar esses conceitos em projetos práticos. Além disso, desenvolver a documentação técnica e a apresentação de resultados pode contribuir para seu crescimento profissional.
+
+#### Feedback de Samuel Carmoni de Oliveira
+
+**Avaliação:** [A preencher por Samuel Carmoni de Oliveira.]
 
 ### 8.5 Samuel Carmoni de Oliveira — Cibersegurança
 
@@ -805,7 +861,21 @@ O documento original atribui aos colegas reconhecimento pela experiência com AP
 
 **Feedback dos colegas**
 
-**Modelo não validado pelo grupo:** discutir a contribuição de Samuel à acessibilidade, a clareza das orientações para usuários e a integração entre segurança e proteção de dados. Recomendações possíveis: demonstrar teste de teclado/leitor de tela e mapear ataques contra uploads e autenticação. **Não atribuir essa avaliação a colegas antes de eles a redigirem/aprovarem.**
+#### Feedback de Albert dos Santos Mariano
+
+**Avaliação:** [A preencher por Albert dos Santos Mariano.]
+
+#### Feedback de Gabriel Anjos Albuquerque
+
+**Avaliação:** [A preencher por Gabriel Anjos Albuquerque.]
+
+#### Feedback de João Pedro Theodoro de Sousa Andrade
+
+**Avaliação:** A parte de acessibilidade atribuída a Samuel é importante para que a plataforma VerificaBR possa atender diferentes públicos, incluindo pessoas com deficiência e usuários com pouca familiaridade tecnológica. Essa preocupação se relaciona diretamente com a proposta de desenvolver uma ferramenta inclusiva e responsável. Como sugestão de desenvolvimento, considero interessante que ele aprofunde seus conhecimentos sobre segurança de aplicações web, proteção de dados e validação de assinaturas digitais, relacionando esses conteúdos aos requisitos de acessibilidade. Também seria positivo realizar testes práticos de segurança e usabilidade para fortalecer suas competências e a qualidade das soluções propostas.
+
+#### Feedback de Petterson Michel Lima Aguilar
+
+**Avaliação:** [A preencher por Petterson Michel Lima Aguilar.]
 
 ## 9. Referências
 
