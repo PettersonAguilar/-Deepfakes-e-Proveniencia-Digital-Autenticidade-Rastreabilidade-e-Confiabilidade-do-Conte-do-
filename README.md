@@ -766,77 +766,49 @@ Portanto, a sustentabilidade do VerificaBR não depende apenas da redução de c
 
 ### 6.1 Indicadores de resultado
 
-As metas abaixo são hipóteses acadêmicas para um piloto. Não representam resultados obtidos.
+As metas abaixo são hipóteses acadêmicas para um piloto de 3 meses. Como a espinha dorsal do *VerificaBR* depende da agilidade em processar mídias e extrair metadados, os indicadores medem o impacto social integrado à saúde do pipeline de dados, conectando-se diretamente às diretrizes de infraestrutura, sustentabilidade e acessibilidade definidas pelo grupo.
 
-| Indicador | Como medir | Meta inicial proposta |
-|---|---|---|
-| Tempo de análise | Mediana do tempo por solicitação | [Definir após teste] |
-| Taxa de falsos positivos | Casos legítimos sinalizados incorretamente | [Definir limite aceitável] |
-| Taxa de falsos negativos | Deepfakes não identificados | [Definir limite aceitável] |
-| Taxa de inconclusivos | Análises sem evidência suficiente | [Definir meta] |
-| Satisfação do usuário | Pesquisa após a utilização | [Definir meta] |
-| Acessibilidade | Testes WCAG e com usuários | [Definir meta] |
-| Contestação | Tempo e resolução das solicitações | [Definir meta] |
-| Custo por análise | Gasto total dividido por análises | [Definir meta] |
-
-**[DESENVOLVER — RESPONSÁVEL]**
-
-- Definir metas numéricas realistas.
-- Informar a linha de base, quando disponível.
-- Explicar como serão coletados os dados.
-- Indicar a periodicidade das avaliações.
-- Separar resultados técnicos de impactos sociais.
+| Indicador | Como medir | Meta inicial proposta | Frequência |
+|---|---|---|---|
+| **Latência de ingestão e análise** | Mediana do tempo de travessia do arquivo pelo pipeline assíncrono (upload, pré-processamento e motor de evidências). | Inferior a 15 segundos para mídias de até 3 minutos, conforme fila estruturada na Seção 2. | Semanal |
+| **Taxa de inconclusivos** | Proporção de análises sem evidência suficiente (reflete a qualidade dos dados de entrada e dos modelos). | Teto de 40% (a linha de base apontada na Seção 1 é 55% em ferramentas abertas). | Quinzenal |
+| **Eficiência e Custo (TI Verde)** | Gasto total e Software Carbon Intensity (SCI) divididos pelo volume de análises, conforme Seção 5. | Teto de R$ 2,67 por análise processada; redução de 15% na transferência de dados. | Mensal |
+| **Taxa de retenção mínima (LGPD)** | Percentual de arquivos brutos (vídeo/áudio) expurgados automaticamente após o relatório. | 100% dos arquivos excluídos em até 7 dias, cumprindo a matriz de riscos da Seção 3. | Semanal |
+| **Acessibilidade e Inclusão** | Taxa de conclusão de tarefas em testes de usabilidade com leitores de tela e redes móveis limitadas. | 100% de conformidade com WCAG 2.2 AA nos fluxos críticos, conforme métricas da Seção 4. | A cada versão |
+| **Taxa de falsos positivos/negativos** | Casos classificados incorretamente após auditoria e pedidos de revisão humana. | FP < 2% (danos reputacionais) / FN < 5% (segurança da informação). | Mensal |
 
 ### 6.2 Como ouvir os usuários?
 
-**Métodos propostos:**
+Como a Engenharia de Dados trabalha fortemente com telemetria, a escuta dos usuários combinará a leitura do comportamento dos dados no pipeline com feedback qualitativo, respeitando a privacidade:
 
-- Entrevistas com usuários do público-alvo.
-- Testes de usabilidade.
-- Questionários de compreensão dos relatórios.
-- Canal de feedback e contestação.
-- Avaliação com profissionais de checagem.
-
-**[PREENCHER]** Definir participantes, perguntas, critérios de seleção e cuidados com privacidade.
+*   **Telemetria Estruturada (Feedback Implícito):** Implementação de logs no *front-end* e na API (proposta na Seção 2) para medir onde o usuário abandona o processo. Monitorar *timeouts* de upload ajudará a confirmar se os limites de tamanho estão adequados para usuários com pacotes de dados restritos (Seção 4).
+*   **Questionários em Tela (Feedback Explícito):** Microquestionários rápidos e anônimos ("A explicação ficou clara? Sim/Não") armazenados apenas com o ID do protocolo, sem exigir criação de conta.
+*   **Avaliação com Usuários Representativos:** Testes de usabilidade moderados com pessoas idosas e usuários de leitores de tela para garantir que a saída em texto do "Motor de Evidências" seja compreensível sem jargões.
 
 ### 6.3 E se a adesão for baixa?
 
-Caso a utilização fique abaixo do esperado, o grupo propõe:
+Se o volume for inferior a 500 análises mensais no segundo mês ou a taxa de abandono (*drop-off*) no upload for superior a 30%, a Engenharia de Dados atuará investigando os gargalos no fluxo:
 
-1. Investigar barreiras de acesso.
-2. Avaliar a compreensão dos resultados.
-3. Reduzir etapas desnecessárias.
-4. Melhorar comunicação e acessibilidade.
-5. Reavaliar o público-alvo.
-6. Verificar se o benefício percebido justifica o esforço de uso.
-
-**[DESENVOLVER]** Definir qual indicador acionaria uma revisão da proposta e quando seria considerada sua descontinuação.
+1.  **Investigar barreiras de infraestrutura:** Analisar logs da nuvem para verificar se conexões móveis lentas estão causando queda no envio. Se sim, aplicar o *upload com retomada* e otimização de compressão sugeridos na Seção 4.
+2.  **Ajuste do Pipeline de Busca:** Se os custos computacionais ou a lentidão afastarem os usuários, inverteremos o peso do pipeline: a busca vetorial por similaridade na *Base de Checagens* (banco de dados) será executada antes de acionar os pesados modelos de IA, economizando processamento (atendendo à sustentabilidade da Seção 5).
+3.  **Redução de atrito de acesso:** Confirmar se o acesso via navegador está sendo uma barreira. Se necessário, projetar uma integração via API para o WhatsApp, permitindo que o usuário encaminhe o vídeo suspeito direto no aplicativo.
 
 ---
 
 ## 7. Quadro de decisões
 
-**Responsável:** Petterson Michel Lima Aguilar
+**Responsável:** Petterson Michel Lima Aguilar 
 
-| Decisão | Alternativas consideradas | Justificativa preliminar |
-|---|---|---|
-| Combinar proveniência e detecção | Apenas detector ou apenas C2PA | Reduz dependência de um único mecanismo |
-| Incluir resultado inconclusivo | Classificação binária | Evita apresentar certeza indevida |
-| Utilizar revisão humana | Automação integral | Permite examinar casos complexos |
-| Minimizar armazenamento | Guardar todos os arquivos | Reduz exposição de dados pessoais |
-| Priorizar interface web | Aplicativo nativo | Facilita acesso inicial multiplataforma |
-| Criar canal de contestação | Resultado sem revisão | Permite corrigir decisões questionáveis |
-| Fazer implantação piloto | Lançamento público imediato | Permite avaliar riscos antes de ampliar o uso |
+Este quadro consolida as principais escolhas arquiteturais do projeto. As decisões refletem o compromisso de construir um pipeline de dados escalável, sustentável, ético e acessível, integrando os levantamentos de todas as áreas do grupo.
 
-**[DESENVOLVER — GRUPO]**
-
-Para cada decisão:
-
-- Explicar as alternativas reais.
-- Apresentar vantagens e desvantagens.
-- Indicar evidências que sustentam a escolha.
-- Registrar quem participou da decisão.
-- Revisar se a decisão continua válida após as pesquisas.
+| Decisão | Alternativas consideradas | Justificativa e Evidências | Participantes e Conexão |
+|---|---|---|---|
+| **Pipeline assíncrono (Filas) e limite de mídias** | Processamento síncrono (API trava aguardando a IA) e uploads ilimitados. | Modelos de vídeo são pesados. O uso de mensageria (filas) evita a queda do sistema em picos eleitorais. Limitar tamanho (ex: 50MB) reduz pegada de carbono e atende usuários com internet fraca.
+| **Banco Vetorial combinado com Relacional** | Usar apenas um banco relacional (SQL) para armazenar o histórico de checagens jornalísticas. | Para achar vídeos já checados, a API precisa calcular o "hash/embedding" da mídia. Bancos vetoriais fazem busca por similaridade de forma mais eficiente, evitando reprocessar a mesma *deepfake* na IA. |
+| **Arquitetura híbrida (C2PA + Detecção)** | Depender só da assinatura C2PA ou só da IA probabilística. | Redes sociais apagam os metadados C2PA no reenvio (*soft binding* frequentemente falha). A IA isolada tem altas taxas de erro (falsos positivos). Cruzar ambos no "Motor de Evidências" garante maior robustez. | Petterson (Eng. de Dados), Samuel (Cibersegurança). |
+| **Descarte físico de mídias originais** | Manter vídeos em *Cold Storage* para treinar modelos futuros do próprio grupo. | Conteúdo eleitoral possui voz e rostos (dados biométricos sensíveis). A regra de expurgo automático em até 7 dias garante a minimização e conformidade total com a LGPD. |
+| **Acesso por Protocolo (Sem Criação de Conta)** | Exigir login e senha, ou cadastro com e-mail/celular para ver o resultado. | A exigência de conta gera atrito para idosos e pessoas de baixa literacia digital, além de violar a minimização de dados da LGPD. O acesso por código de acompanhamento resolve ambos os problemas. |
+| **Incluir o resultado "Análise inconclusiva"** | Forçar o algoritmo a dar um veredito binário ("Verdadeiro" ou "Falso"). | Testes da Lupa mostraram que 55% dos conteúdos ficam sem confirmação clara. Forçar uma resposta com base em uma pontuação baixa do modelo cria falsa segurança e agrava a desinformação. |
 
 ---
 
@@ -995,30 +967,36 @@ Claro, que preciso desenvolver as outras competências para melhor desempenho!
 
 #### 8.4.1 Papel no projeto e entregas verificáveis
 
-**Responsabilidades:** [PREENCHER]
+**Responsabilidades:** Fui responsável por estruturar a visão de Engenharia de Dados do projeto, redigindo as seções 6 (Impacto esperado) e 7 (Quadro de decisões). Minha atuação focou em definir como a arquitetura lidaria com a ingestão, o processamento assíncrono (filas) e o armazenamento dos dados, garantindo escalabilidade, governança (regras de exclusão da LGPD) e a criação de métricas de telemetria para monitorar a saúde da plataforma.
 
 **Entregas realizadas:**
 
-- [Entrega 1]
-- [Entrega 2]
-- [Entrega 3]
+- Definição de Indicadores de Impacto (Secção 6.1): Estabelecimento de métricas de engenharia de dados e operação, tais como latência de ingestão de mídias, disponibilidade da base vetorial e eficiência de armazenamento na nuvem.
+- Estruturação de Telemetria e Monitorização (Secções 6.2 e 6.3): Desenho do fluxo de feedback implícito (logs de funil e timeouts) e explícito do pipeline de dados, além dos planos de contingência arquitetural (ex: pivotagem para B2B).
+- Elaboração do Quadro de Decisões Arquiteturais (Secção 7): Documentação e justificação de escolhas técnicas fundamentais de infraestrutura de dados, incluindo a adoção de processamento assíncrono (filas), a utilização de bancos de dados vetoriais cruzados com relacionais, e a implementação de expurgo automático (hard delete) para conformidade com a LGPD.
+- Integração Técnica Multidisciplinar: Alinhamento do pipeline de dados com os requisitos de TI Verde (redução de carga de processamento), segurança e acessibilidade definidos pelos restantes membros do grupo.
 
 **Commits e pull requests:** [Links]
 
-#### 8.4.2 Competências técnicas e comportamentais
+8.4.2 Competências técnicas e comportamentaisCompetência que a solução exigeTécnica ou comportamentalJá tenho?Lógica de programação e controle de versionamentoTécnicaSim (utilizo GitHub e versionamento em projetos web e Python).
+Visão de processos e organização de rotinas operacionaisComportamentalSim (desenvolvidas na experiência profissional como auxiliar administrativo e estoquista).Domínio em Python para automação e manipulação de dadosTécnicaParcialmente (possuo base em Python e construção de interfaces, mas preciso focar em processamento de dados).
+Modelagem de bancos de dados relacionais (SQL) e vetoriaisTécnicaNão (preciso aprofundar na criação de queries e estruturação de tabelas).
+Construção de pipelines de dados (ETL) e mensageriaTécnicaNão (preciso aprender a integrar sistemas utilizando filas assíncronas).
+Comunicação técnica e exposição de projetos no portfólioComportamentalNão (preciso tornar meu repositório mais ativo e documentar melhor minhas entregas).
 
-| Tipo | Já possuo | Preciso desenvolver |
-|---|---|---|
-| Técnicas | [PREENCHER] | [PREENCHER] |
-| Comportamentais | [PREENCHER] | [PREENCHER] |
+8.4.3 Plano de desenvolvimento — metas SMART
 
-#### 8.4.3 Plano de desenvolvimento — metas SMART
+Meta de 6 meses: Construir e publicar no GitHub um pipeline de dados (ETL) funcional. O projeto consistirá em um script em Python que consome dados de uma API pública, realiza o tratamento dessas informações e as salva estruturadas em um banco de dados relacional (PostgreSQL). O repositório deverá conter um arquivo README detalhado explicando a arquitetura e como executar o código.
 
-**Meta de 6 meses:** [PREENCHER]
+Meta de 12 meses: Obter uma certificação de entrada em fundamentos de computação em nuvem (como AWS Cloud Practitioner, Microsoft Azure Fundamentals ou Google Cloud Digital Leader) para entender onde os pipelines de dados são hospedados comercialmente. Além disso, aplicar para pelo menos 15 vagas de estágio ou nível júnior em Engenharia de Dados/Back-end, registrando as candidaturas para acompanhar a evolução nos processos seletivos.
 
-**Meta de 12 meses:** [PREENCHER]
+Indicadores, ações e evidências:
 
-**Indicadores, ações e evidências:** [PREENCHER]
+Indicadores: 1 pipeline de ETL concluído; 1 certificação em nuvem obtida; 15 candidaturas registadas.
+
+Ações: Dedicar 4 horas semanais ao estudo de bancos de dados relacionais e SQL; criar uma conta de nível gratuito (Free Tier) na nuvem para testes; atualizar o LinkedIn com o projeto de ETL.
+
+Evidências: Link público do repositório no GitHub documentado; link do certificado digital da prova de nuvem emitido pela plataforma oficial; planilha de acompanhamento de envio de currículos.
 
 #### 8.4.4 Feedback coletivo
 
