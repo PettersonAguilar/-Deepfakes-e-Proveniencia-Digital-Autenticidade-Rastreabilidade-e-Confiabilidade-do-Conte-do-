@@ -725,24 +725,12 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 
 **Avaliação:** [A preencher por Samuel Carmoni de Oliveira.]
 
-### 8.2 Gabriel Anjos Albuquerque — Engenharia de Dados
+**Pontos fortes:** [Feedback dos colegas]
 
-**Papel no projeto:** declarou responsabilidade pelas seções 1 e 2, incluindo pesquisa dos levantamentos, comparação de iniciativas, jornadas de usuário, política de incerteza e arquitetura de processamento/armazenamento. No texto original registra dois commits vinculados às seções e ao capítulo pessoal; verificar os registros reais no GitHub.
+**Pontos de melhoria:** [Feedback dos colegas]
 
-**Plano de desenvolvimento**
+**Ações a partir do feedback:** [PREENCHER]
 
-| Competência que a solução exige | Técnica ou comportamental | Já tenho? |
-|---|---|---|
-| JavaScript, Node.js, Express, Python e SQL básico | Técnica | Sim, informado pelo integrante; há referência ao projeto Plantools API. |
-| APIs, autenticação JWT, Swagger/OpenAPI e Git/GitHub | Técnica | Sim, autodeclarado. |
-| SQL avançado, ETL, análise de dados e Power BI | Técnica | Preciso desenvolver. |
-| Cloud e operação de pipelines | Técnica | Conhecimento introdutório; aprofundar. |
-| Organização de processos e aprendizado contínuo | Comportamental | Sim, autodeclarado. |
-| Networking e comunicação de resultados técnicos | Comportamental | Preciso desenvolver. |
-
-Como contexto profissional autodeclarado, o integrante informou formação técnica em Informática para Internet (Etec Cidade Tiradentes, 2023–2025), projeto Plantools API e experiência como Aprendiz Administrativo desde janeiro de 2026. Relatou ainda 11 repositórios públicos no GitHub e duas conexões no LinkedIn na data de seu levantamento pessoal; esses números são linha de base informada, não uma verificação independente.
-
-**Metas SMART (6 a 12 meses)**
 
 1. **Em 6 meses:** publicar pelo menos quatro projetos com README completo (objetivo, tecnologias, execução e resultados), incluindo um pipeline em Python que consulte dados de uma API, trate os registros e os grave em SQL; concluir trilha de JOINs, agregações e subconsultas. Evidências: repositórios, commits e exercícios.
 2. **Em 12 meses:** publicar dois a três projetos adicionais de dados, pelo menos um dashboard em Power BI e um pipeline ETL documentado; realizar quatro publicações técnicas mensais e ampliar a rede profissional até 50 conexões, registrando candidaturas a estágios e entrevistas. Evidências: repositórios, dashboard, publicações e planilha de acompanhamento.
@@ -873,41 +861,25 @@ Como contexto profissional autodeclarado, o integrante informou formação técn
 
 **Avaliação:** A parte de acessibilidade atribuída a Samuel é importante para que a plataforma VerificaBR possa atender diferentes públicos, incluindo pessoas com deficiência e usuários com pouca familiaridade tecnológica. Essa preocupação se relaciona diretamente com a proposta de desenvolver uma ferramenta inclusiva e responsável. Como sugestão de desenvolvimento, considero interessante que ele aprofunde seus conhecimentos sobre segurança de aplicações web, proteção de dados e validação de assinaturas digitais, relacionando esses conteúdos aos requisitos de acessibilidade. Também seria positivo realizar testes práticos de segurança e usabilidade para fortalecer suas competências e a qualidade das soluções propostas.
 
-#### Feedback de Petterson Michel Lima Aguilar
+### 8.5 Samuel Carmoni de Oliveira — Cibersegurança
 
-**Avaliação:** [A preencher por Petterson Michel Lima Aguilar.]
+**Papel no projeto:** fiquei responsável pela seção 4 (Acessibilidade e inclusão digital). Nela, pensei em quem pode ter dificuldade para usar a plataforma, como pessoas idosas, pessoas cegas ou com baixa visão e quem tem internet fraca, e no que fazer para que todos consigam usar. Meus commits: [COLE AQUI os links dos seus commits].
 
-## 9. Referências
+**Plano de desenvolvimento**
 
-As referências estão numeradas por código **Rxx** na ordem de primeira menção. Os URLs completos foram centralizados nesta seção para facilitar leitura automática e conferência. Leis, padrões técnicos e páginas continuamente atualizadas são citados pela versão vigente; materiais jornalísticos e científicos foram priorizados a partir de novembro de 2024. As datas exatas não identificadas devem ser confirmadas antes da submissão.
+| Competência que a solução exige                             | Técnica ou comportamental | Já tenho?                                                                                                    |
+|-------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------|
+| Validação de assinaturas, hashes e credenciais C2PA         | Técnica                   | Ainda não. É um selo digital que mostra de onde um arquivo veio. Preciso estudar.                            |
+| Segurança de APIs e autorização por caso                    | Técnica                   | Ainda não. Estou começando em programação. Preciso estudar.                                                  |
+| Tratamento de uploads, criptografia e resposta a incidentes | Técnica                   | Ainda não. Preciso aprender como proteger os arquivos que os usuários enviam.                                |
+| Acessibilidade digital e testes de teclado/leitores de tela | Técnica                   | Um pouco. Estudei as regras de acessibilidade para fazer a seção 4, mas ainda não testei na prática.         |
+| Comunicação e colaboração interdisciplinar                  | Comportamental            | Um pouco. Tenho experiência atendendo clientes e vendendo, mas preciso treinar a explicar assuntos técnicos. |
 
-- **R01**. DATA PRIVACY BRASIL; ALÁFIA LAB. *IA na pré-eleição: deepfakes, desinformação e novos desafios para a integridade das eleições de 2026*. Data Privacy Brasil Research, 2026. Disponível em: https://www.dataprivacybr.org/documentos/ia-na-pre-eleicao-deepfakes-desinformacao-e-novos-desafios-para-a-integridade-das-eleicoes-de-2026/
+**Metas SMART (6 a 12 meses)**
 
-- **R02**. FOLHAPRESS. *Lula foi alvo de 1 em cada 4 conteúdos com IA publicados na pré-campanha, diz levantamento*. Bahia Notícias (reprodução Folhapress), 2026. Disponível em: https://www.bahianoticias.com.br/folha/noticia/409339-lula-foi-alvo-de-1-em-cada-4-conteudos-com-ia-publicados-na-pre-campanha-diz-levantamento
-
-- **R03**. AGÊNCIA BRASIL. *Flávio e PL lideram uso indevido de IA, diz observatório*. Portal Acessa (reprodução), set. 2026. Disponível em: https://www.acessa.com/politica/2026/09/339752-flavio-e-pl-lideram-uso-indevido-de-ia-diz-observatorio.html
-
-- **R04**. FREIRE, Tâmara. *Mesmo proibidos, deepfakes tomam conta das redes antes da eleição*. Agência Brasil, 2 out. 2026. Disponível em: https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mesmo-proibidos-deepfakes-tomam-conta-das-redes-antes-da-eleicao
-
-- **R05**. AGÊNCIA LUPA; FAAP. *A IA do Nosso Feed*. Observatório Lupa, ago. 2026. Disponível em: https://uploads.agencialupa.org/2026/08/IA-do-Nosso-Feed_PDF.pdf
-
-- **R06**. AGÊNCIA LUPA. *I panorama da desinformação no Brasil: padrões, estratégias e impacto*. Observatório Lupa, 5 fev. 2026. Disponível em: https://www.agencialupa.org/observatorio/2026/02/05/i-panorama-da-desinformacao-no-brasil-padroes-estrategias-e-impacto/
-
-- **R07**. CONGRESSO EM FOCO. *Deepfakes: a ameaça que já chegou às eleições de 2026*. Congresso em Foco, 2026. Disponível em: https://www.congressoemfoco.com.br/conteudo/121736/deepfakes-a-ameaca-que-ja-chegou-as-eleicoes-de-2026
-
-- **R08**. CORREIO BRAZILIENSE. *TSE começa a julgar ação sobre uso de deepfake na eleição*. Correio Braziliense, set. 2026. Disponível em: https://www.correiobraziliense.com.br/politica/2026/09/7491361-tse-comeca-a-julgar-acao-sobre-uso-de-deepfake-na-eleicao.html
-
-- **R09**. O POVO. *IA nas eleições 2026: saiba o que é proibido, prazos e multas*. O Povo, 25 jul. 2026. Disponível em: https://www.opovo.com.br/noticias/politica/eleicoes/2026/07/25/ia-nas-eleicoes-2026-saiba-o-que-e-proibido-prazos-e-multas.html
-
-- **R10**. NOSSO MEIO. *CNN Brasil lidera ranking de confiança entre marcas jornalísticas no Brasil*. Nosso Meio, 2026. Disponível em: https://nossomeio.com.br/cnn-brasil-lidera-ranking-de-confianca-entre-marcas-jornalisticas-no-brasil/
-
-- **R11**. FILHO, Alexandre Costa Ferro et al. *BRSpeech-DF: A Deep Fake Synthetic Speech Dataset for Portuguese Zero-Shot TTS*. Proceedings of EMNLP, ACL Anthology, nov. 2025. Disponível em: https://aclanthology.org/2025.emnlp-main.1780/
-
-- **R12**. CHANDRA, Nuria Alina et al. *Deepfake-Eval-2024: A Multi-Modal In-the-Wild Benchmark of Deepfakes Circulated in 2024*. arXiv, mar. 2025; versão publicada em CVPR Workshops, jun. 2026. Disponível em: https://doi.org/10.48550/arXiv.2503.02857
-
-- **R13**. PROJETO COMPROVA. *Áudio de Moraes sobre proibir linguajar evangélico foi feito por IA*. SBT News, 10 dez. 2025. Disponível em: https://sbtnews.sbt.com.br/noticia/comprova/audio-de-moraes-sobre-proibir-linguajar-evangelico-foi-feito-por-ia
-
-- **R14**. FISCHER, Marcelo. *Deepfakes: como saber se um vídeo de candidato é verdadeiro?*. Canaltech, 30 set. 2026. Disponível em: https://canaltech.com.br/inteligencia-artificial/deepfakes-como-saber-se-um-video-de-candidato-e-verdadeiro/
+1. **Em 6 meses:** fazer um curso básico de segurança na internet (pelo menos 12 horas, de preferência gratuito) e criar no GitHub um projeto pequeno em Python que bloqueia arquivos grandes ou de tipo errado e anota quem acessou. Evidências: certificado do curso e o projeto no GitHub com README.
+2. **Em 12 meses:** testar se o protótipo do VerificaBR é seguro, com uma lista de riscos e pelo menos 8 testes, e testar se ele é fácil de usar por pessoas com deficiência, com uma ferramenta gratuita como o WAVE. Também enviar currículo para vagas de estágio em TI. Evidências: relatório no GitHub e planilha com as vagas.
+---
 
 - **R15**. COALITION FOR CONTENT PROVENANCE AND AUTHENTICITY (C2PA). *C2PA Technical Specification, versão 2.2*. C2PA, maio 2025. Disponível em: https://spec.c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html
 
