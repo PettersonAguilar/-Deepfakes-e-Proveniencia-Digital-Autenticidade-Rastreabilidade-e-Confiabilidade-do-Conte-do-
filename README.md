@@ -723,7 +723,7 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 
 #### Feedback de Samuel Carmoni de Oliveira
 
-**Avaliação:** [A preencher por Samuel Carmoni de Oliveira.]
+**Avaliação:** A parte do Albert foi a que olhou para os riscos do projeto: o que pode dar errado e como proteger os dados de quem usa. Gostei de ele ter pensado nisso desde o começo e não só no final, Para melhorar, ele pode treinar SQL e se acostumar a explicar assuntos técnicos de um jeito mais simples.
 
 **Pontos fortes:** [Feedback dos colegas]
 
@@ -751,7 +751,7 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 
 #### Feedback de Samuel Carmoni de Oliveira
 
-**Avaliação:** [A preencher por Samuel Carmoni de Oliveira.]
+***Avaliação:** Gabriel fez a pesquisa sobre o problema e montou o desenho de como a plataforma funcionaria. Isso deixou a proposta mais clara para o grupo. Como sugestão, ele pode estudar mais SQL e publicar mais projetos no portfólio dele.
 
 ### 8.3 João Pedro Theodoro de Sousa Andrade — Ciência de Dados
 
@@ -788,7 +788,7 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 
 #### Feedback de Samuel Carmoni de Oliveira
 
-**Avaliação:** [A preencher por Samuel Carmoni de Oliveira.]
+**Avaliação:** João Pedro organizou a estrutura do documento, escreveu a parte de sustentabilidade e cuidou das referências, o que deixou o trabalho do grupo mais organizado. Como sugestão, ele pode treinar a medir na prática quanto o sistema gasta de energia e de dinheiro, para provar os números com testes.
 
 ### 8.4 Petterson Michel Lima Aguilar — Engenharia de Dados
 
@@ -826,41 +826,9 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 
 #### Feedback de Samuel Carmoni de Oliveira
 
-**Avaliação:** [A preencher por Samuel Carmoni de Oliveira.]
+**Avaliação:** Petterson trabalhou nos indicadores de impacto e no quadro de decisões, que mostram se a plataforma está funcionando e por que cada escolha foi feita. Como sugestão, ele pode praticar Python e SQL em projetos reais e melhorar a documentação, explicando bem cada projeto.
 
-### 8.5 Samuel Carmoni de Oliveira — Cibersegurança
-
-**Papel no projeto:** o texto do grupo atribui a Samuel a redação da seção 4 (Acessibilidade e inclusão digital). A participação é compatível com segurança do acesso e proteção de usuários, mas **suas contribuições técnicas, os commits e a confirmação do papel individual estão pendentes**. O conteúdo a seguir é um modelo de plano, não uma descrição de atividades já realizadas.
-
-**Plano de desenvolvimento**
-
-| Competência que a solução exige | Técnica ou comportamental | Já tenho? |
-|---|---|---|
-| Validação de assinaturas, hashes e credenciais C2PA | Técnica | [SAMUEL: informar nível real] |
-| Segurança de APIs e autorização por caso | Técnica | [SAMUEL: informar nível real] |
-| Tratamento de uploads, criptografia e resposta a incidentes | Técnica | [SAMUEL: informar nível real] |
-| Acessibilidade digital e testes de teclado/leitores de tela | Técnica | [SAMUEL: informar nível real] |
-| Comunicação e colaboração interdisciplinar | Comportamental | [SAMUEL: informar nível real] |
-
-**Metas SMART (6 a 12 meses)**
-
-1. **Proposta para 6 meses — validar com Samuel:** concluir uma formação introdutória de segurança de aplicações web de pelo menos 12 horas e produzir, em repositório de estudos, um protótipo de API com três controles testados: restrição de upload, autorização por caso e registro de acessos sem dados sensíveis.
-2. **Proposta para 12 meses — validar com Samuel:** documentar uma avaliação de segurança do fluxo de mídias, com checklist de ameaças, pelo menos oito cenários de teste e plano de correção; incluir uma avaliação WCAG dos fluxos de envio e contestação. Evidências: relatórios, testes e histórico de versionamento. Ajustar as metas às competências e à disponibilidade do integrante.
-
-**Feedback dos colegas**
-
-#### Feedback de Albert dos Santos Mariano
-
-**Avaliação:** [A preencher por Albert dos Santos Mariano.]
-
-#### Feedback de Gabriel Anjos Albuquerque
-
-**Avaliação:** [A preencher por Gabriel Anjos Albuquerque.]
-
-#### Feedback de João Pedro Theodoro de Sousa Andrade
-
-**Avaliação:** A parte de acessibilidade atribuída a Samuel é importante para que a plataforma VerificaBR possa atender diferentes públicos, incluindo pessoas com deficiência e usuários com pouca familiaridade tecnológica. Essa preocupação se relaciona diretamente com a proposta de desenvolver uma ferramenta inclusiva e responsável. Como sugestão de desenvolvimento, considero interessante que ele aprofunde seus conhecimentos sobre segurança de aplicações web, proteção de dados e validação de assinaturas digitais, relacionando esses conteúdos aos requisitos de acessibilidade. Também seria positivo realizar testes práticos de segurança e usabilidade para fortalecer suas competências e a qualidade das soluções propostas.
-
+---
 ### 8.5 Samuel Carmoni de Oliveira — Cibersegurança
 
 **Papel no projeto:** fiquei responsável pela seção 4 (Acessibilidade e inclusão digital). Nela, pensei em quem pode ter dificuldade para usar a plataforma, como pessoas idosas, pessoas cegas ou com baixa visão e quem tem internet fraca, e no que fazer para que todos consigam usar. Meus commits: [COLE AQUI os links dos seus commits].
@@ -880,7 +848,6 @@ O integrante também mencionou formação técnica em Administração, pacote Of
 1. **Em 6 meses:** fazer um curso básico de segurança na internet (pelo menos 12 horas, de preferência gratuito) e criar no GitHub um projeto pequeno em Python que bloqueia arquivos grandes ou de tipo errado e anota quem acessou. Evidências: certificado do curso e o projeto no GitHub com README.
 2. **Em 12 meses:** testar se o protótipo do VerificaBR é seguro, com uma lista de riscos e pelo menos 8 testes, e testar se ele é fácil de usar por pessoas com deficiência, com uma ferramenta gratuita como o WAVE. Também enviar currículo para vagas de estágio em TI. Evidências: relatório no GitHub e planilha com as vagas.
 ---
-
 - **R15**. COALITION FOR CONTENT PROVENANCE AND AUTHENTICITY (C2PA). *C2PA Technical Specification, versão 2.2*. C2PA, maio 2025. Disponível em: https://spec.c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html
 
 - **R16**. AI INCIDENT DATABASE. *Report 6301: teste do Washington Post com Content Credentials*. AI Incident Database, reprodução de reportagem de out. 2025. Disponível em: https://incidentdatabase.ai/reports/6301
